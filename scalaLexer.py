@@ -50,7 +50,16 @@ tokens = (
     'SEMICOLON',         # ;
     'PRINTLN',
     'EQUALS',
-    'DOT'
+    'DOT',
+    'READLINE',
+    'SCALA',
+    'IO',
+    'STDIN',
+    'EQ',
+    'SWAP',
+    'TOSTRING',
+    'PRODUCTITERATOR'
+
 ) + tuple(reserved.values())
 
 # Regular expression rules for simple tokens
@@ -97,15 +106,40 @@ def t_EQUALS(t):
     r'equals'
     return t
 
-def t_ID(t):
-    r'[a-zA-Z][a-zA-Z_0-9]*'
-    t.type = reserved.get(t.value, 'ID')  # Check for reserved words
+def t_READLINE(t):
+    r'readLine'
     return t
 
-# A regular expression rule with some action code
-def t_INT_NUMBER(t):
-    r'\d+'
-    t.value = int(t.value)
+def t_SCALA(t):
+    r'scala'
+    return t
+
+def t_IO(t):
+    r'io'
+    return t
+
+def t_STDIN(t):
+    r'StdIn'
+    return t
+
+def t_EQ(t):
+    r'eq'
+    return t
+
+def t_SWAP(t):
+    r'swap'
+    return t
+
+def t_TOSTRING(t):
+    r'toString'
+    return t
+
+def t_PRODUCTITERATOR(t):
+    r'productIterator'
+    return t
+
+def t_PRINTLN(t):
+    r'System.out.println'
     return t
 
 def t_DOUBLE_NUMBER(t):
@@ -121,14 +155,22 @@ def t_FALSE(t):
     r'false'
     return t
 
+def t_ID(t):
+    r'[a-zA-Z][a-zA-Z_0-9]*'
+    t.type = reserved.get(t.value, 'ID')  # Check for reserved words
+    return t
+
+# A regular expression rule with some action code
+def t_INT_NUMBER(t):
+    r'\d+'
+    t.value = int(t.value)
+    return t
+
 def t_STRING(t):
     r'"[^"]*"'
     t.value = t.value[1:-1]
     return t
 
-def t_PRINTLN(t):
-    r'System.out.println'
-    return t
 
 # Define a rule so we can track line numbers
 def t_newline(t):
