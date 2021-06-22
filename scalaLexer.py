@@ -21,6 +21,8 @@ tokens = (
     'DOUBLE',           #double
     'BOOL',             #bool
     'STRING_TYPE',      #string
+    'ARRAY',            #array
+    'LIST',             #list
     'ID',               #var/function name
     'EQUAL',            # =
     'INT_NUMBER',       #1234
@@ -51,14 +53,15 @@ tokens = (
     'PRINTLN',
     'EQUALS',
     'DOT',
-    'READLINE',
-    'SCALA',
-    'IO',
-    'STDIN',
     'EQ',
     'SWAP',
     'TOSTRING',
-    'PRODUCTITERATOR'
+    'PRODUCTITERATOR',
+    'HEAD',
+    'TAIL',
+    'ISEMPTY',
+    'REVERSE',
+    'LENGTH'
 
 ) + tuple(reserved.values())
 
@@ -98,6 +101,14 @@ def t_BOOL(t):
     r'boolean'
     return t
 
+def t_ARRAY(t):
+    r'Array'
+    return t
+
+def t_LIST(t):
+    r'List'
+    return t
+
 def t_STRING_TYPE(t):
     r'String'
     return t
@@ -106,28 +117,32 @@ def t_EQUALS(t):
     r'equals'
     return t
 
-def t_READLINE(t):
-    r'readLine'
-    return t
-
-def t_SCALA(t):
-    r'scala'
-    return t
-
-def t_IO(t):
-    r'io'
-    return t
-
-def t_STDIN(t):
-    r'StdIn'
-    return t
-
 def t_EQ(t):
     r'eq'
     return t
 
 def t_SWAP(t):
     r'swap'
+    return t
+
+def t_HEAD(t):
+    r'head'
+    return t
+
+def t_TAIL(t):
+    r'head'
+    return t
+
+def t_ISEMPTY(t):
+    r'isEmpty'
+    return t
+
+def t_REVERSE(t):
+    r'reverse'
+    return t
+
+def t_LENGTH(t):
+    r'length'
     return t
 
 def t_TOSTRING(t):
@@ -140,6 +155,10 @@ def t_PRODUCTITERATOR(t):
 
 def t_PRINTLN(t):
     r'System.out.println'
+    return t
+
+def t_INPUT(t):
+    r'scala.io.StdIn.readLine'
     return t
 
 def t_DOUBLE_NUMBER(t):
@@ -171,7 +190,6 @@ def t_STRING(t):
     t.value = t.value[1:-1]
     return t
 
-
 # Define a rule so we can track line numbers
 def t_newline(t):
     r'\n+'
@@ -184,12 +202,14 @@ t_ignore = ' \t'
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
+
 def getTokens(lexer):
     while True:
         tok = lexer.token()
         if not tok:
             break  # No more input
         print(tok)
+
 # Build the lexer
 lexer = lex.lex()
 linea=" "
@@ -197,5 +217,7 @@ while linea!="":
     linea=input(">>")
     lexer.input(linea)
     getTokens(lexer)
+    print()
+
 # Tokenize
 print("Succesfull")
