@@ -8,9 +8,15 @@ Analizador Léxico del lenguaje de programación Scala.
 
 ## Analizador: 
 * Variables
-* Tipos de datos
+* Tipos de datos 
+* Tuplas
+* Listas
+* Arreglos
 * Condicionales 
   *  if
   *  if-else
 * Bucles
   * while 
+  * for
+
+   
