@@ -212,12 +212,13 @@ def getTokens(lexer):
 
 # Build the lexer
 lexer = lex.lex()
-linea=" "
-while linea!="":
-    linea=input(">>")
-    lexer.input(linea)
-    getTokens(lexer)
-    print()
+
+#linea=" "
+#while linea!="":
+#    linea=input(">>")
+#    lexer.input(linea)
+#    getTokens(lexer)
+#    print()
 
 # Tokenize
-print("Succesfull")
+#print("Succesfull")

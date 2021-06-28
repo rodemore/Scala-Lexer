@@ -1,0 +1,436 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ARRAY
+    BOOL
+    CLASS
+    COLON
+    COMMA
+    DECREMENT
+    DEF
+    DOT
+    DOUBLE
+    DOUBLE_NUMBER
+    ELSE
+    EQ
+    EQUAL
+    EQUALS
+    FOR
+    HEAD
+    ID
+    INCREMENT
+    INT
+    ISEMPTY
+    LBRACK
+    LENGTH
+    LIST
+    LPAREN
+    MOD
+    NEW
+    OBJECT
+    PRINTLN
+    PRODUCTITERATOR
+    RBRACK
+    RETURN
+    REVERSE
+    RPAREN
+    SEMICOLON
+    STRING
+    STRING_TYPE
+    SWAP
+    TAIL
+    THIS
+    TOSTRING
+    VAL
+    VAR
+    WHILE
+    unit
+
+Grammar
+
+Rule 0     S' -> cuerpo
+Rule 1     cuerpo -> expression
+Rule 2     cuerpo -> sentencia
+Rule 3     expression -> expression PLUS term
+Rule 4     expression -> expression MINUS term
+Rule 5     expression -> term
+Rule 6     term -> term TIMES factor
+Rule 7     term -> term DIVIDE factor
+Rule 8     term -> factor
+Rule 9     sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE
+Rule 10    comparacion -> GT
+Rule 11    comparacion -> GE
+Rule 12    comparacion -> LT
+Rule 13    comparacion -> LE
+Rule 14    factor -> INT_NUMBER
+Rule 15    booleano -> TRUE
+Rule 16    booleano -> FALSE
+
+Terminals, with rules where they appear
+
+ARRAY                : 
+BOOL                 : 
+CLASS                : 
+COLON                : 
+COMMA                : 
+DECREMENT            : 
+DEF                  : 
+DIVIDE               : 7
+DOT                  : 
+DOUBLE               : 
+DOUBLE_NUMBER        : 
+ELSE                 : 
+EQ                   : 
+EQUAL                : 
+EQUALS               : 
+FALSE                : 16
+FOR                  : 
+GE                   : 11
+GT                   : 10
+HEAD                 : 
+ID                   : 
+IF                   : 9
+INCREMENT            : 
+INT                  : 
+INT_NUMBER           : 14
+ISEMPTY              : 
+LBRACE               : 9
+LBRACK               : 
+LE                   : 13
+LENGTH               : 
+LIST                 : 
+LPAREN               : 
+LT                   : 12
+MINUS                : 4
+MOD                  : 
+NEW                  : 
+OBJECT               : 
+PLUS                 : 3
+PRINTLN              : 
+PRODUCTITERATOR      : 
+RBRACE               : 9
+RBRACK               : 
+RETURN               : 
+REVERSE              : 
+RPAREN               : 
+SEMICOLON            : 
+STRING               : 
+STRING_TYPE          : 
+SWAP                 : 
+TAIL                 : 
+THIS                 : 
+TIMES                : 6
+TOSTRING             : 
+TRUE                 : 15
+VAL                  : 
+VAR                  : 
+WHILE                : 
+error                : 
+unit                 : 
+
+Nonterminals, with rules where they appear
+
+booleano             : 
+comparacion          : 9
+cuerpo               : 9 0
+expression           : 1 3 4
+factor               : 6 7 8 9 9
+sentencia            : 2
+term                 : 3 4 5 6 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . cuerpo
+    (1) cuerpo -> . expression
+    (2) cuerpo -> . sentencia
+    (3) expression -> . expression PLUS term
+    (4) expression -> . expression MINUS term
+    (5) expression -> . term
+    (9) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
+    (6) term -> . term TIMES factor
+    (7) term -> . term DIVIDE factor
+    (8) term -> . factor
+    (14) factor -> . INT_NUMBER
+
+    IF              shift and go to state 5
+    INT_NUMBER      shift and go to state 7
+
+    cuerpo                         shift and go to state 1
+    expression                     shift and go to state 2
+    sentencia                      shift and go to state 3
+    term                           shift and go to state 4
+    factor                         shift and go to state 6
+
+state 1
+
+    (0) S' -> cuerpo .
+
+
+
+state 2
+
+    (1) cuerpo -> expression .
+    (3) expression -> expression . PLUS term
+    (4) expression -> expression . MINUS term
+
+    $end            reduce using rule 1 (cuerpo -> expression .)
+    RBRACE          reduce using rule 1 (cuerpo -> expression .)
+    PLUS            shift and go to state 8
+    MINUS           shift and go to state 9
+
+
+state 3
+
+    (2) cuerpo -> sentencia .
+
+    $end            reduce using rule 2 (cuerpo -> sentencia .)
+    RBRACE          reduce using rule 2 (cuerpo -> sentencia .)
+
+
+state 4
+
+    (5) expression -> term .
+    (6) term -> term . TIMES factor
+    (7) term -> term . DIVIDE factor
+
+    PLUS            reduce using rule 5 (expression -> term .)
+    MINUS           reduce using rule 5 (expression -> term .)
+    $end            reduce using rule 5 (expression -> term .)
+    RBRACE          reduce using rule 5 (expression -> term .)
+    TIMES           shift and go to state 10
+    DIVIDE          shift and go to state 11
+
+
+state 5
+
+    (9) sentencia -> IF . factor comparacion factor LBRACE cuerpo RBRACE
+    (14) factor -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 7
+
+    factor                         shift and go to state 12
+
+state 6
+
+    (8) term -> factor .
+
+    TIMES           reduce using rule 8 (term -> factor .)
+    DIVIDE          reduce using rule 8 (term -> factor .)
+    PLUS            reduce using rule 8 (term -> factor .)
+    MINUS           reduce using rule 8 (term -> factor .)
+    $end            reduce using rule 8 (term -> factor .)
+    RBRACE          reduce using rule 8 (term -> factor .)
+
+
+state 7
+
+    (14) factor -> INT_NUMBER .
+
+    TIMES           reduce using rule 14 (factor -> INT_NUMBER .)
+    DIVIDE          reduce using rule 14 (factor -> INT_NUMBER .)
+    PLUS            reduce using rule 14 (factor -> INT_NUMBER .)
+    MINUS           reduce using rule 14 (factor -> INT_NUMBER .)
+    $end            reduce using rule 14 (factor -> INT_NUMBER .)
+    GT              reduce using rule 14 (factor -> INT_NUMBER .)
+    GE              reduce using rule 14 (factor -> INT_NUMBER .)
+    LT              reduce using rule 14 (factor -> INT_NUMBER .)
+    LE              reduce using rule 14 (factor -> INT_NUMBER .)
+    RBRACE          reduce using rule 14 (factor -> INT_NUMBER .)
+    LBRACE          reduce using rule 14 (factor -> INT_NUMBER .)
+
+
+state 8
+
+    (3) expression -> expression PLUS . term
+    (6) term -> . term TIMES factor
+    (7) term -> . term DIVIDE factor
+    (8) term -> . factor
+    (14) factor -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 7
+
+    term                           shift and go to state 13
+    factor                         shift and go to state 6
+
+state 9
+
+    (4) expression -> expression MINUS . term
+    (6) term -> . term TIMES factor
+    (7) term -> . term DIVIDE factor
+    (8) term -> . factor
+    (14) factor -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 7
+
+    term                           shift and go to state 14
+    factor                         shift and go to state 6
+
+state 10
+
+    (6) term -> term TIMES . factor
+    (14) factor -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 7
+
+    factor                         shift and go to state 15
+
+state 11
+
+    (7) term -> term DIVIDE . factor
+    (14) factor -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 7
+
+    factor                         shift and go to state 16
+
+state 12
+
+    (9) sentencia -> IF factor . comparacion factor LBRACE cuerpo RBRACE
+    (10) comparacion -> . GT
+    (11) comparacion -> . GE
+    (12) comparacion -> . LT
+    (13) comparacion -> . LE
+
+    GT              shift and go to state 18
+    GE              shift and go to state 19
+    LT              shift and go to state 20
+    LE              shift and go to state 21
+
+    comparacion                    shift and go to state 17
+
+state 13
+
+    (3) expression -> expression PLUS term .
+    (6) term -> term . TIMES factor
+    (7) term -> term . DIVIDE factor
+
+    PLUS            reduce using rule 3 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 3 (expression -> expression PLUS term .)
+    $end            reduce using rule 3 (expression -> expression PLUS term .)
+    RBRACE          reduce using rule 3 (expression -> expression PLUS term .)
+    TIMES           shift and go to state 10
+    DIVIDE          shift and go to state 11
+
+
+state 14
+
+    (4) expression -> expression MINUS term .
+    (6) term -> term . TIMES factor
+    (7) term -> term . DIVIDE factor
+
+    PLUS            reduce using rule 4 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 4 (expression -> expression MINUS term .)
+    $end            reduce using rule 4 (expression -> expression MINUS term .)
+    RBRACE          reduce using rule 4 (expression -> expression MINUS term .)
+    TIMES           shift and go to state 10
+    DIVIDE          shift and go to state 11
+
+
+state 15
+
+    (6) term -> term TIMES factor .
+
+    TIMES           reduce using rule 6 (term -> term TIMES factor .)
+    DIVIDE          reduce using rule 6 (term -> term TIMES factor .)
+    PLUS            reduce using rule 6 (term -> term TIMES factor .)
+    MINUS           reduce using rule 6 (term -> term TIMES factor .)
+    $end            reduce using rule 6 (term -> term TIMES factor .)
+    RBRACE          reduce using rule 6 (term -> term TIMES factor .)
+
+
+state 16
+
+    (7) term -> term DIVIDE factor .
+
+    TIMES           reduce using rule 7 (term -> term DIVIDE factor .)
+    DIVIDE          reduce using rule 7 (term -> term DIVIDE factor .)
+    PLUS            reduce using rule 7 (term -> term DIVIDE factor .)
+    MINUS           reduce using rule 7 (term -> term DIVIDE factor .)
+    $end            reduce using rule 7 (term -> term DIVIDE factor .)
+    RBRACE          reduce using rule 7 (term -> term DIVIDE factor .)
+
+
+state 17
+
+    (9) sentencia -> IF factor comparacion . factor LBRACE cuerpo RBRACE
+    (14) factor -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 7
+
+    factor                         shift and go to state 22
+
+state 18
+
+    (10) comparacion -> GT .
+
+    INT_NUMBER      reduce using rule 10 (comparacion -> GT .)
+
+
+state 19
+
+    (11) comparacion -> GE .
+
+    INT_NUMBER      reduce using rule 11 (comparacion -> GE .)
+
+
+state 20
+
+    (12) comparacion -> LT .
+
+    INT_NUMBER      reduce using rule 12 (comparacion -> LT .)
+
+
+state 21
+
+    (13) comparacion -> LE .
+
+    INT_NUMBER      reduce using rule 13 (comparacion -> LE .)
+
+
+state 22
+
+    (9) sentencia -> IF factor comparacion factor . LBRACE cuerpo RBRACE
+
+    LBRACE          shift and go to state 23
+
+
+state 23
+
+    (9) sentencia -> IF factor comparacion factor LBRACE . cuerpo RBRACE
+    (1) cuerpo -> . expression
+    (2) cuerpo -> . sentencia
+    (3) expression -> . expression PLUS term
+    (4) expression -> . expression MINUS term
+    (5) expression -> . term
+    (9) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
+    (6) term -> . term TIMES factor
+    (7) term -> . term DIVIDE factor
+    (8) term -> . factor
+    (14) factor -> . INT_NUMBER
+
+    IF              shift and go to state 5
+    INT_NUMBER      shift and go to state 7
+
+    factor                         shift and go to state 6
+    cuerpo                         shift and go to state 24
+    expression                     shift and go to state 2
+    sentencia                      shift and go to state 3
+    term                           shift and go to state 4
+
+state 24
+
+    (9) sentencia -> IF factor comparacion factor LBRACE cuerpo . RBRACE
+
+    RBRACE          shift and go to state 25
+
+
+state 25
+
+    (9) sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .
+
+    $end            reduce using rule 9 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
+    RBRACE          reduce using rule 9 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
+
