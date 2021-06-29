@@ -10,10 +10,12 @@ def p_cuerpo(p):
              | declararVariable
              | declararConstante
              | funcionesTupla
+             | funcionesList
              | funcionesArray
              | for
              | funcionesPropias
-             | comparacionesVar"""
+             | comparacionesVar
+             | while"""
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -118,10 +120,17 @@ def p_tuplaToString(p):
 def p_tuplaProductIterator(p):
     'tuplaProductIterator : ID DOT PRODUCTITERATOR'
 
+
 def p_funcionesArray(p):
     """funcionesArray : arrayHead
             | arrayTail
             | arrayLength"""
+
+
+def p_funcionesList(p):
+    """funcionesList : listIsEmpty
+            | listReverse"""
+
 
 def p_funcionesPropias(p):
     """funcionesPropias : INPUT LPAREN RPAREN
@@ -129,6 +138,8 @@ def p_funcionesPropias(p):
             | PRINTLN LPAREN booleano RPAREN
             | PRINTLN LPAREN ID RPAREN
             | PRINTLN LPAREN expression RPAREN"""
+
+
 
 def p_arrayHead(p):
     """arrayHead : ID DOT HEAD"""
@@ -138,6 +149,12 @@ def p_arrayTail(p):
 
 def p_arrayLength(p):
     """arrayLength : ID DOT LENGTH"""
+
+def p_listReverse(p):
+    'listReverse : ID DOT REVERSE'
+
+def p_listIsEmpty(p):
+    'listIsEmpty : ID DOT ISEMPTY'
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
@@ -164,7 +181,21 @@ def p_term_factor(p):
 
 
 def p_sentencia_if(p):
-    'sentencia : IF factor comparacion factor LBRACE cuerpo RBRACE'
+    'if : IF LPAREN factor comparacion factor RPAREN LBRACE cuerpo RBRACE'
+
+
+def p_sentencia_else(p):
+    '''sentencia : if 
+                 | if ELSE LBRACE cuerpo RBRACE'''
+
+
+def p_while(p):
+    'while : WHILE LPAREN whileclause RPAREN LBRACE cuerpo RBRACE'
+
+def p_whileclause(p):
+    """whileclause : factor comparacion factor
+                | ID
+                | booleano"""
 
 
 def p_for(p):
@@ -174,6 +205,7 @@ def p_for(p):
 def p_comparacionesVar(p):
     '''comparacionesVar : ID DOT EQUALS LPAREN ID  RPAREN
                         | ID DOT EQ LPAREN ID RPAREN'''
+
 
 def p_comparacion(p):
     '''comparacion : GT
