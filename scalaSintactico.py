@@ -10,7 +10,9 @@ def p_cuerpo(p):
              | sentencia
              | declararVariable
              | funcionesTupla
-             | funcionesArray"""
+             | funcionesArray
+             | for
+             | funcionesPropias"""
 
 
 def p_declararVariable(p):
@@ -116,7 +118,7 @@ def p_tuplaSwap(p):
     'tuplaSwap : ID DOT SWAP'
 
 def p_tuplaToString(p):
-    'tuplaToString : ID DOT TOSTRING'
+    'tuplaToString : ID DOT TOSTRING LPAREN RPAREN'
 
 def p_tuplaProductIterator(p):
     'tuplaProductIterator : ID DOT PRODUCTITERATOR'
@@ -125,6 +127,15 @@ def p_funcionesArray(p):
     """funcionesArray : arrayHead
             | arrayTail
             | arrayLength"""
+
+def p_funcionesPropias(p):
+    """funcionesPropias : INPUT LPAREN RPAREN
+            | PRINTLN LPAREN string RPAREN
+            | PRINTLN LPAREN int RPAREN
+            | PRINTLN LPAREN booleano RPAREN
+            | PRINTLN LPAREN double RPAREN
+            | PRINTLN LPAREN ID RPAREN
+            | PRINTLN LPAREN expression RPAREN"""
 
 def p_arrayHead(p):
     """arrayHead : ID DOT HEAD"""
@@ -162,6 +173,8 @@ def p_term_factor(p):
 def p_sentencia_if(p):
     'sentencia : IF factor comparacion factor LBRACE cuerpo RBRACE'
 
+def p_for(p):
+    'for : FOR LPAREN  RPAREN LBRACE  LBRACE  RBRACE'
 
 def p_comparacion(p):
     '''comparacion : GT
@@ -171,10 +184,10 @@ def p_comparacion(p):
                     | EQUAL2'''
 
 def p_factor_int(p):
-    'factor : INT_NUMBER'
+    'factor : int'
 
 def p_factor_double(p):
-    'factor : DOUBLE_NUMBER'
+    'factor : double'
 
 def p_booleano(p):
     '''booleano : TRUE

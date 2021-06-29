@@ -48,6 +48,7 @@ tokens = (
     'GE',  # >=
     'LT',  # <
     'LE',  # <=
+    'LM',  # <-
     'COMMA',  # ,
     'COLON',  # :
     'SEMICOLON',  # ;
@@ -62,7 +63,8 @@ tokens = (
     'TAIL',
     'ISEMPTY',
     'REVERSE',
-    'LENGTH'
+    'LENGTH',
+    'INPUT'
 
 ) + tuple(reserved.values())
 
@@ -86,6 +88,7 @@ t_GT = r'>'
 t_GE = r'>='
 t_LT = r'<'
 t_LE = r'<='
+t_LM = r'<-'
 t_COMMA = r','
 t_COLON = r':'
 t_SEMICOLON = r';'
@@ -132,7 +135,7 @@ def t_HEAD(t):
     return t
 
 def t_TAIL(t):
-    r'head'
+    r'tail'
     return t
 
 def t_ISEMPTY(t):
