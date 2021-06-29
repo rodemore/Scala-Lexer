@@ -13,7 +13,9 @@ def p_cuerpo(p):
              | funcionesList
              | funcionesArray
              | for
-             | funcionesPropias"""
+             | funcionesPropias
+             | while"""
+
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -137,6 +139,8 @@ def p_funcionesPropias(p):
             | PRINTLN LPAREN ID RPAREN
             | PRINTLN LPAREN expression RPAREN"""
 
+
+
 def p_arrayHead(p):
     """arrayHead : ID DOT HEAD"""
 
@@ -184,6 +188,14 @@ def p_sentencia_else(p):
     '''sentencia : if 
                  | if ELSE LBRACE cuerpo RBRACE'''
 
+
+def p_while(p):
+    'while : WHILE LPAREN whileclause RPAREN LBRACE cuerpo RBRACE'
+
+def p_whileclause(p):
+    """whileclause : factor comparacion factor
+                | ID
+                | boolean"""
 
 def p_for(p):
     'for : FOR LPAREN  RPAREN LBRACE  LBRACE  RBRACE'
