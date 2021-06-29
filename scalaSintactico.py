@@ -5,20 +5,19 @@ import ply.yacc as yacc
 from scalaLexer import tokens
 
 
-
 def p_cuerpo(p):
     """cuerpo : expression
              | sentencia
              | declararVariable
-             | funcionesTupla"""
+             | funcionesTupla
+             | funcionesArray"""
 
 
 def p_declararVariable(p):
     """declararVariable : VAR ID COLON tipoValue
                         | VAR ID COLON tipo
                         | VAR ID EQUAL value
-                        | VAR ID EQUAL expression
-                        | VAR ID COLON LIST LBRACK tipo RBRACK"""
+                        | VAR ID EQUAL expression"""
 
 def p_value(p):
     """value : string
@@ -27,13 +26,9 @@ def p_value(p):
             | NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
             | NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
             | NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-            | ARRAY LPAREN elementosInternos RPAREN"""
+            | ARRAY LPAREN elementosInternos RPAREN
+            | LIST LPAREN elementosInternos RPAREN"""
 
-def p_expressionlist(p):
-    """expressionlist : LIST LPAREN elementosInternos RPAREN
-                    | LIST LPAREN elementosInternos
-
-            """
 
 def p_elementosInternos(p):
     """elementosInternos : elementosInternosInt
@@ -94,7 +89,13 @@ def p_tipoValue(p):
                 | ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
                 | ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
                 | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN"""
+                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+                | LIST LBRACK INT RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
+                | LIST LBRACK DOUBLE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
+                | LIST LBRACK BOOL RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
+                | LIST LBRACK STRING_TYPE RBRACK EQUAL STRING_TYPE LPAREN elementosInternos RPAREN
+                
+                """
 
 def p_tipoValueCons(p):
     """tipoValueCons : STRING_TYPE EQUAL string
@@ -119,6 +120,20 @@ def p_tuplaToString(p):
 
 def p_tuplaProductIterator(p):
     'tuplaProductIterator : ID DOT PRODUCTITERATOR'
+
+def p_funcionesArray(p):
+    """funcionesArray : arrayHead
+            | arrayTail
+            | arrayLength"""
+
+def p_arrayHead(p):
+    """arrayHead : ID DOT HEAD"""
+
+def p_arrayTail(p):
+    """arrayTail : ID DOT TAIL"""
+
+def p_arrayLength(p):
+    """arrayLength : ID DOT LENGTH"""
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
