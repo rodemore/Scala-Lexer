@@ -92,7 +92,7 @@ def p_tipoValue(p):
                 | LIST LBRACK INT RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
                 | LIST LBRACK DOUBLE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
                 | LIST LBRACK BOOL RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
-                | LIST LBRACK STRING_TYPE RBRACK EQUAL STRING_TYPE LPAREN elementosInternos RPAREN"""
+                | LIST LBRACK STRING_TYPE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN"""
 
 def p_tipoValueCons(p):
     """tipoValueCons : STRING_TYPE EQUAL string
