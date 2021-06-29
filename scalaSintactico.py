@@ -4,16 +4,21 @@ import ply.yacc as yacc
 
 from scalaLexer import tokens
 
-
 def p_cuerpo(p):
     """cuerpo : expression
              | sentencia
              | declararVariable
+             | declararConstante
              | funcionesTupla
              | funcionesArray
              | for
              | funcionesPropias"""
 
+def p_declararConstante(p):
+    """declararConstante : VAL ID COLON tipoValueCons
+                        | VAL ID COLON tipo
+                        | VAL ID EQUAL valueCons
+                        | VAL ID EQUAL expression"""
 
 def p_declararVariable(p):
     """declararVariable : VAR ID COLON tipoValue
@@ -30,7 +35,6 @@ def p_value(p):
             | NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
             | ARRAY LPAREN elementosInternos RPAREN
             | LIST LPAREN elementosInternos RPAREN"""
-
 
 def p_elementosInternos(p):
     """elementosInternos : elementosInternosInt
@@ -75,13 +79,6 @@ def p_tipo(p):
              | BOOL
              | STRING_TYPE"""
 
-def p_newarray(p):
-    """value : NEW ARRAY LBRACK tipo RBRACK LPAREN int RPAREN
-        """
-
-def p_newarray(p):
-    """value : NEW ARRAY LBRACK tipo RBRACK LPAREN int RPAREN
-        """
 
 def p_tipoValue(p):
     """tipoValue : STRING_TYPE EQUAL string
@@ -95,16 +92,13 @@ def p_tipoValue(p):
                 | LIST LBRACK INT RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
                 | LIST LBRACK DOUBLE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
                 | LIST LBRACK BOOL RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
-                | LIST LBRACK STRING_TYPE RBRACK EQUAL STRING_TYPE LPAREN elementosInternos RPAREN
-                
-                """
+                | LIST LBRACK STRING_TYPE RBRACK EQUAL STRING_TYPE LPAREN elementosInternos RPAREN"""
 
 def p_tipoValueCons(p):
     """tipoValueCons : STRING_TYPE EQUAL string
                 | BOOL EQUAL booleano
                 | INT EQUAL int
                 | DOUBLE EQUAL double"""
-
 
 def p_tupla(p):
     'tupla : LPAREN elementosInternos2 RPAREN'
@@ -131,9 +125,7 @@ def p_funcionesArray(p):
 def p_funcionesPropias(p):
     """funcionesPropias : INPUT LPAREN RPAREN
             | PRINTLN LPAREN string RPAREN
-            | PRINTLN LPAREN int RPAREN
             | PRINTLN LPAREN booleano RPAREN
-            | PRINTLN LPAREN double RPAREN
             | PRINTLN LPAREN ID RPAREN
             | PRINTLN LPAREN expression RPAREN"""
 
