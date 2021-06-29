@@ -8,14 +8,10 @@ def p_cuerpo(p):
     """cuerpo : expression
              | sentencia
              | declararVariable
-             | funcionesArray"""
-
-def p_cuerpo(p):
-    """cuerpo : expression
-             | sentencia
-             | declararVariable
              | declararConstante
-             | funcionesTupla"""
+             | funcionesTupla
+             | funcionesArray
+             | for"""
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -109,7 +105,7 @@ def p_tuplaSwap(p):
     'tuplaSwap : ID DOT SWAP'
 
 def p_tuplaToString(p):
-    'tuplaToString : ID DOT TOSTRING'
+    'tuplaToString : ID DOT TOSTRING LPAREN RPAREN'
 
 def p_tuplaProductIterator(p):
     'tuplaProductIterator : ID DOT PRODUCTITERATOR'
@@ -155,6 +151,8 @@ def p_term_factor(p):
 def p_sentencia_if(p):
     'sentencia : IF factor comparacion factor LBRACE cuerpo RBRACE'
 
+def p_for(p):
+    'for : FOR LPAREN  RPAREN LBRACE  LBRACE  RBRACE'
 
 def p_comparacion(p):
     '''comparacion : GT

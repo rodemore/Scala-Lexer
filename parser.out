@@ -8,21 +8,16 @@ Unused terminals:
     ELSE
     EQ
     EQUALS
-    FOR
     INCREMENT
     ISEMPTY
     LIST
+    LM
     MOD
     OBJECT
     PRINTLN
     RETURN
     REVERSE
     SEMICOLON
-<<<<<<< HEAD
-    SWAP
-=======
-    TAIL
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
     THIS
     WHILE
     unit
@@ -33,330 +28,197 @@ Rule 0     S' -> cuerpo
 Rule 1     cuerpo -> expression
 Rule 2     cuerpo -> sentencia
 Rule 3     cuerpo -> declararVariable
-<<<<<<< HEAD
-Rule 4     cuerpo -> funcionesArray
-Rule 5     declararVariable -> VAR ID COLON tipoValue
-Rule 6     declararVariable -> VAR ID COLON tipo
-Rule 7     declararVariable -> VAR ID EQUAL value
-Rule 8     declararVariable -> VAR ID EQUAL expression
-Rule 9     value -> string
-Rule 10    value -> booleano
-Rule 11    value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-Rule 12    value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-Rule 13    value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-Rule 14    value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-Rule 15    value -> ARRAY LPAREN elementosInternos RPAREN
-Rule 16    elementosInternos -> elementosInternosInt
-Rule 17    elementosInternos -> elementosInternosDouble
-Rule 18    elementosInternos -> elementosInternosBool
-Rule 19    elementosInternos -> elementosInternosString
-Rule 20    elementosInternosInt -> int
-Rule 21    elementosInternosInt -> int COMMA elementosInternosInt
-Rule 22    elementosInternosDouble -> double
-Rule 23    elementosInternosDouble -> double COMMA elementosInternosDouble
-Rule 24    elementosInternosBool -> booleano
-Rule 25    elementosInternosBool -> booleano COMMA elementosInternosBool
-Rule 26    elementosInternosString -> string
-Rule 27    elementosInternosString -> string COMMA elementosInternosString
-Rule 28    tipo -> INT
-Rule 29    tipo -> DOUBLE
-Rule 30    tipo -> BOOL
-Rule 31    tipo -> STRING_TYPE
-Rule 32    tipoValue -> STRING_TYPE EQUAL string
-Rule 33    tipoValue -> BOOL EQUAL booleano
-Rule 34    tipoValue -> INT EQUAL int
-Rule 35    tipoValue -> DOUBLE EQUAL double
-Rule 36    tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-Rule 37    tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-Rule 38    tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-Rule 39    tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-Rule 40    funcionesArray -> arrayHead
-Rule 41    funcionesArray -> arrayTail
-Rule 42    funcionesArray -> arrayLength
-Rule 43    arrayHead -> ID DOT HEAD
-Rule 44    arrayTail -> ID DOT TAIL
-Rule 45    arrayLength -> ID DOT LENGTH
-Rule 46    expression -> expression PLUS term
-Rule 47    expression -> expression MINUS term
-Rule 48    expression -> term
-Rule 49    term -> term TIMES factor
-Rule 50    term -> term DIVIDE factor
-Rule 51    term -> factor
-Rule 52    sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE
-Rule 53    comparacion -> GT
-Rule 54    comparacion -> GE
-Rule 55    comparacion -> LT
-Rule 56    comparacion -> LE
-Rule 57    factor -> INT_NUMBER
-Rule 58    factor -> DOUBLE_NUMBER
-Rule 59    booleano -> TRUE
-Rule 60    booleano -> FALSE
-Rule 61    string -> STRING
-Rule 62    double -> DOUBLE_NUMBER
-Rule 63    int -> INT_NUMBER
-
-Terminals, with rules where they appear
-
-ARRAY                : 11 12 13 14 15 36 36 37 37 38 38 39 39
-BOOL                 : 13 30 33 38 38
-CLASS                : 
-COLON                : 5 6
-COMMA                : 21 23 25 27
-DECREMENT            : 
-DEF                  : 
-DIVIDE               : 50
-DOT                  : 43 44 45
-DOUBLE               : 12 29 35 37 37
-DOUBLE_NUMBER        : 58 62
-ELSE                 : 
-EQ                   : 
-EQUAL                : 7 8 32 33 34 35 36 37 38 39
-EQUALS               : 
-FALSE                : 60
-FOR                  : 
-GE                   : 54
-GT                   : 53
-HEAD                 : 43
-ID                   : 5 6 7 8 43 44 45
-IF                   : 52
-INCREMENT            : 
-INT                  : 11 28 34 36 36
-INT_NUMBER           : 57 63
-ISEMPTY              : 
-LBRACE               : 52
-LBRACK               : 11 12 13 14 36 36 37 37 38 38 39 39
-LE                   : 56
-LENGTH               : 45
-LIST                 : 
-LPAREN               : 11 12 13 14 15 36 37 38 39
-LT                   : 55
-MINUS                : 47
-MOD                  : 
-NEW                  : 11 12 13 14 36 37 38 39
-OBJECT               : 
-PLUS                 : 46
-PRINTLN              : 
-PRODUCTITERATOR      : 
-RBRACE               : 52
-RBRACK               : 11 12 13 14 36 36 37 37 38 38 39 39
-RETURN               : 
-REVERSE              : 
-RPAREN               : 11 12 13 14 15 36 37 38 39
-SEMICOLON            : 
-STRING               : 61
-STRING_TYPE          : 14 31 32 39 39
-SWAP                 : 
-TAIL                 : 44
-THIS                 : 
-TIMES                : 49
-TOSTRING             : 
-TRUE                 : 59
-VAL                  : 
-VAR                  : 5 6 7 8
-=======
 Rule 4     cuerpo -> declararConstante
 Rule 5     cuerpo -> funcionesTupla
-Rule 6     declararConstante -> VAL ID COLON tipoValueCons
-Rule 7     declararConstante -> VAL ID COLON tipo
-Rule 8     declararConstante -> VAL ID EQUAL valueCons
-Rule 9     declararConstante -> VAL ID EQUAL expression
-Rule 10    declararVariable -> VAR ID COLON tipoValue
-Rule 11    declararVariable -> VAR ID COLON tipo
-Rule 12    declararVariable -> VAR ID EQUAL value
-Rule 13    declararVariable -> VAR ID EQUAL expression
-Rule 14    value -> string
-Rule 15    value -> booleano
-Rule 16    value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-Rule 17    value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-Rule 18    value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-Rule 19    value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-Rule 20    value -> ARRAY LPAREN elementosInternos RPAREN
-Rule 21    elementosInternos -> elementosInternosInt
-Rule 22    elementosInternos -> elementosInternosDouble
-Rule 23    elementosInternos -> elementosInternosBool
-Rule 24    elementosInternos -> elementosInternosString
-Rule 25    elementosInternosInt -> int
-Rule 26    elementosInternosInt -> int COMMA elementosInternosInt
-Rule 27    elementosInternosDouble -> double
-Rule 28    elementosInternosDouble -> double COMMA elementosInternosDouble
-Rule 29    elementosInternosBool -> booleano
-Rule 30    elementosInternosBool -> booleano COMMA elementosInternosBool
-Rule 31    elementosInternosString -> string
-Rule 32    elementosInternosString -> string COMMA elementosInternosString
-Rule 33    elementosInternos2 -> int
-Rule 34    elementosInternos2 -> double
-Rule 35    elementosInternos2 -> booleano
-Rule 36    elementosInternos2 -> string
-Rule 37    elementosInternos2 -> int COMMA elementosInternos2
-Rule 38    elementosInternos2 -> double COMMA elementosInternos2
-Rule 39    elementosInternos2 -> booleano COMMA elementosInternos2
-Rule 40    elementosInternos2 -> string COMMA elementosInternos2
-Rule 41    valueCons -> string
-Rule 42    valueCons -> booleano
-Rule 43    valueCons -> tupla
-Rule 44    tipo -> INT
-Rule 45    tipo -> DOUBLE
-Rule 46    tipo -> BOOL
-Rule 47    tipo -> STRING_TYPE
-Rule 48    tipoValue -> STRING_TYPE EQUAL string
-Rule 49    tipoValue -> BOOL EQUAL booleano
-Rule 50    tipoValue -> INT EQUAL int
-Rule 51    tipoValue -> DOUBLE EQUAL double
-Rule 52    tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-Rule 53    tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-Rule 54    tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-Rule 55    tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-Rule 56    tipoValueCons -> STRING_TYPE EQUAL string
-Rule 57    tipoValueCons -> BOOL EQUAL booleano
-Rule 58    tipoValueCons -> INT EQUAL int
-Rule 59    tipoValueCons -> DOUBLE EQUAL double
-Rule 60    tupla -> LPAREN elementosInternos2 RPAREN
-Rule 61    funcionesTupla -> tuplaSwap
-Rule 62    funcionesTupla -> tuplaToString
-Rule 63    funcionesTupla -> tuplaProductIterator
-Rule 64    tuplaSwap -> ID DOT SWAP
-Rule 65    tuplaToString -> ID DOT TOSTRING
-Rule 66    tuplaProductIterator -> ID DOT PRODUCTITERATOR
-Rule 67    expression -> expression PLUS term
-Rule 68    expression -> expression MINUS term
-Rule 69    expression -> term
-Rule 70    term -> term TIMES factor
-Rule 71    term -> term DIVIDE factor
-Rule 72    term -> factor
-Rule 73    sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE
-Rule 74    comparacion -> GT
-Rule 75    comparacion -> GE
-Rule 76    comparacion -> LT
-Rule 77    comparacion -> LE
-Rule 78    comparacion -> EQUAL2
-Rule 79    factor -> INT_NUMBER
-Rule 80    factor -> DOUBLE_NUMBER
-Rule 81    booleano -> TRUE
-Rule 82    booleano -> FALSE
-Rule 83    string -> STRING
-Rule 84    double -> DOUBLE_NUMBER
-Rule 85    int -> INT_NUMBER
+Rule 6     cuerpo -> funcionesArray
+Rule 7     cuerpo -> for
+Rule 8     declararConstante -> VAL ID COLON tipoValueCons
+Rule 9     declararConstante -> VAL ID COLON tipo
+Rule 10    declararConstante -> VAL ID EQUAL valueCons
+Rule 11    declararConstante -> VAL ID EQUAL expression
+Rule 12    declararVariable -> VAR ID COLON tipoValue
+Rule 13    declararVariable -> VAR ID COLON tipo
+Rule 14    declararVariable -> VAR ID EQUAL value
+Rule 15    declararVariable -> VAR ID EQUAL expression
+Rule 16    value -> string
+Rule 17    value -> booleano
+Rule 18    value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+Rule 19    value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+Rule 20    value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+Rule 21    value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+Rule 22    value -> ARRAY LPAREN elementosInternos RPAREN
+Rule 23    elementosInternos -> elementosInternosInt
+Rule 24    elementosInternos -> elementosInternosDouble
+Rule 25    elementosInternos -> elementosInternosBool
+Rule 26    elementosInternos -> elementosInternosString
+Rule 27    elementosInternosInt -> int
+Rule 28    elementosInternosInt -> int COMMA elementosInternosInt
+Rule 29    elementosInternosDouble -> double
+Rule 30    elementosInternosDouble -> double COMMA elementosInternosDouble
+Rule 31    elementosInternosBool -> booleano
+Rule 32    elementosInternosBool -> booleano COMMA elementosInternosBool
+Rule 33    elementosInternosString -> string
+Rule 34    elementosInternosString -> string COMMA elementosInternosString
+Rule 35    elementosInternos2 -> int
+Rule 36    elementosInternos2 -> double
+Rule 37    elementosInternos2 -> booleano
+Rule 38    elementosInternos2 -> string
+Rule 39    elementosInternos2 -> int COMMA elementosInternos2
+Rule 40    elementosInternos2 -> double COMMA elementosInternos2
+Rule 41    elementosInternos2 -> booleano COMMA elementosInternos2
+Rule 42    elementosInternos2 -> string COMMA elementosInternos2
+Rule 43    valueCons -> string
+Rule 44    valueCons -> booleano
+Rule 45    valueCons -> tupla
+Rule 46    tipo -> INT
+Rule 47    tipo -> DOUBLE
+Rule 48    tipo -> BOOL
+Rule 49    tipo -> STRING_TYPE
+Rule 50    tipoValue -> STRING_TYPE EQUAL string
+Rule 51    tipoValue -> BOOL EQUAL booleano
+Rule 52    tipoValue -> INT EQUAL int
+Rule 53    tipoValue -> DOUBLE EQUAL double
+Rule 54    tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+Rule 55    tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+Rule 56    tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+Rule 57    tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+Rule 58    tipoValueCons -> STRING_TYPE EQUAL string
+Rule 59    tipoValueCons -> BOOL EQUAL booleano
+Rule 60    tipoValueCons -> INT EQUAL int
+Rule 61    tipoValueCons -> DOUBLE EQUAL double
+Rule 62    tupla -> LPAREN elementosInternos2 RPAREN
+Rule 63    funcionesTupla -> tuplaSwap
+Rule 64    funcionesTupla -> tuplaToString
+Rule 65    funcionesTupla -> tuplaProductIterator
+Rule 66    tuplaSwap -> ID DOT SWAP
+Rule 67    tuplaToString -> ID DOT TOSTRING LPAREN RPAREN
+Rule 68    tuplaProductIterator -> ID DOT PRODUCTITERATOR
+Rule 69    funcionesArray -> arrayHead
+Rule 70    funcionesArray -> arrayTail
+Rule 71    funcionesArray -> arrayLength
+Rule 72    arrayHead -> ID DOT HEAD
+Rule 73    arrayTail -> ID DOT TAIL
+Rule 74    arrayLength -> ID DOT LENGTH
+Rule 75    expression -> expression PLUS term
+Rule 76    expression -> expression MINUS term
+Rule 77    expression -> term
+Rule 78    term -> term TIMES factor
+Rule 79    term -> term DIVIDE factor
+Rule 80    term -> factor
+Rule 81    sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE
+Rule 82    for -> FOR LPAREN RPAREN LBRACE LBRACE RBRACE
+Rule 83    comparacion -> GT
+Rule 84    comparacion -> GE
+Rule 85    comparacion -> LT
+Rule 86    comparacion -> LE
+Rule 87    comparacion -> EQUAL2
+Rule 88    factor -> INT_NUMBER
+Rule 89    factor -> DOUBLE_NUMBER
+Rule 90    booleano -> TRUE
+Rule 91    booleano -> FALSE
+Rule 92    string -> STRING
+Rule 93    double -> DOUBLE_NUMBER
+Rule 94    int -> INT_NUMBER
 
 Terminals, with rules where they appear
 
-ARRAY                : 16 17 18 19 20 52 52 53 53 54 54 55 55
-BOOL                 : 18 46 49 54 54 57
+ARRAY                : 18 19 20 21 22 54 54 55 55 56 56 57 57
+BOOL                 : 20 48 51 56 56 59
 CLASS                : 
-COLON                : 6 7 10 11
-COMMA                : 26 28 30 32 37 38 39 40
+COLON                : 8 9 12 13
+COMMA                : 28 30 32 34 39 40 41 42
 DECREMENT            : 
 DEF                  : 
-DIVIDE               : 71
-DOT                  : 64 65 66
-DOUBLE               : 17 45 51 53 53 59
-DOUBLE_NUMBER        : 80 84
+DIVIDE               : 79
+DOT                  : 66 67 68 72 73 74
+DOUBLE               : 19 47 53 55 55 61
+DOUBLE_NUMBER        : 89 93
 ELSE                 : 
 EQ                   : 
-EQUAL                : 8 9 12 13 48 49 50 51 52 53 54 55 56 57 58 59
-EQUAL2               : 78
+EQUAL                : 10 11 14 15 50 51 52 53 54 55 56 57 58 59 60 61
+EQUAL2               : 87
 EQUALS               : 
-FALSE                : 82
-FOR                  : 
-GE                   : 75
-GT                   : 74
-HEAD                 : 
-ID                   : 6 7 8 9 10 11 12 13 64 65 66
-IF                   : 73
+FALSE                : 91
+FOR                  : 82
+GE                   : 84
+GT                   : 83
+HEAD                 : 72
+ID                   : 8 9 10 11 12 13 14 15 66 67 68 72 73 74
+IF                   : 81
 INCREMENT            : 
-INT                  : 16 44 50 52 52 58
-INT_NUMBER           : 79 85
+INT                  : 18 46 52 54 54 60
+INT_NUMBER           : 88 94
 ISEMPTY              : 
-LBRACE               : 73
-LBRACK               : 16 17 18 19 52 52 53 53 54 54 55 55
-LE                   : 77
-LENGTH               : 
+LBRACE               : 81 82 82
+LBRACK               : 18 19 20 21 54 54 55 55 56 56 57 57
+LE                   : 86
+LENGTH               : 74
 LIST                 : 
-LPAREN               : 16 17 18 19 20 52 53 54 55 60
-LT                   : 76
-MINUS                : 68
+LM                   : 
+LPAREN               : 18 19 20 21 22 54 55 56 57 62 67 82
+LT                   : 85
+MINUS                : 76
 MOD                  : 
-NEW                  : 16 17 18 19 52 53 54 55
+NEW                  : 18 19 20 21 54 55 56 57
 OBJECT               : 
-PLUS                 : 67
+PLUS                 : 75
 PRINTLN              : 
-PRODUCTITERATOR      : 66
-RBRACE               : 73
-RBRACK               : 16 17 18 19 52 52 53 53 54 54 55 55
+PRODUCTITERATOR      : 68
+RBRACE               : 81 82
+RBRACK               : 18 19 20 21 54 54 55 55 56 56 57 57
 RETURN               : 
 REVERSE              : 
-RPAREN               : 16 17 18 19 20 52 53 54 55 60
+RPAREN               : 18 19 20 21 22 54 55 56 57 62 67 82
 SEMICOLON            : 
-STRING               : 83
-STRING_TYPE          : 19 47 48 55 55 56
-SWAP                 : 64
-TAIL                 : 
+STRING               : 92
+STRING_TYPE          : 21 49 50 57 57 58
+SWAP                 : 66
+TAIL                 : 73
 THIS                 : 
-TIMES                : 70
-TOSTRING             : 65
-TRUE                 : 81
-VAL                  : 6 7 8 9
-VAR                  : 10 11 12 13
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+TIMES                : 78
+TOSTRING             : 67
+TRUE                 : 90
+VAL                  : 8 9 10 11
+VAR                  : 12 13 14 15
 WHILE                : 
 error                : 
 unit                 : 
 
 Nonterminals, with rules where they appear
 
-<<<<<<< HEAD
-arrayHead            : 40
-arrayLength          : 42
-arrayTail            : 41
-booleano             : 10 24 25 33
-comparacion          : 52
-cuerpo               : 52 0
-declararVariable     : 3
-double               : 22 23 35
-elementosInternos    : 15
-elementosInternosBool : 18 25
-elementosInternosDouble : 17 23
-elementosInternosInt : 16 21
-elementosInternosString : 19 27
-expression           : 1 8 46 47
-factor               : 49 50 51 52 52
-funcionesArray       : 4
-int                  : 11 12 13 14 20 21 34 36 37 38 39
-sentencia            : 2
-string               : 9 26 27 32
-term                 : 46 47 48 49 50
-tipo                 : 6
-tipoValue            : 5
-value                : 7
-=======
-booleano             : 15 29 30 35 39 42 49 57
-comparacion          : 73
-cuerpo               : 73 0
+arrayHead            : 69
+arrayLength          : 71
+arrayTail            : 70
+booleano             : 17 31 32 37 41 44 51 59
+comparacion          : 81
+cuerpo               : 81 0
 declararConstante    : 4
 declararVariable     : 3
-double               : 27 28 34 38 51 59
-elementosInternos    : 20
-elementosInternos2   : 37 38 39 40 60
-elementosInternosBool : 23 30
-elementosInternosDouble : 22 28
-elementosInternosInt : 21 26
-elementosInternosString : 24 32
-expression           : 1 9 13 67 68
-factor               : 70 71 72 73 73
+double               : 29 30 36 40 53 61
+elementosInternos    : 22
+elementosInternos2   : 39 40 41 42 62
+elementosInternosBool : 25 32
+elementosInternosDouble : 24 30
+elementosInternosInt : 23 28
+elementosInternosString : 26 34
+expression           : 1 11 15 75 76
+factor               : 78 79 80 81 81
+for                  : 7
+funcionesArray       : 6
 funcionesTupla       : 5
-int                  : 16 17 18 19 25 26 33 37 50 52 53 54 55 58
+int                  : 18 19 20 21 27 28 35 39 52 54 55 56 57 60
 sentencia            : 2
-string               : 14 31 32 36 40 41 48 56
-term                 : 67 68 69 70 71
-tipo                 : 7 11
-tipoValue            : 10
-tipoValueCons        : 6
-tupla                : 43
-tuplaProductIterator : 63
-tuplaSwap            : 61
-tuplaToString        : 62
-value                : 12
-valueCons            : 8
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+string               : 16 33 34 38 42 43 50 58
+term                 : 75 76 77 78 79
+tipo                 : 9 13
+tipoValue            : 12
+tipoValueCons        : 8
+tupla                : 45
+tuplaProductIterator : 65
+tuplaSwap            : 63
+tuplaToString        : 64
+value                : 14
+valueCons            : 10
 
 Parsing method: LALR
 
@@ -366,88 +228,65 @@ state 0
     (1) cuerpo -> . expression
     (2) cuerpo -> . sentencia
     (3) cuerpo -> . declararVariable
-<<<<<<< HEAD
-    (4) cuerpo -> . funcionesArray
-    (46) expression -> . expression PLUS term
-    (47) expression -> . expression MINUS term
-    (48) expression -> . term
-    (52) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
-    (5) declararVariable -> . VAR ID COLON tipoValue
-    (6) declararVariable -> . VAR ID COLON tipo
-    (7) declararVariable -> . VAR ID EQUAL value
-    (8) declararVariable -> . VAR ID EQUAL expression
-    (40) funcionesArray -> . arrayHead
-    (41) funcionesArray -> . arrayTail
-    (42) funcionesArray -> . arrayLength
-    (49) term -> . term TIMES factor
-    (50) term -> . term DIVIDE factor
-    (51) term -> . factor
-    (43) arrayHead -> . ID DOT HEAD
-    (44) arrayTail -> . ID DOT TAIL
-    (45) arrayLength -> . ID DOT LENGTH
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
-
-    IF              shift and go to state 7
-    VAR             shift and go to state 9
-    ID              shift and go to state 10
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
-=======
     (4) cuerpo -> . declararConstante
     (5) cuerpo -> . funcionesTupla
-    (67) expression -> . expression PLUS term
-    (68) expression -> . expression MINUS term
-    (69) expression -> . term
-    (73) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
-    (10) declararVariable -> . VAR ID COLON tipoValue
-    (11) declararVariable -> . VAR ID COLON tipo
-    (12) declararVariable -> . VAR ID EQUAL value
-    (13) declararVariable -> . VAR ID EQUAL expression
-    (6) declararConstante -> . VAL ID COLON tipoValueCons
-    (7) declararConstante -> . VAL ID COLON tipo
-    (8) declararConstante -> . VAL ID EQUAL valueCons
-    (9) declararConstante -> . VAL ID EQUAL expression
-    (61) funcionesTupla -> . tuplaSwap
-    (62) funcionesTupla -> . tuplaToString
-    (63) funcionesTupla -> . tuplaProductIterator
-    (70) term -> . term TIMES factor
-    (71) term -> . term DIVIDE factor
-    (72) term -> . factor
-    (64) tuplaSwap -> . ID DOT SWAP
-    (65) tuplaToString -> . ID DOT TOSTRING
-    (66) tuplaProductIterator -> . ID DOT PRODUCTITERATOR
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
+    (6) cuerpo -> . funcionesArray
+    (7) cuerpo -> . for
+    (75) expression -> . expression PLUS term
+    (76) expression -> . expression MINUS term
+    (77) expression -> . term
+    (81) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
+    (12) declararVariable -> . VAR ID COLON tipoValue
+    (13) declararVariable -> . VAR ID COLON tipo
+    (14) declararVariable -> . VAR ID EQUAL value
+    (15) declararVariable -> . VAR ID EQUAL expression
+    (8) declararConstante -> . VAL ID COLON tipoValueCons
+    (9) declararConstante -> . VAL ID COLON tipo
+    (10) declararConstante -> . VAL ID EQUAL valueCons
+    (11) declararConstante -> . VAL ID EQUAL expression
+    (63) funcionesTupla -> . tuplaSwap
+    (64) funcionesTupla -> . tuplaToString
+    (65) funcionesTupla -> . tuplaProductIterator
+    (69) funcionesArray -> . arrayHead
+    (70) funcionesArray -> . arrayTail
+    (71) funcionesArray -> . arrayLength
+    (82) for -> . FOR LPAREN RPAREN LBRACE LBRACE RBRACE
+    (78) term -> . term TIMES factor
+    (79) term -> . term DIVIDE factor
+    (80) term -> . factor
+    (66) tuplaSwap -> . ID DOT SWAP
+    (67) tuplaToString -> . ID DOT TOSTRING LPAREN RPAREN
+    (68) tuplaProductIterator -> . ID DOT PRODUCTITERATOR
+    (72) arrayHead -> . ID DOT HEAD
+    (73) arrayTail -> . ID DOT TAIL
+    (74) arrayLength -> . ID DOT LENGTH
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    IF              shift and go to state 8
-    VAR             shift and go to state 10
-    VAL             shift and go to state 12
-    ID              shift and go to state 11
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    IF              shift and go to state 10
+    VAR             shift and go to state 12
+    VAL             shift and go to state 14
+    FOR             shift and go to state 21
+    ID              shift and go to state 13
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
     cuerpo                         shift and go to state 1
     expression                     shift and go to state 2
     sentencia                      shift and go to state 3
     declararVariable               shift and go to state 4
-<<<<<<< HEAD
-    funcionesArray                 shift and go to state 5
-    term                           shift and go to state 6
-    factor                         shift and go to state 8
-    arrayHead                      shift and go to state 11
-    arrayTail                      shift and go to state 12
-    arrayLength                    shift and go to state 13
-=======
     declararConstante              shift and go to state 5
     funcionesTupla                 shift and go to state 6
-    term                           shift and go to state 7
-    factor                         shift and go to state 9
-    tuplaSwap                      shift and go to state 13
-    tuplaToString                  shift and go to state 14
-    tuplaProductIterator           shift and go to state 15
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    funcionesArray                 shift and go to state 7
+    for                            shift and go to state 8
+    term                           shift and go to state 9
+    factor                         shift and go to state 11
+    tuplaSwap                      shift and go to state 15
+    tuplaToString                  shift and go to state 16
+    tuplaProductIterator           shift and go to state 17
+    arrayHead                      shift and go to state 18
+    arrayTail                      shift and go to state 19
+    arrayLength                    shift and go to state 20
 
 state 1
 
@@ -458,23 +297,13 @@ state 1
 state 2
 
     (1) cuerpo -> expression .
-<<<<<<< HEAD
-    (46) expression -> expression . PLUS term
-    (47) expression -> expression . MINUS term
+    (75) expression -> expression . PLUS term
+    (76) expression -> expression . MINUS term
 
     $end            reduce using rule 1 (cuerpo -> expression .)
     RBRACE          reduce using rule 1 (cuerpo -> expression .)
-    PLUS            shift and go to state 16
-    MINUS           shift and go to state 17
-=======
-    (67) expression -> expression . PLUS term
-    (68) expression -> expression . MINUS term
-
-    $end            reduce using rule 1 (cuerpo -> expression .)
-    RBRACE          reduce using rule 1 (cuerpo -> expression .)
-    PLUS            shift and go to state 18
-    MINUS           shift and go to state 19
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
 
 
 state 3
@@ -495,3181 +324,2044 @@ state 4
 
 state 5
 
-<<<<<<< HEAD
-    (4) cuerpo -> funcionesArray .
-
-    $end            reduce using rule 4 (cuerpo -> funcionesArray .)
-    RBRACE          reduce using rule 4 (cuerpo -> funcionesArray .)
-=======
     (4) cuerpo -> declararConstante .
 
     $end            reduce using rule 4 (cuerpo -> declararConstante .)
     RBRACE          reduce using rule 4 (cuerpo -> declararConstante .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
 
 
 state 6
 
-<<<<<<< HEAD
-    (48) expression -> term .
-    (49) term -> term . TIMES factor
-    (50) term -> term . DIVIDE factor
-
-    PLUS            reduce using rule 48 (expression -> term .)
-    MINUS           reduce using rule 48 (expression -> term .)
-    $end            reduce using rule 48 (expression -> term .)
-    RBRACE          reduce using rule 48 (expression -> term .)
-    TIMES           shift and go to state 18
-    DIVIDE          shift and go to state 19
-=======
     (5) cuerpo -> funcionesTupla .
 
     $end            reduce using rule 5 (cuerpo -> funcionesTupla .)
     RBRACE          reduce using rule 5 (cuerpo -> funcionesTupla .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
 
 
 state 7
 
-<<<<<<< HEAD
-    (52) sentencia -> IF . factor comparacion factor LBRACE cuerpo RBRACE
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (6) cuerpo -> funcionesArray .
 
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
-=======
-    (69) expression -> term .
-    (70) term -> term . TIMES factor
-    (71) term -> term . DIVIDE factor
+    $end            reduce using rule 6 (cuerpo -> funcionesArray .)
+    RBRACE          reduce using rule 6 (cuerpo -> funcionesArray .)
 
-    PLUS            reduce using rule 69 (expression -> term .)
-    MINUS           reduce using rule 69 (expression -> term .)
-    $end            reduce using rule 69 (expression -> term .)
-    RBRACE          reduce using rule 69 (expression -> term .)
-    TIMES           shift and go to state 20
-    DIVIDE          shift and go to state 21
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    factor                         shift and go to state 20
 
 state 8
 
-<<<<<<< HEAD
-    (51) term -> factor .
+    (7) cuerpo -> for .
 
-    TIMES           reduce using rule 51 (term -> factor .)
-    DIVIDE          reduce using rule 51 (term -> factor .)
-    PLUS            reduce using rule 51 (term -> factor .)
-    MINUS           reduce using rule 51 (term -> factor .)
-    $end            reduce using rule 51 (term -> factor .)
-    RBRACE          reduce using rule 51 (term -> factor .)
-=======
-    (73) sentencia -> IF . factor comparacion factor LBRACE cuerpo RBRACE
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
+    $end            reduce using rule 7 (cuerpo -> for .)
+    RBRACE          reduce using rule 7 (cuerpo -> for .)
 
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    factor                         shift and go to state 22
 
 state 9
 
-<<<<<<< HEAD
-    (5) declararVariable -> VAR . ID COLON tipoValue
-    (6) declararVariable -> VAR . ID COLON tipo
-    (7) declararVariable -> VAR . ID EQUAL value
-    (8) declararVariable -> VAR . ID EQUAL expression
+    (77) expression -> term .
+    (78) term -> term . TIMES factor
+    (79) term -> term . DIVIDE factor
 
-    ID              shift and go to state 21
-=======
-    (72) term -> factor .
-
-    TIMES           reduce using rule 72 (term -> factor .)
-    DIVIDE          reduce using rule 72 (term -> factor .)
-    PLUS            reduce using rule 72 (term -> factor .)
-    MINUS           reduce using rule 72 (term -> factor .)
-    $end            reduce using rule 72 (term -> factor .)
-    RBRACE          reduce using rule 72 (term -> factor .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    PLUS            reduce using rule 77 (expression -> term .)
+    MINUS           reduce using rule 77 (expression -> term .)
+    $end            reduce using rule 77 (expression -> term .)
+    RBRACE          reduce using rule 77 (expression -> term .)
+    TIMES           shift and go to state 26
+    DIVIDE          shift and go to state 27
 
 
 state 10
 
-<<<<<<< HEAD
-    (43) arrayHead -> ID . DOT HEAD
-    (44) arrayTail -> ID . DOT TAIL
-    (45) arrayLength -> ID . DOT LENGTH
+    (81) sentencia -> IF . factor comparacion factor LBRACE cuerpo RBRACE
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    DOT             shift and go to state 22
-=======
-    (10) declararVariable -> VAR . ID COLON tipoValue
-    (11) declararVariable -> VAR . ID COLON tipo
-    (12) declararVariable -> VAR . ID EQUAL value
-    (13) declararVariable -> VAR . ID EQUAL expression
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    ID              shift and go to state 23
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    factor                         shift and go to state 28
 
 state 11
 
-<<<<<<< HEAD
-    (40) funcionesArray -> arrayHead .
+    (80) term -> factor .
 
-    $end            reduce using rule 40 (funcionesArray -> arrayHead .)
-    RBRACE          reduce using rule 40 (funcionesArray -> arrayHead .)
-=======
-    (64) tuplaSwap -> ID . DOT SWAP
-    (65) tuplaToString -> ID . DOT TOSTRING
-    (66) tuplaProductIterator -> ID . DOT PRODUCTITERATOR
-
-    DOT             shift and go to state 24
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    TIMES           reduce using rule 80 (term -> factor .)
+    DIVIDE          reduce using rule 80 (term -> factor .)
+    PLUS            reduce using rule 80 (term -> factor .)
+    MINUS           reduce using rule 80 (term -> factor .)
+    $end            reduce using rule 80 (term -> factor .)
+    RBRACE          reduce using rule 80 (term -> factor .)
 
 
 state 12
 
-<<<<<<< HEAD
-    (41) funcionesArray -> arrayTail .
+    (12) declararVariable -> VAR . ID COLON tipoValue
+    (13) declararVariable -> VAR . ID COLON tipo
+    (14) declararVariable -> VAR . ID EQUAL value
+    (15) declararVariable -> VAR . ID EQUAL expression
 
-    $end            reduce using rule 41 (funcionesArray -> arrayTail .)
-    RBRACE          reduce using rule 41 (funcionesArray -> arrayTail .)
-=======
-    (6) declararConstante -> VAL . ID COLON tipoValueCons
-    (7) declararConstante -> VAL . ID COLON tipo
-    (8) declararConstante -> VAL . ID EQUAL valueCons
-    (9) declararConstante -> VAL . ID EQUAL expression
-
-    ID              shift and go to state 25
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    ID              shift and go to state 29
 
 
 state 13
 
-<<<<<<< HEAD
-    (42) funcionesArray -> arrayLength .
+    (66) tuplaSwap -> ID . DOT SWAP
+    (67) tuplaToString -> ID . DOT TOSTRING LPAREN RPAREN
+    (68) tuplaProductIterator -> ID . DOT PRODUCTITERATOR
+    (72) arrayHead -> ID . DOT HEAD
+    (73) arrayTail -> ID . DOT TAIL
+    (74) arrayLength -> ID . DOT LENGTH
 
-    $end            reduce using rule 42 (funcionesArray -> arrayLength .)
-    RBRACE          reduce using rule 42 (funcionesArray -> arrayLength .)
-=======
-    (61) funcionesTupla -> tuplaSwap .
-
-    $end            reduce using rule 61 (funcionesTupla -> tuplaSwap .)
-    RBRACE          reduce using rule 61 (funcionesTupla -> tuplaSwap .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    DOT             shift and go to state 30
 
 
 state 14
 
-<<<<<<< HEAD
-    (57) factor -> INT_NUMBER .
+    (8) declararConstante -> VAL . ID COLON tipoValueCons
+    (9) declararConstante -> VAL . ID COLON tipo
+    (10) declararConstante -> VAL . ID EQUAL valueCons
+    (11) declararConstante -> VAL . ID EQUAL expression
 
-    TIMES           reduce using rule 57 (factor -> INT_NUMBER .)
-    DIVIDE          reduce using rule 57 (factor -> INT_NUMBER .)
-    PLUS            reduce using rule 57 (factor -> INT_NUMBER .)
-    MINUS           reduce using rule 57 (factor -> INT_NUMBER .)
-    $end            reduce using rule 57 (factor -> INT_NUMBER .)
-    GT              reduce using rule 57 (factor -> INT_NUMBER .)
-    GE              reduce using rule 57 (factor -> INT_NUMBER .)
-    LT              reduce using rule 57 (factor -> INT_NUMBER .)
-    LE              reduce using rule 57 (factor -> INT_NUMBER .)
-    RBRACE          reduce using rule 57 (factor -> INT_NUMBER .)
-    LBRACE          reduce using rule 57 (factor -> INT_NUMBER .)
-=======
-    (62) funcionesTupla -> tuplaToString .
-
-    $end            reduce using rule 62 (funcionesTupla -> tuplaToString .)
-    RBRACE          reduce using rule 62 (funcionesTupla -> tuplaToString .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    ID              shift and go to state 31
 
 
 state 15
 
-<<<<<<< HEAD
-    (58) factor -> DOUBLE_NUMBER .
+    (63) funcionesTupla -> tuplaSwap .
 
-    TIMES           reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    DIVIDE          reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    PLUS            reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    MINUS           reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    $end            reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    GT              reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    GE              reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    LT              reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    LE              reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    RBRACE          reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-    LBRACE          reduce using rule 58 (factor -> DOUBLE_NUMBER .)
-=======
-    (63) funcionesTupla -> tuplaProductIterator .
-
-    $end            reduce using rule 63 (funcionesTupla -> tuplaProductIterator .)
-    RBRACE          reduce using rule 63 (funcionesTupla -> tuplaProductIterator .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 63 (funcionesTupla -> tuplaSwap .)
+    RBRACE          reduce using rule 63 (funcionesTupla -> tuplaSwap .)
 
 
 state 16
 
-<<<<<<< HEAD
-    (46) expression -> expression PLUS . term
-    (49) term -> . term TIMES factor
-    (50) term -> . term DIVIDE factor
-    (51) term -> . factor
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (64) funcionesTupla -> tuplaToString .
 
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
-=======
-    (79) factor -> INT_NUMBER .
+    $end            reduce using rule 64 (funcionesTupla -> tuplaToString .)
+    RBRACE          reduce using rule 64 (funcionesTupla -> tuplaToString .)
 
-    TIMES           reduce using rule 79 (factor -> INT_NUMBER .)
-    DIVIDE          reduce using rule 79 (factor -> INT_NUMBER .)
-    PLUS            reduce using rule 79 (factor -> INT_NUMBER .)
-    MINUS           reduce using rule 79 (factor -> INT_NUMBER .)
-    $end            reduce using rule 79 (factor -> INT_NUMBER .)
-    GT              reduce using rule 79 (factor -> INT_NUMBER .)
-    GE              reduce using rule 79 (factor -> INT_NUMBER .)
-    LT              reduce using rule 79 (factor -> INT_NUMBER .)
-    LE              reduce using rule 79 (factor -> INT_NUMBER .)
-    EQUAL2          reduce using rule 79 (factor -> INT_NUMBER .)
-    RBRACE          reduce using rule 79 (factor -> INT_NUMBER .)
-    LBRACE          reduce using rule 79 (factor -> INT_NUMBER .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    term                           shift and go to state 23
-    factor                         shift and go to state 8
 
 state 17
 
-<<<<<<< HEAD
-    (47) expression -> expression MINUS . term
-    (49) term -> . term TIMES factor
-    (50) term -> . term DIVIDE factor
-    (51) term -> . factor
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (65) funcionesTupla -> tuplaProductIterator .
 
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
-=======
-    (80) factor -> DOUBLE_NUMBER .
+    $end            reduce using rule 65 (funcionesTupla -> tuplaProductIterator .)
+    RBRACE          reduce using rule 65 (funcionesTupla -> tuplaProductIterator .)
 
-    TIMES           reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    DIVIDE          reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    PLUS            reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    MINUS           reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    $end            reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    GT              reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    GE              reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    LT              reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    LE              reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    EQUAL2          reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    RBRACE          reduce using rule 80 (factor -> DOUBLE_NUMBER .)
-    LBRACE          reduce using rule 80 (factor -> DOUBLE_NUMBER .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    term                           shift and go to state 24
-    factor                         shift and go to state 8
 
 state 18
 
-<<<<<<< HEAD
-    (49) term -> term TIMES . factor
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (69) funcionesArray -> arrayHead .
 
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
+    $end            reduce using rule 69 (funcionesArray -> arrayHead .)
+    RBRACE          reduce using rule 69 (funcionesArray -> arrayHead .)
 
-    factor                         shift and go to state 25
 
 state 19
 
-    (50) term -> term DIVIDE . factor
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (70) funcionesArray -> arrayTail .
 
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
+    $end            reduce using rule 70 (funcionesArray -> arrayTail .)
+    RBRACE          reduce using rule 70 (funcionesArray -> arrayTail .)
 
-    factor                         shift and go to state 26
 
 state 20
 
-    (52) sentencia -> IF factor . comparacion factor LBRACE cuerpo RBRACE
-    (53) comparacion -> . GT
-    (54) comparacion -> . GE
-    (55) comparacion -> . LT
-    (56) comparacion -> . LE
+    (71) funcionesArray -> arrayLength .
 
-    GT              shift and go to state 28
-    GE              shift and go to state 29
-    LT              shift and go to state 30
-    LE              shift and go to state 31
+    $end            reduce using rule 71 (funcionesArray -> arrayLength .)
+    RBRACE          reduce using rule 71 (funcionesArray -> arrayLength .)
 
-    comparacion                    shift and go to state 27
 
 state 21
 
-    (5) declararVariable -> VAR ID . COLON tipoValue
-    (6) declararVariable -> VAR ID . COLON tipo
-    (7) declararVariable -> VAR ID . EQUAL value
-    (8) declararVariable -> VAR ID . EQUAL expression
+    (82) for -> FOR . LPAREN RPAREN LBRACE LBRACE RBRACE
 
-    COLON           shift and go to state 32
-    EQUAL           shift and go to state 33
-=======
-    (67) expression -> expression PLUS . term
-    (70) term -> . term TIMES factor
-    (71) term -> . term DIVIDE factor
-    (72) term -> . factor
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
+    LPAREN          shift and go to state 32
 
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
-
-    term                           shift and go to state 26
-    factor                         shift and go to state 9
-
-state 19
-
-    (68) expression -> expression MINUS . term
-    (70) term -> . term TIMES factor
-    (71) term -> . term DIVIDE factor
-    (72) term -> . factor
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
-
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
-
-    term                           shift and go to state 27
-    factor                         shift and go to state 9
-
-state 20
-
-    (70) term -> term TIMES . factor
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
-
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
-
-    factor                         shift and go to state 28
-
-state 21
-
-    (71) term -> term DIVIDE . factor
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
-
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    factor                         shift and go to state 29
 
 state 22
 
-<<<<<<< HEAD
-    (43) arrayHead -> ID DOT . HEAD
-    (44) arrayTail -> ID DOT . TAIL
-    (45) arrayLength -> ID DOT . LENGTH
+    (88) factor -> INT_NUMBER .
 
-    HEAD            shift and go to state 34
-    TAIL            shift and go to state 35
-    LENGTH          shift and go to state 36
-=======
-    (73) sentencia -> IF factor . comparacion factor LBRACE cuerpo RBRACE
-    (74) comparacion -> . GT
-    (75) comparacion -> . GE
-    (76) comparacion -> . LT
-    (77) comparacion -> . LE
-    (78) comparacion -> . EQUAL2
+    TIMES           reduce using rule 88 (factor -> INT_NUMBER .)
+    DIVIDE          reduce using rule 88 (factor -> INT_NUMBER .)
+    PLUS            reduce using rule 88 (factor -> INT_NUMBER .)
+    MINUS           reduce using rule 88 (factor -> INT_NUMBER .)
+    $end            reduce using rule 88 (factor -> INT_NUMBER .)
+    GT              reduce using rule 88 (factor -> INT_NUMBER .)
+    GE              reduce using rule 88 (factor -> INT_NUMBER .)
+    LT              reduce using rule 88 (factor -> INT_NUMBER .)
+    LE              reduce using rule 88 (factor -> INT_NUMBER .)
+    EQUAL2          reduce using rule 88 (factor -> INT_NUMBER .)
+    RBRACE          reduce using rule 88 (factor -> INT_NUMBER .)
+    LBRACE          reduce using rule 88 (factor -> INT_NUMBER .)
 
-    GT              shift and go to state 31
-    GE              shift and go to state 32
-    LT              shift and go to state 33
-    LE              shift and go to state 34
-    EQUAL2          shift and go to state 35
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    comparacion                    shift and go to state 30
 
 state 23
 
-<<<<<<< HEAD
-    (46) expression -> expression PLUS term .
-    (49) term -> term . TIMES factor
-    (50) term -> term . DIVIDE factor
+    (89) factor -> DOUBLE_NUMBER .
 
-    PLUS            reduce using rule 46 (expression -> expression PLUS term .)
-    MINUS           reduce using rule 46 (expression -> expression PLUS term .)
-    $end            reduce using rule 46 (expression -> expression PLUS term .)
-    RBRACE          reduce using rule 46 (expression -> expression PLUS term .)
-    TIMES           shift and go to state 18
-    DIVIDE          shift and go to state 19
-=======
-    (10) declararVariable -> VAR ID . COLON tipoValue
-    (11) declararVariable -> VAR ID . COLON tipo
-    (12) declararVariable -> VAR ID . EQUAL value
-    (13) declararVariable -> VAR ID . EQUAL expression
-
-    COLON           shift and go to state 36
-    EQUAL           shift and go to state 37
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    TIMES           reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    DIVIDE          reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    PLUS            reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    MINUS           reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    $end            reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    GT              reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    GE              reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    LT              reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    LE              reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    EQUAL2          reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    RBRACE          reduce using rule 89 (factor -> DOUBLE_NUMBER .)
+    LBRACE          reduce using rule 89 (factor -> DOUBLE_NUMBER .)
 
 
 state 24
 
-<<<<<<< HEAD
-    (47) expression -> expression MINUS term .
-    (49) term -> term . TIMES factor
-    (50) term -> term . DIVIDE factor
+    (75) expression -> expression PLUS . term
+    (78) term -> . term TIMES factor
+    (79) term -> . term DIVIDE factor
+    (80) term -> . factor
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    PLUS            reduce using rule 47 (expression -> expression MINUS term .)
-    MINUS           reduce using rule 47 (expression -> expression MINUS term .)
-    $end            reduce using rule 47 (expression -> expression MINUS term .)
-    RBRACE          reduce using rule 47 (expression -> expression MINUS term .)
-    TIMES           shift and go to state 18
-    DIVIDE          shift and go to state 19
-=======
-    (64) tuplaSwap -> ID DOT . SWAP
-    (65) tuplaToString -> ID DOT . TOSTRING
-    (66) tuplaProductIterator -> ID DOT . PRODUCTITERATOR
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    SWAP            shift and go to state 38
-    TOSTRING        shift and go to state 39
-    PRODUCTITERATOR shift and go to state 40
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    term                           shift and go to state 33
+    factor                         shift and go to state 11
 
 state 25
 
-<<<<<<< HEAD
-    (49) term -> term TIMES factor .
+    (76) expression -> expression MINUS . term
+    (78) term -> . term TIMES factor
+    (79) term -> . term DIVIDE factor
+    (80) term -> . factor
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    TIMES           reduce using rule 49 (term -> term TIMES factor .)
-    DIVIDE          reduce using rule 49 (term -> term TIMES factor .)
-    PLUS            reduce using rule 49 (term -> term TIMES factor .)
-    MINUS           reduce using rule 49 (term -> term TIMES factor .)
-    $end            reduce using rule 49 (term -> term TIMES factor .)
-    RBRACE          reduce using rule 49 (term -> term TIMES factor .)
-=======
-    (6) declararConstante -> VAL ID . COLON tipoValueCons
-    (7) declararConstante -> VAL ID . COLON tipo
-    (8) declararConstante -> VAL ID . EQUAL valueCons
-    (9) declararConstante -> VAL ID . EQUAL expression
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    COLON           shift and go to state 41
-    EQUAL           shift and go to state 42
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    term                           shift and go to state 34
+    factor                         shift and go to state 11
 
 state 26
 
-<<<<<<< HEAD
-    (50) term -> term DIVIDE factor .
+    (78) term -> term TIMES . factor
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    TIMES           reduce using rule 50 (term -> term DIVIDE factor .)
-    DIVIDE          reduce using rule 50 (term -> term DIVIDE factor .)
-    PLUS            reduce using rule 50 (term -> term DIVIDE factor .)
-    MINUS           reduce using rule 50 (term -> term DIVIDE factor .)
-    $end            reduce using rule 50 (term -> term DIVIDE factor .)
-    RBRACE          reduce using rule 50 (term -> term DIVIDE factor .)
-=======
-    (67) expression -> expression PLUS term .
-    (70) term -> term . TIMES factor
-    (71) term -> term . DIVIDE factor
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    PLUS            reduce using rule 67 (expression -> expression PLUS term .)
-    MINUS           reduce using rule 67 (expression -> expression PLUS term .)
-    $end            reduce using rule 67 (expression -> expression PLUS term .)
-    RBRACE          reduce using rule 67 (expression -> expression PLUS term .)
-    TIMES           shift and go to state 20
-    DIVIDE          shift and go to state 21
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    factor                         shift and go to state 35
 
 state 27
 
-<<<<<<< HEAD
-    (52) sentencia -> IF factor comparacion . factor LBRACE cuerpo RBRACE
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (79) term -> term DIVIDE . factor
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    factor                         shift and go to state 37
-
-state 28
-
-    (53) comparacion -> GT .
-
-    INT_NUMBER      reduce using rule 53 (comparacion -> GT .)
-    DOUBLE_NUMBER   reduce using rule 53 (comparacion -> GT .)
-=======
-    (68) expression -> expression MINUS term .
-    (70) term -> term . TIMES factor
-    (71) term -> term . DIVIDE factor
-
-    PLUS            reduce using rule 68 (expression -> expression MINUS term .)
-    MINUS           reduce using rule 68 (expression -> expression MINUS term .)
-    $end            reduce using rule 68 (expression -> expression MINUS term .)
-    RBRACE          reduce using rule 68 (expression -> expression MINUS term .)
-    TIMES           shift and go to state 20
-    DIVIDE          shift and go to state 21
-
+    factor                         shift and go to state 36
 
 state 28
 
-    (70) term -> term TIMES factor .
+    (81) sentencia -> IF factor . comparacion factor LBRACE cuerpo RBRACE
+    (83) comparacion -> . GT
+    (84) comparacion -> . GE
+    (85) comparacion -> . LT
+    (86) comparacion -> . LE
+    (87) comparacion -> . EQUAL2
 
-    TIMES           reduce using rule 70 (term -> term TIMES factor .)
-    DIVIDE          reduce using rule 70 (term -> term TIMES factor .)
-    PLUS            reduce using rule 70 (term -> term TIMES factor .)
-    MINUS           reduce using rule 70 (term -> term TIMES factor .)
-    $end            reduce using rule 70 (term -> term TIMES factor .)
-    RBRACE          reduce using rule 70 (term -> term TIMES factor .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    GT              shift and go to state 38
+    GE              shift and go to state 39
+    LT              shift and go to state 40
+    LE              shift and go to state 41
+    EQUAL2          shift and go to state 42
 
+    comparacion                    shift and go to state 37
 
 state 29
 
-<<<<<<< HEAD
-    (54) comparacion -> GE .
+    (12) declararVariable -> VAR ID . COLON tipoValue
+    (13) declararVariable -> VAR ID . COLON tipo
+    (14) declararVariable -> VAR ID . EQUAL value
+    (15) declararVariable -> VAR ID . EQUAL expression
 
-    INT_NUMBER      reduce using rule 54 (comparacion -> GE .)
-    DOUBLE_NUMBER   reduce using rule 54 (comparacion -> GE .)
-=======
-    (71) term -> term DIVIDE factor .
-
-    TIMES           reduce using rule 71 (term -> term DIVIDE factor .)
-    DIVIDE          reduce using rule 71 (term -> term DIVIDE factor .)
-    PLUS            reduce using rule 71 (term -> term DIVIDE factor .)
-    MINUS           reduce using rule 71 (term -> term DIVIDE factor .)
-    $end            reduce using rule 71 (term -> term DIVIDE factor .)
-    RBRACE          reduce using rule 71 (term -> term DIVIDE factor .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    COLON           shift and go to state 43
+    EQUAL           shift and go to state 44
 
 
 state 30
 
-<<<<<<< HEAD
-    (55) comparacion -> LT .
+    (66) tuplaSwap -> ID DOT . SWAP
+    (67) tuplaToString -> ID DOT . TOSTRING LPAREN RPAREN
+    (68) tuplaProductIterator -> ID DOT . PRODUCTITERATOR
+    (72) arrayHead -> ID DOT . HEAD
+    (73) arrayTail -> ID DOT . TAIL
+    (74) arrayLength -> ID DOT . LENGTH
 
-    INT_NUMBER      reduce using rule 55 (comparacion -> LT .)
-    DOUBLE_NUMBER   reduce using rule 55 (comparacion -> LT .)
-=======
-    (73) sentencia -> IF factor comparacion . factor LBRACE cuerpo RBRACE
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
+    SWAP            shift and go to state 45
+    TOSTRING        shift and go to state 46
+    PRODUCTITERATOR shift and go to state 47
+    HEAD            shift and go to state 48
+    TAIL            shift and go to state 49
+    LENGTH          shift and go to state 50
 
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    factor                         shift and go to state 43
 
 state 31
 
-<<<<<<< HEAD
-    (56) comparacion -> LE .
+    (8) declararConstante -> VAL ID . COLON tipoValueCons
+    (9) declararConstante -> VAL ID . COLON tipo
+    (10) declararConstante -> VAL ID . EQUAL valueCons
+    (11) declararConstante -> VAL ID . EQUAL expression
 
-    INT_NUMBER      reduce using rule 56 (comparacion -> LE .)
-    DOUBLE_NUMBER   reduce using rule 56 (comparacion -> LE .)
-=======
-    (74) comparacion -> GT .
-
-    INT_NUMBER      reduce using rule 74 (comparacion -> GT .)
-    DOUBLE_NUMBER   reduce using rule 74 (comparacion -> GT .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    COLON           shift and go to state 51
+    EQUAL           shift and go to state 52
 
 
 state 32
 
-<<<<<<< HEAD
-    (5) declararVariable -> VAR ID COLON . tipoValue
-    (6) declararVariable -> VAR ID COLON . tipo
-    (32) tipoValue -> . STRING_TYPE EQUAL string
-    (33) tipoValue -> . BOOL EQUAL booleano
-    (34) tipoValue -> . INT EQUAL int
-    (35) tipoValue -> . DOUBLE EQUAL double
-    (36) tipoValue -> . ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (37) tipoValue -> . ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (38) tipoValue -> . ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (39) tipoValue -> . ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-    (28) tipo -> . INT
-    (29) tipo -> . DOUBLE
-    (30) tipo -> . BOOL
-    (31) tipo -> . STRING_TYPE
+    (82) for -> FOR LPAREN . RPAREN LBRACE LBRACE RBRACE
 
-    STRING_TYPE     shift and go to state 40
-    BOOL            shift and go to state 41
-    INT             shift and go to state 42
-    DOUBLE          shift and go to state 43
-    ARRAY           shift and go to state 44
+    RPAREN          shift and go to state 53
 
-    tipoValue                      shift and go to state 38
-    tipo                           shift and go to state 39
 
 state 33
 
-    (7) declararVariable -> VAR ID EQUAL . value
-    (8) declararVariable -> VAR ID EQUAL . expression
-    (9) value -> . string
-    (10) value -> . booleano
-    (11) value -> . NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (12) value -> . NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (13) value -> . NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (14) value -> . NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-    (15) value -> . ARRAY LPAREN elementosInternos RPAREN
-    (46) expression -> . expression PLUS term
-    (47) expression -> . expression MINUS term
-    (48) expression -> . term
-    (61) string -> . STRING
-    (59) booleano -> . TRUE
-    (60) booleano -> . FALSE
-    (49) term -> . term TIMES factor
-    (50) term -> . term DIVIDE factor
-    (51) term -> . factor
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (75) expression -> expression PLUS term .
+    (78) term -> term . TIMES factor
+    (79) term -> term . DIVIDE factor
 
-    NEW             shift and go to state 49
-    ARRAY           shift and go to state 50
-    STRING          shift and go to state 51
-    TRUE            shift and go to state 52
-    FALSE           shift and go to state 53
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
+    PLUS            reduce using rule 75 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 75 (expression -> expression PLUS term .)
+    $end            reduce using rule 75 (expression -> expression PLUS term .)
+    RBRACE          reduce using rule 75 (expression -> expression PLUS term .)
+    TIMES           shift and go to state 26
+    DIVIDE          shift and go to state 27
 
-    value                          shift and go to state 45
-    expression                     shift and go to state 46
-    string                         shift and go to state 47
-    booleano                       shift and go to state 48
-    term                           shift and go to state 6
-    factor                         shift and go to state 8
 
 state 34
-=======
-    (75) comparacion -> GE .
 
-    INT_NUMBER      reduce using rule 75 (comparacion -> GE .)
-    DOUBLE_NUMBER   reduce using rule 75 (comparacion -> GE .)
+    (76) expression -> expression MINUS term .
+    (78) term -> term . TIMES factor
+    (79) term -> term . DIVIDE factor
 
-
-state 33
-
-    (76) comparacion -> LT .
-
-    INT_NUMBER      reduce using rule 76 (comparacion -> LT .)
-    DOUBLE_NUMBER   reduce using rule 76 (comparacion -> LT .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    (43) arrayHead -> ID DOT HEAD .
-
-    $end            reduce using rule 43 (arrayHead -> ID DOT HEAD .)
-    RBRACE          reduce using rule 43 (arrayHead -> ID DOT HEAD .)
-
-<<<<<<< HEAD
-
-state 35
-
-    (44) arrayTail -> ID DOT TAIL .
-
-    $end            reduce using rule 44 (arrayTail -> ID DOT TAIL .)
-    RBRACE          reduce using rule 44 (arrayTail -> ID DOT TAIL .)
-=======
-    (77) comparacion -> LE .
-
-    INT_NUMBER      reduce using rule 77 (comparacion -> LE .)
-    DOUBLE_NUMBER   reduce using rule 77 (comparacion -> LE .)
+    PLUS            reduce using rule 76 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 76 (expression -> expression MINUS term .)
+    $end            reduce using rule 76 (expression -> expression MINUS term .)
+    RBRACE          reduce using rule 76 (expression -> expression MINUS term .)
+    TIMES           shift and go to state 26
+    DIVIDE          shift and go to state 27
 
 
 state 35
 
-    (78) comparacion -> EQUAL2 .
+    (78) term -> term TIMES factor .
 
-    INT_NUMBER      reduce using rule 78 (comparacion -> EQUAL2 .)
-    DOUBLE_NUMBER   reduce using rule 78 (comparacion -> EQUAL2 .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    TIMES           reduce using rule 78 (term -> term TIMES factor .)
+    DIVIDE          reduce using rule 78 (term -> term TIMES factor .)
+    PLUS            reduce using rule 78 (term -> term TIMES factor .)
+    MINUS           reduce using rule 78 (term -> term TIMES factor .)
+    $end            reduce using rule 78 (term -> term TIMES factor .)
+    RBRACE          reduce using rule 78 (term -> term TIMES factor .)
 
 
 state 36
 
-<<<<<<< HEAD
-    (45) arrayLength -> ID DOT LENGTH .
+    (79) term -> term DIVIDE factor .
 
-    $end            reduce using rule 45 (arrayLength -> ID DOT LENGTH .)
-    RBRACE          reduce using rule 45 (arrayLength -> ID DOT LENGTH .)
+    TIMES           reduce using rule 79 (term -> term DIVIDE factor .)
+    DIVIDE          reduce using rule 79 (term -> term DIVIDE factor .)
+    PLUS            reduce using rule 79 (term -> term DIVIDE factor .)
+    MINUS           reduce using rule 79 (term -> term DIVIDE factor .)
+    $end            reduce using rule 79 (term -> term DIVIDE factor .)
+    RBRACE          reduce using rule 79 (term -> term DIVIDE factor .)
 
 
 state 37
 
-    (52) sentencia -> IF factor comparacion factor . LBRACE cuerpo RBRACE
+    (81) sentencia -> IF factor comparacion . factor LBRACE cuerpo RBRACE
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    LBRACE          shift and go to state 54
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-
-state 38
-
-    (5) declararVariable -> VAR ID COLON tipoValue .
-
-    $end            reduce using rule 5 (declararVariable -> VAR ID COLON tipoValue .)
-    RBRACE          reduce using rule 5 (declararVariable -> VAR ID COLON tipoValue .)
-=======
-    (10) declararVariable -> VAR ID COLON . tipoValue
-    (11) declararVariable -> VAR ID COLON . tipo
-    (48) tipoValue -> . STRING_TYPE EQUAL string
-    (49) tipoValue -> . BOOL EQUAL booleano
-    (50) tipoValue -> . INT EQUAL int
-    (51) tipoValue -> . DOUBLE EQUAL double
-    (52) tipoValue -> . ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (53) tipoValue -> . ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (54) tipoValue -> . ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (55) tipoValue -> . ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-    (44) tipo -> . INT
-    (45) tipo -> . DOUBLE
-    (46) tipo -> . BOOL
-    (47) tipo -> . STRING_TYPE
-
-    STRING_TYPE     shift and go to state 46
-    BOOL            shift and go to state 47
-    INT             shift and go to state 48
-    DOUBLE          shift and go to state 49
-    ARRAY           shift and go to state 50
-
-    tipoValue                      shift and go to state 44
-    tipo                           shift and go to state 45
-
-state 37
-
-    (12) declararVariable -> VAR ID EQUAL . value
-    (13) declararVariable -> VAR ID EQUAL . expression
-    (14) value -> . string
-    (15) value -> . booleano
-    (16) value -> . NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (17) value -> . NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (18) value -> . NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (19) value -> . NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-    (20) value -> . ARRAY LPAREN elementosInternos RPAREN
-    (67) expression -> . expression PLUS term
-    (68) expression -> . expression MINUS term
-    (69) expression -> . term
-    (83) string -> . STRING
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (70) term -> . term TIMES factor
-    (71) term -> . term DIVIDE factor
-    (72) term -> . factor
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
-
-    NEW             shift and go to state 55
-    ARRAY           shift and go to state 56
-    STRING          shift and go to state 57
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
-
-    value                          shift and go to state 51
-    expression                     shift and go to state 52
-    string                         shift and go to state 53
-    booleano                       shift and go to state 54
-    term                           shift and go to state 7
-    factor                         shift and go to state 9
+    factor                         shift and go to state 54
 
 state 38
 
-    (64) tuplaSwap -> ID DOT SWAP .
+    (83) comparacion -> GT .
 
-    $end            reduce using rule 64 (tuplaSwap -> ID DOT SWAP .)
-    RBRACE          reduce using rule 64 (tuplaSwap -> ID DOT SWAP .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    INT_NUMBER      reduce using rule 83 (comparacion -> GT .)
+    DOUBLE_NUMBER   reduce using rule 83 (comparacion -> GT .)
 
 
 state 39
 
-<<<<<<< HEAD
-    (6) declararVariable -> VAR ID COLON tipo .
+    (84) comparacion -> GE .
 
-    $end            reduce using rule 6 (declararVariable -> VAR ID COLON tipo .)
-    RBRACE          reduce using rule 6 (declararVariable -> VAR ID COLON tipo .)
-=======
-    (65) tuplaToString -> ID DOT TOSTRING .
-
-    $end            reduce using rule 65 (tuplaToString -> ID DOT TOSTRING .)
-    RBRACE          reduce using rule 65 (tuplaToString -> ID DOT TOSTRING .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    INT_NUMBER      reduce using rule 84 (comparacion -> GE .)
+    DOUBLE_NUMBER   reduce using rule 84 (comparacion -> GE .)
 
 
 state 40
 
-<<<<<<< HEAD
-    (32) tipoValue -> STRING_TYPE . EQUAL string
-    (31) tipo -> STRING_TYPE .
+    (85) comparacion -> LT .
 
-    EQUAL           shift and go to state 55
-    $end            reduce using rule 31 (tipo -> STRING_TYPE .)
-    RBRACE          reduce using rule 31 (tipo -> STRING_TYPE .)
-=======
-    (66) tuplaProductIterator -> ID DOT PRODUCTITERATOR .
-
-    $end            reduce using rule 66 (tuplaProductIterator -> ID DOT PRODUCTITERATOR .)
-    RBRACE          reduce using rule 66 (tuplaProductIterator -> ID DOT PRODUCTITERATOR .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    INT_NUMBER      reduce using rule 85 (comparacion -> LT .)
+    DOUBLE_NUMBER   reduce using rule 85 (comparacion -> LT .)
 
 
 state 41
 
-<<<<<<< HEAD
-    (33) tipoValue -> BOOL . EQUAL booleano
-    (30) tipo -> BOOL .
+    (86) comparacion -> LE .
 
-    EQUAL           shift and go to state 56
-    $end            reduce using rule 30 (tipo -> BOOL .)
-    RBRACE          reduce using rule 30 (tipo -> BOOL .)
+    INT_NUMBER      reduce using rule 86 (comparacion -> LE .)
+    DOUBLE_NUMBER   reduce using rule 86 (comparacion -> LE .)
 
 
 state 42
 
-    (34) tipoValue -> INT . EQUAL int
-    (28) tipo -> INT .
+    (87) comparacion -> EQUAL2 .
 
-    EQUAL           shift and go to state 57
-    $end            reduce using rule 28 (tipo -> INT .)
-    RBRACE          reduce using rule 28 (tipo -> INT .)
+    INT_NUMBER      reduce using rule 87 (comparacion -> EQUAL2 .)
+    DOUBLE_NUMBER   reduce using rule 87 (comparacion -> EQUAL2 .)
 
 
 state 43
 
-    (35) tipoValue -> DOUBLE . EQUAL double
-    (29) tipo -> DOUBLE .
+    (12) declararVariable -> VAR ID COLON . tipoValue
+    (13) declararVariable -> VAR ID COLON . tipo
+    (50) tipoValue -> . STRING_TYPE EQUAL string
+    (51) tipoValue -> . BOOL EQUAL booleano
+    (52) tipoValue -> . INT EQUAL int
+    (53) tipoValue -> . DOUBLE EQUAL double
+    (54) tipoValue -> . ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (55) tipoValue -> . ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (56) tipoValue -> . ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (57) tipoValue -> . ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (46) tipo -> . INT
+    (47) tipo -> . DOUBLE
+    (48) tipo -> . BOOL
+    (49) tipo -> . STRING_TYPE
 
-    EQUAL           shift and go to state 58
-    $end            reduce using rule 29 (tipo -> DOUBLE .)
-    RBRACE          reduce using rule 29 (tipo -> DOUBLE .)
-=======
-    (6) declararConstante -> VAL ID COLON . tipoValueCons
-    (7) declararConstante -> VAL ID COLON . tipo
-    (56) tipoValueCons -> . STRING_TYPE EQUAL string
-    (57) tipoValueCons -> . BOOL EQUAL booleano
-    (58) tipoValueCons -> . INT EQUAL int
-    (59) tipoValueCons -> . DOUBLE EQUAL double
-    (44) tipo -> . INT
-    (45) tipo -> . DOUBLE
-    (46) tipo -> . BOOL
-    (47) tipo -> . STRING_TYPE
+    STRING_TYPE     shift and go to state 57
+    BOOL            shift and go to state 58
+    INT             shift and go to state 59
+    DOUBLE          shift and go to state 60
+    ARRAY           shift and go to state 61
 
-    STRING_TYPE     shift and go to state 62
-    BOOL            shift and go to state 63
-    INT             shift and go to state 64
-    DOUBLE          shift and go to state 65
-
-    tipoValueCons                  shift and go to state 60
-    tipo                           shift and go to state 61
-
-state 42
-
-    (8) declararConstante -> VAL ID EQUAL . valueCons
-    (9) declararConstante -> VAL ID EQUAL . expression
-    (41) valueCons -> . string
-    (42) valueCons -> . booleano
-    (43) valueCons -> . tupla
-    (67) expression -> . expression PLUS term
-    (68) expression -> . expression MINUS term
-    (69) expression -> . term
-    (83) string -> . STRING
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (60) tupla -> . LPAREN elementosInternos2 RPAREN
-    (70) term -> . term TIMES factor
-    (71) term -> . term DIVIDE factor
-    (72) term -> . factor
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
-
-    STRING          shift and go to state 57
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    LPAREN          shift and go to state 71
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
-
-    valueCons                      shift and go to state 66
-    expression                     shift and go to state 67
-    string                         shift and go to state 68
-    booleano                       shift and go to state 69
-    tupla                          shift and go to state 70
-    term                           shift and go to state 7
-    factor                         shift and go to state 9
-
-state 43
-
-    (73) sentencia -> IF factor comparacion factor . LBRACE cuerpo RBRACE
-
-    LBRACE          shift and go to state 72
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    tipoValue                      shift and go to state 55
+    tipo                           shift and go to state 56
 
 state 44
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY . LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (37) tipoValue -> ARRAY . LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (38) tipoValue -> ARRAY . LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (39) tipoValue -> ARRAY . LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (14) declararVariable -> VAR ID EQUAL . value
+    (15) declararVariable -> VAR ID EQUAL . expression
+    (16) value -> . string
+    (17) value -> . booleano
+    (18) value -> . NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (19) value -> . NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (20) value -> . NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (21) value -> . NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (22) value -> . ARRAY LPAREN elementosInternos RPAREN
+    (75) expression -> . expression PLUS term
+    (76) expression -> . expression MINUS term
+    (77) expression -> . term
+    (92) string -> . STRING
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (78) term -> . term TIMES factor
+    (79) term -> . term DIVIDE factor
+    (80) term -> . factor
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    LBRACK          shift and go to state 59
-=======
-    (10) declararVariable -> VAR ID COLON tipoValue .
+    NEW             shift and go to state 66
+    ARRAY           shift and go to state 67
+    STRING          shift and go to state 68
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    $end            reduce using rule 10 (declararVariable -> VAR ID COLON tipoValue .)
-    RBRACE          reduce using rule 10 (declararVariable -> VAR ID COLON tipoValue .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    value                          shift and go to state 62
+    expression                     shift and go to state 63
+    string                         shift and go to state 64
+    booleano                       shift and go to state 65
+    term                           shift and go to state 9
+    factor                         shift and go to state 11
 
 state 45
 
-<<<<<<< HEAD
-    (7) declararVariable -> VAR ID EQUAL value .
+    (66) tuplaSwap -> ID DOT SWAP .
 
-    $end            reduce using rule 7 (declararVariable -> VAR ID EQUAL value .)
-    RBRACE          reduce using rule 7 (declararVariable -> VAR ID EQUAL value .)
-=======
-    (11) declararVariable -> VAR ID COLON tipo .
-
-    $end            reduce using rule 11 (declararVariable -> VAR ID COLON tipo .)
-    RBRACE          reduce using rule 11 (declararVariable -> VAR ID COLON tipo .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 66 (tuplaSwap -> ID DOT SWAP .)
+    RBRACE          reduce using rule 66 (tuplaSwap -> ID DOT SWAP .)
 
 
 state 46
 
-<<<<<<< HEAD
-    (8) declararVariable -> VAR ID EQUAL expression .
-    (46) expression -> expression . PLUS term
-    (47) expression -> expression . MINUS term
+    (67) tuplaToString -> ID DOT TOSTRING . LPAREN RPAREN
 
-    $end            reduce using rule 8 (declararVariable -> VAR ID EQUAL expression .)
-    RBRACE          reduce using rule 8 (declararVariable -> VAR ID EQUAL expression .)
-    PLUS            shift and go to state 16
-    MINUS           shift and go to state 17
-=======
-    (48) tipoValue -> STRING_TYPE . EQUAL string
-    (47) tipo -> STRING_TYPE .
-
-    EQUAL           shift and go to state 73
-    $end            reduce using rule 47 (tipo -> STRING_TYPE .)
-    RBRACE          reduce using rule 47 (tipo -> STRING_TYPE .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    LPAREN          shift and go to state 71
 
 
 state 47
 
-<<<<<<< HEAD
-    (9) value -> string .
+    (68) tuplaProductIterator -> ID DOT PRODUCTITERATOR .
 
-    $end            reduce using rule 9 (value -> string .)
-    RBRACE          reduce using rule 9 (value -> string .)
-=======
-    (49) tipoValue -> BOOL . EQUAL booleano
-    (46) tipo -> BOOL .
-
-    EQUAL           shift and go to state 74
-    $end            reduce using rule 46 (tipo -> BOOL .)
-    RBRACE          reduce using rule 46 (tipo -> BOOL .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 68 (tuplaProductIterator -> ID DOT PRODUCTITERATOR .)
+    RBRACE          reduce using rule 68 (tuplaProductIterator -> ID DOT PRODUCTITERATOR .)
 
 
 state 48
 
-<<<<<<< HEAD
-    (10) value -> booleano .
+    (72) arrayHead -> ID DOT HEAD .
 
-    $end            reduce using rule 10 (value -> booleano .)
-    RBRACE          reduce using rule 10 (value -> booleano .)
-=======
-    (50) tipoValue -> INT . EQUAL int
-    (44) tipo -> INT .
-
-    EQUAL           shift and go to state 75
-    $end            reduce using rule 44 (tipo -> INT .)
-    RBRACE          reduce using rule 44 (tipo -> INT .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 72 (arrayHead -> ID DOT HEAD .)
+    RBRACE          reduce using rule 72 (arrayHead -> ID DOT HEAD .)
 
 
 state 49
 
-<<<<<<< HEAD
-    (11) value -> NEW . ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (12) value -> NEW . ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (13) value -> NEW . ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (14) value -> NEW . ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (73) arrayTail -> ID DOT TAIL .
 
-    ARRAY           shift and go to state 60
-=======
-    (51) tipoValue -> DOUBLE . EQUAL double
-    (45) tipo -> DOUBLE .
-
-    EQUAL           shift and go to state 76
-    $end            reduce using rule 45 (tipo -> DOUBLE .)
-    RBRACE          reduce using rule 45 (tipo -> DOUBLE .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 73 (arrayTail -> ID DOT TAIL .)
+    RBRACE          reduce using rule 73 (arrayTail -> ID DOT TAIL .)
 
 
 state 50
 
-<<<<<<< HEAD
-    (15) value -> ARRAY . LPAREN elementosInternos RPAREN
+    (74) arrayLength -> ID DOT LENGTH .
 
-    LPAREN          shift and go to state 61
-=======
-    (52) tipoValue -> ARRAY . LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (53) tipoValue -> ARRAY . LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (54) tipoValue -> ARRAY . LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (55) tipoValue -> ARRAY . LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-
-    LBRACK          shift and go to state 77
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 74 (arrayLength -> ID DOT LENGTH .)
+    RBRACE          reduce using rule 74 (arrayLength -> ID DOT LENGTH .)
 
 
 state 51
 
-<<<<<<< HEAD
-    (61) string -> STRING .
+    (8) declararConstante -> VAL ID COLON . tipoValueCons
+    (9) declararConstante -> VAL ID COLON . tipo
+    (58) tipoValueCons -> . STRING_TYPE EQUAL string
+    (59) tipoValueCons -> . BOOL EQUAL booleano
+    (60) tipoValueCons -> . INT EQUAL int
+    (61) tipoValueCons -> . DOUBLE EQUAL double
+    (46) tipo -> . INT
+    (47) tipo -> . DOUBLE
+    (48) tipo -> . BOOL
+    (49) tipo -> . STRING_TYPE
 
-    $end            reduce using rule 61 (string -> STRING .)
-    RBRACE          reduce using rule 61 (string -> STRING .)
-    COMMA           reduce using rule 61 (string -> STRING .)
-    RPAREN          reduce using rule 61 (string -> STRING .)
-=======
-    (12) declararVariable -> VAR ID EQUAL value .
+    STRING_TYPE     shift and go to state 74
+    BOOL            shift and go to state 75
+    INT             shift and go to state 76
+    DOUBLE          shift and go to state 77
 
-    $end            reduce using rule 12 (declararVariable -> VAR ID EQUAL value .)
-    RBRACE          reduce using rule 12 (declararVariable -> VAR ID EQUAL value .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    tipoValueCons                  shift and go to state 72
+    tipo                           shift and go to state 73
 
 state 52
 
-<<<<<<< HEAD
-    (59) booleano -> TRUE .
+    (10) declararConstante -> VAL ID EQUAL . valueCons
+    (11) declararConstante -> VAL ID EQUAL . expression
+    (43) valueCons -> . string
+    (44) valueCons -> . booleano
+    (45) valueCons -> . tupla
+    (75) expression -> . expression PLUS term
+    (76) expression -> . expression MINUS term
+    (77) expression -> . term
+    (92) string -> . STRING
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (62) tupla -> . LPAREN elementosInternos2 RPAREN
+    (78) term -> . term TIMES factor
+    (79) term -> . term DIVIDE factor
+    (80) term -> . factor
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    $end            reduce using rule 59 (booleano -> TRUE .)
-    RBRACE          reduce using rule 59 (booleano -> TRUE .)
-    COMMA           reduce using rule 59 (booleano -> TRUE .)
-    RPAREN          reduce using rule 59 (booleano -> TRUE .)
-=======
-    (13) declararVariable -> VAR ID EQUAL expression .
-    (67) expression -> expression . PLUS term
-    (68) expression -> expression . MINUS term
+    STRING          shift and go to state 68
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    LPAREN          shift and go to state 83
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    $end            reduce using rule 13 (declararVariable -> VAR ID EQUAL expression .)
-    RBRACE          reduce using rule 13 (declararVariable -> VAR ID EQUAL expression .)
-    PLUS            shift and go to state 18
-    MINUS           shift and go to state 19
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    valueCons                      shift and go to state 78
+    expression                     shift and go to state 79
+    string                         shift and go to state 80
+    booleano                       shift and go to state 81
+    tupla                          shift and go to state 82
+    term                           shift and go to state 9
+    factor                         shift and go to state 11
 
 state 53
 
-<<<<<<< HEAD
-    (60) booleano -> FALSE .
+    (82) for -> FOR LPAREN RPAREN . LBRACE LBRACE RBRACE
 
-    $end            reduce using rule 60 (booleano -> FALSE .)
-    RBRACE          reduce using rule 60 (booleano -> FALSE .)
-    COMMA           reduce using rule 60 (booleano -> FALSE .)
-    RPAREN          reduce using rule 60 (booleano -> FALSE .)
-=======
-    (14) value -> string .
-
-    $end            reduce using rule 14 (value -> string .)
-    RBRACE          reduce using rule 14 (value -> string .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    LBRACE          shift and go to state 84
 
 
 state 54
 
-<<<<<<< HEAD
-    (52) sentencia -> IF factor comparacion factor LBRACE . cuerpo RBRACE
-    (1) cuerpo -> . expression
-    (2) cuerpo -> . sentencia
-    (3) cuerpo -> . declararVariable
-    (4) cuerpo -> . funcionesArray
-    (46) expression -> . expression PLUS term
-    (47) expression -> . expression MINUS term
-    (48) expression -> . term
-    (52) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
-    (5) declararVariable -> . VAR ID COLON tipoValue
-    (6) declararVariable -> . VAR ID COLON tipo
-    (7) declararVariable -> . VAR ID EQUAL value
-    (8) declararVariable -> . VAR ID EQUAL expression
-    (40) funcionesArray -> . arrayHead
-    (41) funcionesArray -> . arrayTail
-    (42) funcionesArray -> . arrayLength
-    (49) term -> . term TIMES factor
-    (50) term -> . term DIVIDE factor
-    (51) term -> . factor
-    (43) arrayHead -> . ID DOT HEAD
-    (44) arrayTail -> . ID DOT TAIL
-    (45) arrayLength -> . ID DOT LENGTH
-    (57) factor -> . INT_NUMBER
-    (58) factor -> . DOUBLE_NUMBER
+    (81) sentencia -> IF factor comparacion factor . LBRACE cuerpo RBRACE
 
-    IF              shift and go to state 7
-    VAR             shift and go to state 9
-    ID              shift and go to state 10
-    INT_NUMBER      shift and go to state 14
-    DOUBLE_NUMBER   shift and go to state 15
-
-    factor                         shift and go to state 8
-    cuerpo                         shift and go to state 62
-    expression                     shift and go to state 2
-    sentencia                      shift and go to state 3
-    declararVariable               shift and go to state 4
-    funcionesArray                 shift and go to state 5
-    term                           shift and go to state 6
-    arrayHead                      shift and go to state 11
-    arrayTail                      shift and go to state 12
-    arrayLength                    shift and go to state 13
-
-state 55
-
-    (32) tipoValue -> STRING_TYPE EQUAL . string
-    (61) string -> . STRING
-
-    STRING          shift and go to state 51
-=======
-    (15) value -> booleano .
-
-    $end            reduce using rule 15 (value -> booleano .)
-    RBRACE          reduce using rule 15 (value -> booleano .)
+    LBRACE          shift and go to state 85
 
 
 state 55
 
-    (16) value -> NEW . ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (17) value -> NEW . ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (18) value -> NEW . ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (19) value -> NEW . ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (12) declararVariable -> VAR ID COLON tipoValue .
 
-    ARRAY           shift and go to state 78
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 12 (declararVariable -> VAR ID COLON tipoValue .)
+    RBRACE          reduce using rule 12 (declararVariable -> VAR ID COLON tipoValue .)
 
-    string                         shift and go to state 63
 
 state 56
 
-<<<<<<< HEAD
-    (33) tipoValue -> BOOL EQUAL . booleano
-    (59) booleano -> . TRUE
-    (60) booleano -> . FALSE
+    (13) declararVariable -> VAR ID COLON tipo .
 
-    TRUE            shift and go to state 52
-    FALSE           shift and go to state 53
-=======
-    (20) value -> ARRAY . LPAREN elementosInternos RPAREN
+    $end            reduce using rule 13 (declararVariable -> VAR ID COLON tipo .)
+    RBRACE          reduce using rule 13 (declararVariable -> VAR ID COLON tipo .)
 
-    LPAREN          shift and go to state 79
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    booleano                       shift and go to state 64
 
 state 57
 
-<<<<<<< HEAD
-    (34) tipoValue -> INT EQUAL . int
-    (63) int -> . INT_NUMBER
+    (50) tipoValue -> STRING_TYPE . EQUAL string
+    (49) tipo -> STRING_TYPE .
 
-    INT_NUMBER      shift and go to state 66
-=======
-    (83) string -> STRING .
+    EQUAL           shift and go to state 86
+    $end            reduce using rule 49 (tipo -> STRING_TYPE .)
+    RBRACE          reduce using rule 49 (tipo -> STRING_TYPE .)
 
-    $end            reduce using rule 83 (string -> STRING .)
-    RBRACE          reduce using rule 83 (string -> STRING .)
-    COMMA           reduce using rule 83 (string -> STRING .)
-    RPAREN          reduce using rule 83 (string -> STRING .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    int                            shift and go to state 65
 
 state 58
 
-<<<<<<< HEAD
-    (35) tipoValue -> DOUBLE EQUAL . double
-    (62) double -> . DOUBLE_NUMBER
+    (51) tipoValue -> BOOL . EQUAL booleano
+    (48) tipo -> BOOL .
 
-    DOUBLE_NUMBER   shift and go to state 68
-=======
-    (81) booleano -> TRUE .
+    EQUAL           shift and go to state 87
+    $end            reduce using rule 48 (tipo -> BOOL .)
+    RBRACE          reduce using rule 48 (tipo -> BOOL .)
 
-    $end            reduce using rule 81 (booleano -> TRUE .)
-    RBRACE          reduce using rule 81 (booleano -> TRUE .)
-    COMMA           reduce using rule 81 (booleano -> TRUE .)
-    RPAREN          reduce using rule 81 (booleano -> TRUE .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    double                         shift and go to state 67
 
 state 59
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK . INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (37) tipoValue -> ARRAY LBRACK . DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (38) tipoValue -> ARRAY LBRACK . BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (39) tipoValue -> ARRAY LBRACK . STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (52) tipoValue -> INT . EQUAL int
+    (46) tipo -> INT .
 
-    INT             shift and go to state 69
-    DOUBLE          shift and go to state 70
-    BOOL            shift and go to state 71
-    STRING_TYPE     shift and go to state 72
-=======
-    (82) booleano -> FALSE .
-
-    $end            reduce using rule 82 (booleano -> FALSE .)
-    RBRACE          reduce using rule 82 (booleano -> FALSE .)
-    COMMA           reduce using rule 82 (booleano -> FALSE .)
-    RPAREN          reduce using rule 82 (booleano -> FALSE .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    EQUAL           shift and go to state 88
+    $end            reduce using rule 46 (tipo -> INT .)
+    RBRACE          reduce using rule 46 (tipo -> INT .)
 
 
 state 60
 
-<<<<<<< HEAD
-    (11) value -> NEW ARRAY . LBRACK INT RBRACK LPAREN int RPAREN
-    (12) value -> NEW ARRAY . LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (13) value -> NEW ARRAY . LBRACK BOOL RBRACK LPAREN int RPAREN
-    (14) value -> NEW ARRAY . LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (53) tipoValue -> DOUBLE . EQUAL double
+    (47) tipo -> DOUBLE .
 
-    LBRACK          shift and go to state 73
-=======
-    (6) declararConstante -> VAL ID COLON tipoValueCons .
-
-    $end            reduce using rule 6 (declararConstante -> VAL ID COLON tipoValueCons .)
-    RBRACE          reduce using rule 6 (declararConstante -> VAL ID COLON tipoValueCons .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    EQUAL           shift and go to state 89
+    $end            reduce using rule 47 (tipo -> DOUBLE .)
+    RBRACE          reduce using rule 47 (tipo -> DOUBLE .)
 
 
 state 61
 
-<<<<<<< HEAD
-    (15) value -> ARRAY LPAREN . elementosInternos RPAREN
-    (16) elementosInternos -> . elementosInternosInt
-    (17) elementosInternos -> . elementosInternosDouble
-    (18) elementosInternos -> . elementosInternosBool
-    (19) elementosInternos -> . elementosInternosString
-    (20) elementosInternosInt -> . int
-    (21) elementosInternosInt -> . int COMMA elementosInternosInt
-    (22) elementosInternosDouble -> . double
-    (23) elementosInternosDouble -> . double COMMA elementosInternosDouble
-    (24) elementosInternosBool -> . booleano
-    (25) elementosInternosBool -> . booleano COMMA elementosInternosBool
-    (26) elementosInternosString -> . string
-    (27) elementosInternosString -> . string COMMA elementosInternosString
-    (63) int -> . INT_NUMBER
-    (62) double -> . DOUBLE_NUMBER
-    (59) booleano -> . TRUE
-    (60) booleano -> . FALSE
-    (61) string -> . STRING
+    (54) tipoValue -> ARRAY . LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (55) tipoValue -> ARRAY . LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (56) tipoValue -> ARRAY . LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (57) tipoValue -> ARRAY . LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 66
-    DOUBLE_NUMBER   shift and go to state 68
-    TRUE            shift and go to state 52
-    FALSE           shift and go to state 53
-    STRING          shift and go to state 51
-
-    elementosInternos              shift and go to state 74
-    elementosInternosInt           shift and go to state 75
-    elementosInternosDouble        shift and go to state 76
-    elementosInternosBool          shift and go to state 77
-    elementosInternosString        shift and go to state 78
-    int                            shift and go to state 79
-    double                         shift and go to state 80
-    booleano                       shift and go to state 81
-    string                         shift and go to state 82
-
-state 62
-
-    (52) sentencia -> IF factor comparacion factor LBRACE cuerpo . RBRACE
-
-    RBRACE          shift and go to state 83
-=======
-    (7) declararConstante -> VAL ID COLON tipo .
-
-    $end            reduce using rule 7 (declararConstante -> VAL ID COLON tipo .)
-    RBRACE          reduce using rule 7 (declararConstante -> VAL ID COLON tipo .)
+    LBRACK          shift and go to state 90
 
 
 state 62
 
-    (56) tipoValueCons -> STRING_TYPE . EQUAL string
-    (47) tipo -> STRING_TYPE .
+    (14) declararVariable -> VAR ID EQUAL value .
 
-    EQUAL           shift and go to state 80
-    $end            reduce using rule 47 (tipo -> STRING_TYPE .)
-    RBRACE          reduce using rule 47 (tipo -> STRING_TYPE .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 14 (declararVariable -> VAR ID EQUAL value .)
+    RBRACE          reduce using rule 14 (declararVariable -> VAR ID EQUAL value .)
 
 
 state 63
 
-<<<<<<< HEAD
-    (32) tipoValue -> STRING_TYPE EQUAL string .
+    (15) declararVariable -> VAR ID EQUAL expression .
+    (75) expression -> expression . PLUS term
+    (76) expression -> expression . MINUS term
 
-    $end            reduce using rule 32 (tipoValue -> STRING_TYPE EQUAL string .)
-    RBRACE          reduce using rule 32 (tipoValue -> STRING_TYPE EQUAL string .)
-=======
-    (57) tipoValueCons -> BOOL . EQUAL booleano
-    (46) tipo -> BOOL .
-
-    EQUAL           shift and go to state 81
-    $end            reduce using rule 46 (tipo -> BOOL .)
-    RBRACE          reduce using rule 46 (tipo -> BOOL .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 15 (declararVariable -> VAR ID EQUAL expression .)
+    RBRACE          reduce using rule 15 (declararVariable -> VAR ID EQUAL expression .)
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
 
 
 state 64
 
-<<<<<<< HEAD
-    (33) tipoValue -> BOOL EQUAL booleano .
+    (16) value -> string .
 
-    $end            reduce using rule 33 (tipoValue -> BOOL EQUAL booleano .)
-    RBRACE          reduce using rule 33 (tipoValue -> BOOL EQUAL booleano .)
-=======
-    (58) tipoValueCons -> INT . EQUAL int
-    (44) tipo -> INT .
-
-    EQUAL           shift and go to state 82
-    $end            reduce using rule 44 (tipo -> INT .)
-    RBRACE          reduce using rule 44 (tipo -> INT .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 16 (value -> string .)
+    RBRACE          reduce using rule 16 (value -> string .)
 
 
 state 65
 
-<<<<<<< HEAD
-    (34) tipoValue -> INT EQUAL int .
+    (17) value -> booleano .
 
-    $end            reduce using rule 34 (tipoValue -> INT EQUAL int .)
-    RBRACE          reduce using rule 34 (tipoValue -> INT EQUAL int .)
-=======
-    (59) tipoValueCons -> DOUBLE . EQUAL double
-    (45) tipo -> DOUBLE .
-
-    EQUAL           shift and go to state 83
-    $end            reduce using rule 45 (tipo -> DOUBLE .)
-    RBRACE          reduce using rule 45 (tipo -> DOUBLE .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 17 (value -> booleano .)
+    RBRACE          reduce using rule 17 (value -> booleano .)
 
 
 state 66
 
-<<<<<<< HEAD
-    (63) int -> INT_NUMBER .
+    (18) value -> NEW . ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (19) value -> NEW . ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (20) value -> NEW . ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (21) value -> NEW . ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    $end            reduce using rule 63 (int -> INT_NUMBER .)
-    RBRACE          reduce using rule 63 (int -> INT_NUMBER .)
-    COMMA           reduce using rule 63 (int -> INT_NUMBER .)
-    RPAREN          reduce using rule 63 (int -> INT_NUMBER .)
-=======
-    (8) declararConstante -> VAL ID EQUAL valueCons .
-
-    $end            reduce using rule 8 (declararConstante -> VAL ID EQUAL valueCons .)
-    RBRACE          reduce using rule 8 (declararConstante -> VAL ID EQUAL valueCons .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    ARRAY           shift and go to state 91
 
 
 state 67
 
-<<<<<<< HEAD
-    (35) tipoValue -> DOUBLE EQUAL double .
+    (22) value -> ARRAY . LPAREN elementosInternos RPAREN
 
-    $end            reduce using rule 35 (tipoValue -> DOUBLE EQUAL double .)
-    RBRACE          reduce using rule 35 (tipoValue -> DOUBLE EQUAL double .)
-=======
-    (9) declararConstante -> VAL ID EQUAL expression .
-    (67) expression -> expression . PLUS term
-    (68) expression -> expression . MINUS term
-
-    $end            reduce using rule 9 (declararConstante -> VAL ID EQUAL expression .)
-    RBRACE          reduce using rule 9 (declararConstante -> VAL ID EQUAL expression .)
-    PLUS            shift and go to state 18
-    MINUS           shift and go to state 19
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    LPAREN          shift and go to state 92
 
 
 state 68
 
-<<<<<<< HEAD
-    (62) double -> DOUBLE_NUMBER .
+    (92) string -> STRING .
 
-    $end            reduce using rule 62 (double -> DOUBLE_NUMBER .)
-    RBRACE          reduce using rule 62 (double -> DOUBLE_NUMBER .)
-    COMMA           reduce using rule 62 (double -> DOUBLE_NUMBER .)
-    RPAREN          reduce using rule 62 (double -> DOUBLE_NUMBER .)
-=======
-    (41) valueCons -> string .
-
-    $end            reduce using rule 41 (valueCons -> string .)
-    RBRACE          reduce using rule 41 (valueCons -> string .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 92 (string -> STRING .)
+    RBRACE          reduce using rule 92 (string -> STRING .)
+    COMMA           reduce using rule 92 (string -> STRING .)
+    RPAREN          reduce using rule 92 (string -> STRING .)
 
 
 state 69
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT . RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (90) booleano -> TRUE .
 
-    RBRACK          shift and go to state 84
-=======
-    (42) valueCons -> booleano .
-
-    $end            reduce using rule 42 (valueCons -> booleano .)
-    RBRACE          reduce using rule 42 (valueCons -> booleano .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 90 (booleano -> TRUE .)
+    RBRACE          reduce using rule 90 (booleano -> TRUE .)
+    COMMA           reduce using rule 90 (booleano -> TRUE .)
+    RPAREN          reduce using rule 90 (booleano -> TRUE .)
 
 
 state 70
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE . RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (91) booleano -> FALSE .
 
-    RBRACK          shift and go to state 85
-=======
-    (43) valueCons -> tupla .
-
-    $end            reduce using rule 43 (valueCons -> tupla .)
-    RBRACE          reduce using rule 43 (valueCons -> tupla .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 91 (booleano -> FALSE .)
+    RBRACE          reduce using rule 91 (booleano -> FALSE .)
+    COMMA           reduce using rule 91 (booleano -> FALSE .)
+    RPAREN          reduce using rule 91 (booleano -> FALSE .)
 
 
 state 71
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL . RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (67) tuplaToString -> ID DOT TOSTRING LPAREN . RPAREN
 
-    RBRACK          shift and go to state 86
+    RPAREN          shift and go to state 93
 
 
 state 72
 
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE . RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (8) declararConstante -> VAL ID COLON tipoValueCons .
 
-    RBRACK          shift and go to state 87
+    $end            reduce using rule 8 (declararConstante -> VAL ID COLON tipoValueCons .)
+    RBRACE          reduce using rule 8 (declararConstante -> VAL ID COLON tipoValueCons .)
 
 
 state 73
 
-    (11) value -> NEW ARRAY LBRACK . INT RBRACK LPAREN int RPAREN
-    (12) value -> NEW ARRAY LBRACK . DOUBLE RBRACK LPAREN int RPAREN
-    (13) value -> NEW ARRAY LBRACK . BOOL RBRACK LPAREN int RPAREN
-    (14) value -> NEW ARRAY LBRACK . STRING_TYPE RBRACK LPAREN int RPAREN
+    (9) declararConstante -> VAL ID COLON tipo .
 
-    INT             shift and go to state 88
-    DOUBLE          shift and go to state 89
-    BOOL            shift and go to state 90
-    STRING_TYPE     shift and go to state 91
+    $end            reduce using rule 9 (declararConstante -> VAL ID COLON tipo .)
+    RBRACE          reduce using rule 9 (declararConstante -> VAL ID COLON tipo .)
 
 
 state 74
 
-    (15) value -> ARRAY LPAREN elementosInternos . RPAREN
+    (58) tipoValueCons -> STRING_TYPE . EQUAL string
+    (49) tipo -> STRING_TYPE .
 
-    RPAREN          shift and go to state 92
-=======
-    (60) tupla -> LPAREN . elementosInternos2 RPAREN
-    (33) elementosInternos2 -> . int
-    (34) elementosInternos2 -> . double
-    (35) elementosInternos2 -> . booleano
-    (36) elementosInternos2 -> . string
-    (37) elementosInternos2 -> . int COMMA elementosInternos2
-    (38) elementosInternos2 -> . double COMMA elementosInternos2
-    (39) elementosInternos2 -> . booleano COMMA elementosInternos2
-    (40) elementosInternos2 -> . string COMMA elementosInternos2
-    (85) int -> . INT_NUMBER
-    (84) double -> . DOUBLE_NUMBER
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (83) string -> . STRING
+    EQUAL           shift and go to state 94
+    $end            reduce using rule 49 (tipo -> STRING_TYPE .)
+    RBRACE          reduce using rule 49 (tipo -> STRING_TYPE .)
 
-    INT_NUMBER      shift and go to state 89
-    DOUBLE_NUMBER   shift and go to state 90
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    STRING          shift and go to state 57
 
-    elementosInternos2             shift and go to state 84
-    int                            shift and go to state 85
-    double                         shift and go to state 86
-    booleano                       shift and go to state 87
-    string                         shift and go to state 88
+state 75
 
-state 72
+    (59) tipoValueCons -> BOOL . EQUAL booleano
+    (48) tipo -> BOOL .
 
-    (73) sentencia -> IF factor comparacion factor LBRACE . cuerpo RBRACE
+    EQUAL           shift and go to state 95
+    $end            reduce using rule 48 (tipo -> BOOL .)
+    RBRACE          reduce using rule 48 (tipo -> BOOL .)
+
+
+state 76
+
+    (60) tipoValueCons -> INT . EQUAL int
+    (46) tipo -> INT .
+
+    EQUAL           shift and go to state 96
+    $end            reduce using rule 46 (tipo -> INT .)
+    RBRACE          reduce using rule 46 (tipo -> INT .)
+
+
+state 77
+
+    (61) tipoValueCons -> DOUBLE . EQUAL double
+    (47) tipo -> DOUBLE .
+
+    EQUAL           shift and go to state 97
+    $end            reduce using rule 47 (tipo -> DOUBLE .)
+    RBRACE          reduce using rule 47 (tipo -> DOUBLE .)
+
+
+state 78
+
+    (10) declararConstante -> VAL ID EQUAL valueCons .
+
+    $end            reduce using rule 10 (declararConstante -> VAL ID EQUAL valueCons .)
+    RBRACE          reduce using rule 10 (declararConstante -> VAL ID EQUAL valueCons .)
+
+
+state 79
+
+    (11) declararConstante -> VAL ID EQUAL expression .
+    (75) expression -> expression . PLUS term
+    (76) expression -> expression . MINUS term
+
+    $end            reduce using rule 11 (declararConstante -> VAL ID EQUAL expression .)
+    RBRACE          reduce using rule 11 (declararConstante -> VAL ID EQUAL expression .)
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
+
+
+state 80
+
+    (43) valueCons -> string .
+
+    $end            reduce using rule 43 (valueCons -> string .)
+    RBRACE          reduce using rule 43 (valueCons -> string .)
+
+
+state 81
+
+    (44) valueCons -> booleano .
+
+    $end            reduce using rule 44 (valueCons -> booleano .)
+    RBRACE          reduce using rule 44 (valueCons -> booleano .)
+
+
+state 82
+
+    (45) valueCons -> tupla .
+
+    $end            reduce using rule 45 (valueCons -> tupla .)
+    RBRACE          reduce using rule 45 (valueCons -> tupla .)
+
+
+state 83
+
+    (62) tupla -> LPAREN . elementosInternos2 RPAREN
+    (35) elementosInternos2 -> . int
+    (36) elementosInternos2 -> . double
+    (37) elementosInternos2 -> . booleano
+    (38) elementosInternos2 -> . string
+    (39) elementosInternos2 -> . int COMMA elementosInternos2
+    (40) elementosInternos2 -> . double COMMA elementosInternos2
+    (41) elementosInternos2 -> . booleano COMMA elementosInternos2
+    (42) elementosInternos2 -> . string COMMA elementosInternos2
+    (94) int -> . INT_NUMBER
+    (93) double -> . DOUBLE_NUMBER
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (92) string -> . STRING
+
+    INT_NUMBER      shift and go to state 103
+    DOUBLE_NUMBER   shift and go to state 104
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    STRING          shift and go to state 68
+
+    elementosInternos2             shift and go to state 98
+    int                            shift and go to state 99
+    double                         shift and go to state 100
+    booleano                       shift and go to state 101
+    string                         shift and go to state 102
+
+state 84
+
+    (82) for -> FOR LPAREN RPAREN LBRACE . LBRACE RBRACE
+
+    LBRACE          shift and go to state 105
+
+
+state 85
+
+    (81) sentencia -> IF factor comparacion factor LBRACE . cuerpo RBRACE
     (1) cuerpo -> . expression
     (2) cuerpo -> . sentencia
     (3) cuerpo -> . declararVariable
     (4) cuerpo -> . declararConstante
     (5) cuerpo -> . funcionesTupla
-    (67) expression -> . expression PLUS term
-    (68) expression -> . expression MINUS term
-    (69) expression -> . term
-    (73) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
-    (10) declararVariable -> . VAR ID COLON tipoValue
-    (11) declararVariable -> . VAR ID COLON tipo
-    (12) declararVariable -> . VAR ID EQUAL value
-    (13) declararVariable -> . VAR ID EQUAL expression
-    (6) declararConstante -> . VAL ID COLON tipoValueCons
-    (7) declararConstante -> . VAL ID COLON tipo
-    (8) declararConstante -> . VAL ID EQUAL valueCons
-    (9) declararConstante -> . VAL ID EQUAL expression
-    (61) funcionesTupla -> . tuplaSwap
-    (62) funcionesTupla -> . tuplaToString
-    (63) funcionesTupla -> . tuplaProductIterator
-    (70) term -> . term TIMES factor
-    (71) term -> . term DIVIDE factor
-    (72) term -> . factor
-    (64) tuplaSwap -> . ID DOT SWAP
-    (65) tuplaToString -> . ID DOT TOSTRING
-    (66) tuplaProductIterator -> . ID DOT PRODUCTITERATOR
-    (79) factor -> . INT_NUMBER
-    (80) factor -> . DOUBLE_NUMBER
+    (6) cuerpo -> . funcionesArray
+    (7) cuerpo -> . for
+    (75) expression -> . expression PLUS term
+    (76) expression -> . expression MINUS term
+    (77) expression -> . term
+    (81) sentencia -> . IF factor comparacion factor LBRACE cuerpo RBRACE
+    (12) declararVariable -> . VAR ID COLON tipoValue
+    (13) declararVariable -> . VAR ID COLON tipo
+    (14) declararVariable -> . VAR ID EQUAL value
+    (15) declararVariable -> . VAR ID EQUAL expression
+    (8) declararConstante -> . VAL ID COLON tipoValueCons
+    (9) declararConstante -> . VAL ID COLON tipo
+    (10) declararConstante -> . VAL ID EQUAL valueCons
+    (11) declararConstante -> . VAL ID EQUAL expression
+    (63) funcionesTupla -> . tuplaSwap
+    (64) funcionesTupla -> . tuplaToString
+    (65) funcionesTupla -> . tuplaProductIterator
+    (69) funcionesArray -> . arrayHead
+    (70) funcionesArray -> . arrayTail
+    (71) funcionesArray -> . arrayLength
+    (82) for -> . FOR LPAREN RPAREN LBRACE LBRACE RBRACE
+    (78) term -> . term TIMES factor
+    (79) term -> . term DIVIDE factor
+    (80) term -> . factor
+    (66) tuplaSwap -> . ID DOT SWAP
+    (67) tuplaToString -> . ID DOT TOSTRING LPAREN RPAREN
+    (68) tuplaProductIterator -> . ID DOT PRODUCTITERATOR
+    (72) arrayHead -> . ID DOT HEAD
+    (73) arrayTail -> . ID DOT TAIL
+    (74) arrayLength -> . ID DOT LENGTH
+    (88) factor -> . INT_NUMBER
+    (89) factor -> . DOUBLE_NUMBER
 
-    IF              shift and go to state 8
-    VAR             shift and go to state 10
-    VAL             shift and go to state 12
-    ID              shift and go to state 11
-    INT_NUMBER      shift and go to state 16
-    DOUBLE_NUMBER   shift and go to state 17
+    IF              shift and go to state 10
+    VAR             shift and go to state 12
+    VAL             shift and go to state 14
+    FOR             shift and go to state 21
+    ID              shift and go to state 13
+    INT_NUMBER      shift and go to state 22
+    DOUBLE_NUMBER   shift and go to state 23
 
-    factor                         shift and go to state 9
-    cuerpo                         shift and go to state 91
+    factor                         shift and go to state 11
+    cuerpo                         shift and go to state 106
     expression                     shift and go to state 2
     sentencia                      shift and go to state 3
     declararVariable               shift and go to state 4
     declararConstante              shift and go to state 5
     funcionesTupla                 shift and go to state 6
-    term                           shift and go to state 7
-    tuplaSwap                      shift and go to state 13
-    tuplaToString                  shift and go to state 14
-    tuplaProductIterator           shift and go to state 15
-
-state 73
-
-    (48) tipoValue -> STRING_TYPE EQUAL . string
-    (83) string -> . STRING
-
-    STRING          shift and go to state 57
-
-    string                         shift and go to state 92
-
-state 74
-
-    (49) tipoValue -> BOOL EQUAL . booleano
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    booleano                       shift and go to state 93
-
-state 75
-
-<<<<<<< HEAD
-    (16) elementosInternos -> elementosInternosInt .
-
-    RPAREN          reduce using rule 16 (elementosInternos -> elementosInternosInt .)
-=======
-    (50) tipoValue -> INT EQUAL . int
-    (85) int -> . INT_NUMBER
-
-    INT_NUMBER      shift and go to state 89
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    int                            shift and go to state 94
-
-state 76
-
-<<<<<<< HEAD
-    (17) elementosInternos -> elementosInternosDouble .
-
-    RPAREN          reduce using rule 17 (elementosInternos -> elementosInternosDouble .)
-=======
-    (51) tipoValue -> DOUBLE EQUAL . double
-    (84) double -> . DOUBLE_NUMBER
-
-    DOUBLE_NUMBER   shift and go to state 90
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    double                         shift and go to state 95
-
-state 77
-
-<<<<<<< HEAD
-    (18) elementosInternos -> elementosInternosBool .
-
-    RPAREN          reduce using rule 18 (elementosInternos -> elementosInternosBool .)
-=======
-    (52) tipoValue -> ARRAY LBRACK . INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-    (53) tipoValue -> ARRAY LBRACK . DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (54) tipoValue -> ARRAY LBRACK . BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-    (55) tipoValue -> ARRAY LBRACK . STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-
-    INT             shift and go to state 96
-    DOUBLE          shift and go to state 97
-    BOOL            shift and go to state 98
-    STRING_TYPE     shift and go to state 99
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-
-state 78
-
-<<<<<<< HEAD
-    (19) elementosInternos -> elementosInternosString .
-
-    RPAREN          reduce using rule 19 (elementosInternos -> elementosInternosString .)
-=======
-    (16) value -> NEW ARRAY . LBRACK INT RBRACK LPAREN int RPAREN
-    (17) value -> NEW ARRAY . LBRACK DOUBLE RBRACK LPAREN int RPAREN
-    (18) value -> NEW ARRAY . LBRACK BOOL RBRACK LPAREN int RPAREN
-    (19) value -> NEW ARRAY . LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-
-    LBRACK          shift and go to state 100
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-
-state 79
-
-<<<<<<< HEAD
-    (20) elementosInternosInt -> int .
-    (21) elementosInternosInt -> int . COMMA elementosInternosInt
-
-    RPAREN          reduce using rule 20 (elementosInternosInt -> int .)
-    COMMA           shift and go to state 93
-
-
-state 80
-
-    (22) elementosInternosDouble -> double .
-    (23) elementosInternosDouble -> double . COMMA elementosInternosDouble
-
-    RPAREN          reduce using rule 22 (elementosInternosDouble -> double .)
-    COMMA           shift and go to state 94
-=======
-    (20) value -> ARRAY LPAREN . elementosInternos RPAREN
-    (21) elementosInternos -> . elementosInternosInt
-    (22) elementosInternos -> . elementosInternosDouble
-    (23) elementosInternos -> . elementosInternosBool
-    (24) elementosInternos -> . elementosInternosString
-    (25) elementosInternosInt -> . int
-    (26) elementosInternosInt -> . int COMMA elementosInternosInt
-    (27) elementosInternosDouble -> . double
-    (28) elementosInternosDouble -> . double COMMA elementosInternosDouble
-    (29) elementosInternosBool -> . booleano
-    (30) elementosInternosBool -> . booleano COMMA elementosInternosBool
-    (31) elementosInternosString -> . string
-    (32) elementosInternosString -> . string COMMA elementosInternosString
-    (85) int -> . INT_NUMBER
-    (84) double -> . DOUBLE_NUMBER
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (83) string -> . STRING
-
-    INT_NUMBER      shift and go to state 89
-    DOUBLE_NUMBER   shift and go to state 90
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    STRING          shift and go to state 57
-
-    elementosInternos              shift and go to state 101
-    elementosInternosInt           shift and go to state 102
-    elementosInternosDouble        shift and go to state 103
-    elementosInternosBool          shift and go to state 104
-    elementosInternosString        shift and go to state 105
-    int                            shift and go to state 106
-    double                         shift and go to state 107
-    booleano                       shift and go to state 108
-    string                         shift and go to state 109
-
-state 80
-
-    (56) tipoValueCons -> STRING_TYPE EQUAL . string
-    (83) string -> . STRING
-
-    STRING          shift and go to state 57
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    string                         shift and go to state 110
-
-state 81
-
-<<<<<<< HEAD
-    (24) elementosInternosBool -> booleano .
-    (25) elementosInternosBool -> booleano . COMMA elementosInternosBool
-
-    RPAREN          reduce using rule 24 (elementosInternosBool -> booleano .)
-    COMMA           shift and go to state 95
-=======
-    (57) tipoValueCons -> BOOL EQUAL . booleano
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    booleano                       shift and go to state 111
-
-state 82
-
-<<<<<<< HEAD
-    (26) elementosInternosString -> string .
-    (27) elementosInternosString -> string . COMMA elementosInternosString
-
-    RPAREN          reduce using rule 26 (elementosInternosString -> string .)
-    COMMA           shift and go to state 96
-=======
-    (58) tipoValueCons -> INT EQUAL . int
-    (85) int -> . INT_NUMBER
-
-    INT_NUMBER      shift and go to state 89
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    int                            shift and go to state 112
-
-state 83
-
-<<<<<<< HEAD
-    (52) sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .
-
-    $end            reduce using rule 52 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
-    RBRACE          reduce using rule 52 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
-=======
-    (59) tipoValueCons -> DOUBLE EQUAL . double
-    (84) double -> . DOUBLE_NUMBER
-
-    DOUBLE_NUMBER   shift and go to state 90
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    double                         shift and go to state 113
-
-state 84
-
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK . EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-
-    EQUAL           shift and go to state 97
-=======
-    (60) tupla -> LPAREN elementosInternos2 . RPAREN
-
-    RPAREN          shift and go to state 114
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-
-state 85
-
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK . EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-
-    EQUAL           shift and go to state 98
-=======
-    (33) elementosInternos2 -> int .
-    (37) elementosInternos2 -> int . COMMA elementosInternos2
-
-    RPAREN          reduce using rule 33 (elementosInternos2 -> int .)
-    COMMA           shift and go to state 115
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    funcionesArray                 shift and go to state 7
+    for                            shift and go to state 8
+    term                           shift and go to state 9
+    tuplaSwap                      shift and go to state 15
+    tuplaToString                  shift and go to state 16
+    tuplaProductIterator           shift and go to state 17
+    arrayHead                      shift and go to state 18
+    arrayTail                      shift and go to state 19
+    arrayLength                    shift and go to state 20
 
 state 86
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK . EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (50) tipoValue -> STRING_TYPE EQUAL . string
+    (92) string -> . STRING
 
-    EQUAL           shift and go to state 99
-=======
-    (34) elementosInternos2 -> double .
-    (38) elementosInternos2 -> double . COMMA elementosInternos2
+    STRING          shift and go to state 68
 
-    RPAREN          reduce using rule 34 (elementosInternos2 -> double .)
-    COMMA           shift and go to state 116
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    string                         shift and go to state 107
 
 state 87
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK . EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (51) tipoValue -> BOOL EQUAL . booleano
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
 
-    EQUAL           shift and go to state 100
-=======
-    (35) elementosInternos2 -> booleano .
-    (39) elementosInternos2 -> booleano . COMMA elementosInternos2
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
 
-    RPAREN          reduce using rule 35 (elementosInternos2 -> booleano .)
-    COMMA           shift and go to state 117
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    booleano                       shift and go to state 108
 
 state 88
 
-<<<<<<< HEAD
-    (11) value -> NEW ARRAY LBRACK INT . RBRACK LPAREN int RPAREN
+    (52) tipoValue -> INT EQUAL . int
+    (94) int -> . INT_NUMBER
 
-    RBRACK          shift and go to state 101
-=======
-    (36) elementosInternos2 -> string .
-    (40) elementosInternos2 -> string . COMMA elementosInternos2
+    INT_NUMBER      shift and go to state 103
 
-    RPAREN          reduce using rule 36 (elementosInternos2 -> string .)
-    COMMA           shift and go to state 118
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    int                            shift and go to state 109
 
 state 89
 
-<<<<<<< HEAD
-    (12) value -> NEW ARRAY LBRACK DOUBLE . RBRACK LPAREN int RPAREN
+    (53) tipoValue -> DOUBLE EQUAL . double
+    (93) double -> . DOUBLE_NUMBER
 
-    RBRACK          shift and go to state 102
-=======
-    (85) int -> INT_NUMBER .
+    DOUBLE_NUMBER   shift and go to state 104
 
-    COMMA           reduce using rule 85 (int -> INT_NUMBER .)
-    RPAREN          reduce using rule 85 (int -> INT_NUMBER .)
-    $end            reduce using rule 85 (int -> INT_NUMBER .)
-    RBRACE          reduce using rule 85 (int -> INT_NUMBER .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    double                         shift and go to state 110
 
 state 90
 
-<<<<<<< HEAD
-    (13) value -> NEW ARRAY LBRACK BOOL . RBRACK LPAREN int RPAREN
+    (54) tipoValue -> ARRAY LBRACK . INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (55) tipoValue -> ARRAY LBRACK . DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (56) tipoValue -> ARRAY LBRACK . BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (57) tipoValue -> ARRAY LBRACK . STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    RBRACK          shift and go to state 103
-=======
-    (84) double -> DOUBLE_NUMBER .
-
-    COMMA           reduce using rule 84 (double -> DOUBLE_NUMBER .)
-    RPAREN          reduce using rule 84 (double -> DOUBLE_NUMBER .)
-    $end            reduce using rule 84 (double -> DOUBLE_NUMBER .)
-    RBRACE          reduce using rule 84 (double -> DOUBLE_NUMBER .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    INT             shift and go to state 111
+    DOUBLE          shift and go to state 112
+    BOOL            shift and go to state 113
+    STRING_TYPE     shift and go to state 114
 
 
 state 91
 
-<<<<<<< HEAD
-    (14) value -> NEW ARRAY LBRACK STRING_TYPE . RBRACK LPAREN int RPAREN
+    (18) value -> NEW ARRAY . LBRACK INT RBRACK LPAREN int RPAREN
+    (19) value -> NEW ARRAY . LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (20) value -> NEW ARRAY . LBRACK BOOL RBRACK LPAREN int RPAREN
+    (21) value -> NEW ARRAY . LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    RBRACK          shift and go to state 104
-=======
-    (73) sentencia -> IF factor comparacion factor LBRACE cuerpo . RBRACE
-
-    RBRACE          shift and go to state 119
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    LBRACK          shift and go to state 115
 
 
 state 92
 
-<<<<<<< HEAD
-    (15) value -> ARRAY LPAREN elementosInternos RPAREN .
+    (22) value -> ARRAY LPAREN . elementosInternos RPAREN
+    (23) elementosInternos -> . elementosInternosInt
+    (24) elementosInternos -> . elementosInternosDouble
+    (25) elementosInternos -> . elementosInternosBool
+    (26) elementosInternos -> . elementosInternosString
+    (27) elementosInternosInt -> . int
+    (28) elementosInternosInt -> . int COMMA elementosInternosInt
+    (29) elementosInternosDouble -> . double
+    (30) elementosInternosDouble -> . double COMMA elementosInternosDouble
+    (31) elementosInternosBool -> . booleano
+    (32) elementosInternosBool -> . booleano COMMA elementosInternosBool
+    (33) elementosInternosString -> . string
+    (34) elementosInternosString -> . string COMMA elementosInternosString
+    (94) int -> . INT_NUMBER
+    (93) double -> . DOUBLE_NUMBER
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (92) string -> . STRING
 
-    $end            reduce using rule 15 (value -> ARRAY LPAREN elementosInternos RPAREN .)
-    RBRACE          reduce using rule 15 (value -> ARRAY LPAREN elementosInternos RPAREN .)
-=======
-    (48) tipoValue -> STRING_TYPE EQUAL string .
+    INT_NUMBER      shift and go to state 103
+    DOUBLE_NUMBER   shift and go to state 104
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    STRING          shift and go to state 68
 
-    $end            reduce using rule 48 (tipoValue -> STRING_TYPE EQUAL string .)
-    RBRACE          reduce using rule 48 (tipoValue -> STRING_TYPE EQUAL string .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    elementosInternos              shift and go to state 116
+    elementosInternosInt           shift and go to state 117
+    elementosInternosDouble        shift and go to state 118
+    elementosInternosBool          shift and go to state 119
+    elementosInternosString        shift and go to state 120
+    int                            shift and go to state 121
+    double                         shift and go to state 122
+    booleano                       shift and go to state 123
+    string                         shift and go to state 124
 
 state 93
 
-<<<<<<< HEAD
-    (21) elementosInternosInt -> int COMMA . elementosInternosInt
-    (20) elementosInternosInt -> . int
-    (21) elementosInternosInt -> . int COMMA elementosInternosInt
-    (63) int -> . INT_NUMBER
+    (67) tuplaToString -> ID DOT TOSTRING LPAREN RPAREN .
 
-    INT_NUMBER      shift and go to state 66
-
-    int                            shift and go to state 79
-    elementosInternosInt           shift and go to state 105
-
-state 94
-
-    (23) elementosInternosDouble -> double COMMA . elementosInternosDouble
-    (22) elementosInternosDouble -> . double
-    (23) elementosInternosDouble -> . double COMMA elementosInternosDouble
-    (62) double -> . DOUBLE_NUMBER
-
-    DOUBLE_NUMBER   shift and go to state 68
-=======
-    (49) tipoValue -> BOOL EQUAL booleano .
-
-    $end            reduce using rule 49 (tipoValue -> BOOL EQUAL booleano .)
-    RBRACE          reduce using rule 49 (tipoValue -> BOOL EQUAL booleano .)
+    $end            reduce using rule 67 (tuplaToString -> ID DOT TOSTRING LPAREN RPAREN .)
+    RBRACE          reduce using rule 67 (tuplaToString -> ID DOT TOSTRING LPAREN RPAREN .)
 
 
 state 94
 
-    (50) tipoValue -> INT EQUAL int .
+    (58) tipoValueCons -> STRING_TYPE EQUAL . string
+    (92) string -> . STRING
 
-    $end            reduce using rule 50 (tipoValue -> INT EQUAL int .)
-    RBRACE          reduce using rule 50 (tipoValue -> INT EQUAL int .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    STRING          shift and go to state 68
 
-    double                         shift and go to state 80
-    elementosInternosDouble        shift and go to state 106
+    string                         shift and go to state 125
 
 state 95
 
-<<<<<<< HEAD
-    (25) elementosInternosBool -> booleano COMMA . elementosInternosBool
-    (24) elementosInternosBool -> . booleano
-    (25) elementosInternosBool -> . booleano COMMA elementosInternosBool
-    (59) booleano -> . TRUE
-    (60) booleano -> . FALSE
+    (59) tipoValueCons -> BOOL EQUAL . booleano
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
 
-    TRUE            shift and go to state 52
-    FALSE           shift and go to state 53
-=======
-    (51) tipoValue -> DOUBLE EQUAL double .
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
 
-    $end            reduce using rule 51 (tipoValue -> DOUBLE EQUAL double .)
-    RBRACE          reduce using rule 51 (tipoValue -> DOUBLE EQUAL double .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    booleano                       shift and go to state 81
-    elementosInternosBool          shift and go to state 107
+    booleano                       shift and go to state 126
 
 state 96
 
-<<<<<<< HEAD
-    (27) elementosInternosString -> string COMMA . elementosInternosString
-    (26) elementosInternosString -> . string
-    (27) elementosInternosString -> . string COMMA elementosInternosString
-    (61) string -> . STRING
+    (60) tipoValueCons -> INT EQUAL . int
+    (94) int -> . INT_NUMBER
 
-    STRING          shift and go to state 51
-=======
-    (52) tipoValue -> ARRAY LBRACK INT . RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    INT_NUMBER      shift and go to state 103
 
-    RBRACK          shift and go to state 120
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    string                         shift and go to state 82
-    elementosInternosString        shift and go to state 108
+    int                            shift and go to state 127
 
 state 97
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL . NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (61) tipoValueCons -> DOUBLE EQUAL . double
+    (93) double -> . DOUBLE_NUMBER
 
-    NEW             shift and go to state 109
-=======
-    (53) tipoValue -> ARRAY LBRACK DOUBLE . RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    DOUBLE_NUMBER   shift and go to state 104
 
-    RBRACK          shift and go to state 121
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    double                         shift and go to state 128
 
 state 98
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL . NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (62) tupla -> LPAREN elementosInternos2 . RPAREN
 
-    NEW             shift and go to state 110
-=======
-    (54) tipoValue -> ARRAY LBRACK BOOL . RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-
-    RBRACK          shift and go to state 122
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          shift and go to state 129
 
 
 state 99
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL . NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (35) elementosInternos2 -> int .
+    (39) elementosInternos2 -> int . COMMA elementosInternos2
 
-    NEW             shift and go to state 111
-=======
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE . RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-
-    RBRACK          shift and go to state 123
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 35 (elementosInternos2 -> int .)
+    COMMA           shift and go to state 130
 
 
 state 100
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL . NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (36) elementosInternos2 -> double .
+    (40) elementosInternos2 -> double . COMMA elementosInternos2
 
-    NEW             shift and go to state 112
-=======
-    (16) value -> NEW ARRAY LBRACK . INT RBRACK LPAREN int RPAREN
-    (17) value -> NEW ARRAY LBRACK . DOUBLE RBRACK LPAREN int RPAREN
-    (18) value -> NEW ARRAY LBRACK . BOOL RBRACK LPAREN int RPAREN
-    (19) value -> NEW ARRAY LBRACK . STRING_TYPE RBRACK LPAREN int RPAREN
-
-    INT             shift and go to state 124
-    DOUBLE          shift and go to state 125
-    BOOL            shift and go to state 126
-    STRING_TYPE     shift and go to state 127
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 36 (elementosInternos2 -> double .)
+    COMMA           shift and go to state 131
 
 
 state 101
 
-<<<<<<< HEAD
-    (11) value -> NEW ARRAY LBRACK INT RBRACK . LPAREN int RPAREN
+    (37) elementosInternos2 -> booleano .
+    (41) elementosInternos2 -> booleano . COMMA elementosInternos2
 
-    LPAREN          shift and go to state 113
-=======
-    (20) value -> ARRAY LPAREN elementosInternos . RPAREN
-
-    RPAREN          shift and go to state 128
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 37 (elementosInternos2 -> booleano .)
+    COMMA           shift and go to state 132
 
 
 state 102
 
-<<<<<<< HEAD
-    (12) value -> NEW ARRAY LBRACK DOUBLE RBRACK . LPAREN int RPAREN
+    (38) elementosInternos2 -> string .
+    (42) elementosInternos2 -> string . COMMA elementosInternos2
 
-    LPAREN          shift and go to state 114
-=======
-    (21) elementosInternos -> elementosInternosInt .
-
-    RPAREN          reduce using rule 21 (elementosInternos -> elementosInternosInt .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 38 (elementosInternos2 -> string .)
+    COMMA           shift and go to state 133
 
 
 state 103
 
-<<<<<<< HEAD
-    (13) value -> NEW ARRAY LBRACK BOOL RBRACK . LPAREN int RPAREN
+    (94) int -> INT_NUMBER .
 
-    LPAREN          shift and go to state 115
-=======
-    (22) elementosInternos -> elementosInternosDouble .
-
-    RPAREN          reduce using rule 22 (elementosInternos -> elementosInternosDouble .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    COMMA           reduce using rule 94 (int -> INT_NUMBER .)
+    RPAREN          reduce using rule 94 (int -> INT_NUMBER .)
+    $end            reduce using rule 94 (int -> INT_NUMBER .)
+    RBRACE          reduce using rule 94 (int -> INT_NUMBER .)
 
 
 state 104
 
-<<<<<<< HEAD
-    (14) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK . LPAREN int RPAREN
+    (93) double -> DOUBLE_NUMBER .
 
-    LPAREN          shift and go to state 116
-=======
-    (23) elementosInternos -> elementosInternosBool .
-
-    RPAREN          reduce using rule 23 (elementosInternos -> elementosInternosBool .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    COMMA           reduce using rule 93 (double -> DOUBLE_NUMBER .)
+    RPAREN          reduce using rule 93 (double -> DOUBLE_NUMBER .)
+    $end            reduce using rule 93 (double -> DOUBLE_NUMBER .)
+    RBRACE          reduce using rule 93 (double -> DOUBLE_NUMBER .)
 
 
 state 105
 
-<<<<<<< HEAD
-    (21) elementosInternosInt -> int COMMA elementosInternosInt .
+    (82) for -> FOR LPAREN RPAREN LBRACE LBRACE . RBRACE
 
-    RPAREN          reduce using rule 21 (elementosInternosInt -> int COMMA elementosInternosInt .)
-=======
-    (24) elementosInternos -> elementosInternosString .
-
-    RPAREN          reduce using rule 24 (elementosInternos -> elementosInternosString .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RBRACE          shift and go to state 134
 
 
 state 106
 
-<<<<<<< HEAD
-    (23) elementosInternosDouble -> double COMMA elementosInternosDouble .
+    (81) sentencia -> IF factor comparacion factor LBRACE cuerpo . RBRACE
 
-    RPAREN          reduce using rule 23 (elementosInternosDouble -> double COMMA elementosInternosDouble .)
-=======
-    (25) elementosInternosInt -> int .
-    (26) elementosInternosInt -> int . COMMA elementosInternosInt
-
-    RPAREN          reduce using rule 25 (elementosInternosInt -> int .)
-    COMMA           shift and go to state 129
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RBRACE          shift and go to state 135
 
 
 state 107
 
-<<<<<<< HEAD
-    (25) elementosInternosBool -> booleano COMMA elementosInternosBool .
+    (50) tipoValue -> STRING_TYPE EQUAL string .
 
-    RPAREN          reduce using rule 25 (elementosInternosBool -> booleano COMMA elementosInternosBool .)
-=======
-    (27) elementosInternosDouble -> double .
-    (28) elementosInternosDouble -> double . COMMA elementosInternosDouble
-
-    RPAREN          reduce using rule 27 (elementosInternosDouble -> double .)
-    COMMA           shift and go to state 130
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 50 (tipoValue -> STRING_TYPE EQUAL string .)
+    RBRACE          reduce using rule 50 (tipoValue -> STRING_TYPE EQUAL string .)
 
 
 state 108
 
-<<<<<<< HEAD
-    (27) elementosInternosString -> string COMMA elementosInternosString .
+    (51) tipoValue -> BOOL EQUAL booleano .
 
-    RPAREN          reduce using rule 27 (elementosInternosString -> string COMMA elementosInternosString .)
-=======
-    (29) elementosInternosBool -> booleano .
-    (30) elementosInternosBool -> booleano . COMMA elementosInternosBool
-
-    RPAREN          reduce using rule 29 (elementosInternosBool -> booleano .)
-    COMMA           shift and go to state 131
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 51 (tipoValue -> BOOL EQUAL booleano .)
+    RBRACE          reduce using rule 51 (tipoValue -> BOOL EQUAL booleano .)
 
 
 state 109
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW . ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+    (52) tipoValue -> INT EQUAL int .
 
-    ARRAY           shift and go to state 117
-=======
-    (31) elementosInternosString -> string .
-    (32) elementosInternosString -> string . COMMA elementosInternosString
-
-    RPAREN          reduce using rule 31 (elementosInternosString -> string .)
-    COMMA           shift and go to state 132
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 52 (tipoValue -> INT EQUAL int .)
+    RBRACE          reduce using rule 52 (tipoValue -> INT EQUAL int .)
 
 
 state 110
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW . ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (53) tipoValue -> DOUBLE EQUAL double .
 
-    ARRAY           shift and go to state 118
-=======
-    (56) tipoValueCons -> STRING_TYPE EQUAL string .
-
-    $end            reduce using rule 56 (tipoValueCons -> STRING_TYPE EQUAL string .)
-    RBRACE          reduce using rule 56 (tipoValueCons -> STRING_TYPE EQUAL string .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 53 (tipoValue -> DOUBLE EQUAL double .)
+    RBRACE          reduce using rule 53 (tipoValue -> DOUBLE EQUAL double .)
 
 
 state 111
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW . ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+    (54) tipoValue -> ARRAY LBRACK INT . RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
 
-    ARRAY           shift and go to state 119
-=======
-    (57) tipoValueCons -> BOOL EQUAL booleano .
-
-    $end            reduce using rule 57 (tipoValueCons -> BOOL EQUAL booleano .)
-    RBRACE          reduce using rule 57 (tipoValueCons -> BOOL EQUAL booleano .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RBRACK          shift and go to state 136
 
 
 state 112
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW . ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (55) tipoValue -> ARRAY LBRACK DOUBLE . RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
 
-    ARRAY           shift and go to state 120
-=======
-    (58) tipoValueCons -> INT EQUAL int .
-
-    $end            reduce using rule 58 (tipoValueCons -> INT EQUAL int .)
-    RBRACE          reduce using rule 58 (tipoValueCons -> INT EQUAL int .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RBRACK          shift and go to state 137
 
 
 state 113
 
-<<<<<<< HEAD
-    (11) value -> NEW ARRAY LBRACK INT RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
+    (56) tipoValue -> ARRAY LBRACK BOOL . RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 66
-=======
-    (59) tipoValueCons -> DOUBLE EQUAL double .
+    RBRACK          shift and go to state 138
 
-    $end            reduce using rule 59 (tipoValueCons -> DOUBLE EQUAL double .)
-    RBRACE          reduce using rule 59 (tipoValueCons -> DOUBLE EQUAL double .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    int                            shift and go to state 121
 
 state 114
 
-<<<<<<< HEAD
-    (12) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE . RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 66
-=======
-    (60) tupla -> LPAREN elementosInternos2 RPAREN .
+    RBRACK          shift and go to state 139
 
-    $end            reduce using rule 60 (tupla -> LPAREN elementosInternos2 RPAREN .)
-    RBRACE          reduce using rule 60 (tupla -> LPAREN elementosInternos2 RPAREN .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
-    int                            shift and go to state 122
 
 state 115
 
-<<<<<<< HEAD
-    (13) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
+    (18) value -> NEW ARRAY LBRACK . INT RBRACK LPAREN int RPAREN
+    (19) value -> NEW ARRAY LBRACK . DOUBLE RBRACK LPAREN int RPAREN
+    (20) value -> NEW ARRAY LBRACK . BOOL RBRACK LPAREN int RPAREN
+    (21) value -> NEW ARRAY LBRACK . STRING_TYPE RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 66
+    INT             shift and go to state 140
+    DOUBLE          shift and go to state 141
+    BOOL            shift and go to state 142
+    STRING_TYPE     shift and go to state 143
 
-    int                            shift and go to state 123
 
 state 116
 
-    (14) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
+    (22) value -> ARRAY LPAREN elementosInternos . RPAREN
 
-    INT_NUMBER      shift and go to state 66
+    RPAREN          shift and go to state 144
 
-    int                            shift and go to state 124
 
 state 117
 
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY . LBRACK INT RBRACK LPAREN int RPAREN
+    (23) elementosInternos -> elementosInternosInt .
 
-    LBRACK          shift and go to state 125
+    RPAREN          reduce using rule 23 (elementosInternos -> elementosInternosInt .)
 
 
 state 118
 
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY . LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (24) elementosInternos -> elementosInternosDouble .
 
-    LBRACK          shift and go to state 126
+    RPAREN          reduce using rule 24 (elementosInternos -> elementosInternosDouble .)
 
-
-state 119
-
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY . LBRACK BOOL RBRACK LPAREN int RPAREN
-
-    LBRACK          shift and go to state 127
-=======
-    (37) elementosInternos2 -> int COMMA . elementosInternos2
-    (33) elementosInternos2 -> . int
-    (34) elementosInternos2 -> . double
-    (35) elementosInternos2 -> . booleano
-    (36) elementosInternos2 -> . string
-    (37) elementosInternos2 -> . int COMMA elementosInternos2
-    (38) elementosInternos2 -> . double COMMA elementosInternos2
-    (39) elementosInternos2 -> . booleano COMMA elementosInternos2
-    (40) elementosInternos2 -> . string COMMA elementosInternos2
-    (85) int -> . INT_NUMBER
-    (84) double -> . DOUBLE_NUMBER
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (83) string -> . STRING
-
-    INT_NUMBER      shift and go to state 89
-    DOUBLE_NUMBER   shift and go to state 90
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    STRING          shift and go to state 57
-
-    int                            shift and go to state 85
-    elementosInternos2             shift and go to state 133
-    double                         shift and go to state 86
-    booleano                       shift and go to state 87
-    string                         shift and go to state 88
-
-state 116
-
-    (38) elementosInternos2 -> double COMMA . elementosInternos2
-    (33) elementosInternos2 -> . int
-    (34) elementosInternos2 -> . double
-    (35) elementosInternos2 -> . booleano
-    (36) elementosInternos2 -> . string
-    (37) elementosInternos2 -> . int COMMA elementosInternos2
-    (38) elementosInternos2 -> . double COMMA elementosInternos2
-    (39) elementosInternos2 -> . booleano COMMA elementosInternos2
-    (40) elementosInternos2 -> . string COMMA elementosInternos2
-    (85) int -> . INT_NUMBER
-    (84) double -> . DOUBLE_NUMBER
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (83) string -> . STRING
-
-    INT_NUMBER      shift and go to state 89
-    DOUBLE_NUMBER   shift and go to state 90
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    STRING          shift and go to state 57
-
-    double                         shift and go to state 86
-    elementosInternos2             shift and go to state 134
-    int                            shift and go to state 85
-    booleano                       shift and go to state 87
-    string                         shift and go to state 88
-
-state 117
-
-    (39) elementosInternos2 -> booleano COMMA . elementosInternos2
-    (33) elementosInternos2 -> . int
-    (34) elementosInternos2 -> . double
-    (35) elementosInternos2 -> . booleano
-    (36) elementosInternos2 -> . string
-    (37) elementosInternos2 -> . int COMMA elementosInternos2
-    (38) elementosInternos2 -> . double COMMA elementosInternos2
-    (39) elementosInternos2 -> . booleano COMMA elementosInternos2
-    (40) elementosInternos2 -> . string COMMA elementosInternos2
-    (85) int -> . INT_NUMBER
-    (84) double -> . DOUBLE_NUMBER
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (83) string -> . STRING
-
-    INT_NUMBER      shift and go to state 89
-    DOUBLE_NUMBER   shift and go to state 90
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    STRING          shift and go to state 57
-
-    booleano                       shift and go to state 87
-    elementosInternos2             shift and go to state 135
-    int                            shift and go to state 85
-    double                         shift and go to state 86
-    string                         shift and go to state 88
-
-state 118
-
-    (40) elementosInternos2 -> string COMMA . elementosInternos2
-    (33) elementosInternos2 -> . int
-    (34) elementosInternos2 -> . double
-    (35) elementosInternos2 -> . booleano
-    (36) elementosInternos2 -> . string
-    (37) elementosInternos2 -> . int COMMA elementosInternos2
-    (38) elementosInternos2 -> . double COMMA elementosInternos2
-    (39) elementosInternos2 -> . booleano COMMA elementosInternos2
-    (40) elementosInternos2 -> . string COMMA elementosInternos2
-    (85) int -> . INT_NUMBER
-    (84) double -> . DOUBLE_NUMBER
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
-    (83) string -> . STRING
-
-    INT_NUMBER      shift and go to state 89
-    DOUBLE_NUMBER   shift and go to state 90
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
-    STRING          shift and go to state 57
-
-    string                         shift and go to state 88
-    elementosInternos2             shift and go to state 136
-    int                            shift and go to state 85
-    double                         shift and go to state 86
-    booleano                       shift and go to state 87
 
 state 119
 
-    (73) sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .
+    (25) elementosInternos -> elementosInternosBool .
 
-    $end            reduce using rule 73 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
-    RBRACE          reduce using rule 73 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 25 (elementosInternos -> elementosInternosBool .)
 
 
 state 120
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY . LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (26) elementosInternos -> elementosInternosString .
 
-    LBRACK          shift and go to state 128
-=======
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK . EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-
-    EQUAL           shift and go to state 137
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 26 (elementosInternos -> elementosInternosString .)
 
 
 state 121
 
-<<<<<<< HEAD
-    (11) value -> NEW ARRAY LBRACK INT RBRACK LPAREN int . RPAREN
+    (27) elementosInternosInt -> int .
+    (28) elementosInternosInt -> int . COMMA elementosInternosInt
 
-    RPAREN          shift and go to state 129
-=======
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK . EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-
-    EQUAL           shift and go to state 138
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 27 (elementosInternosInt -> int .)
+    COMMA           shift and go to state 145
 
 
 state 122
 
-<<<<<<< HEAD
-    (12) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int . RPAREN
+    (29) elementosInternosDouble -> double .
+    (30) elementosInternosDouble -> double . COMMA elementosInternosDouble
 
-    RPAREN          shift and go to state 130
-=======
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK . EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-
-    EQUAL           shift and go to state 139
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 29 (elementosInternosDouble -> double .)
+    COMMA           shift and go to state 146
 
 
 state 123
 
-<<<<<<< HEAD
-    (13) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int . RPAREN
+    (31) elementosInternosBool -> booleano .
+    (32) elementosInternosBool -> booleano . COMMA elementosInternosBool
 
-    RPAREN          shift and go to state 131
-=======
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK . EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-
-    EQUAL           shift and go to state 140
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 31 (elementosInternosBool -> booleano .)
+    COMMA           shift and go to state 147
 
 
 state 124
 
-<<<<<<< HEAD
-    (14) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int . RPAREN
+    (33) elementosInternosString -> string .
+    (34) elementosInternosString -> string . COMMA elementosInternosString
 
-    RPAREN          shift and go to state 132
-=======
-    (16) value -> NEW ARRAY LBRACK INT . RBRACK LPAREN int RPAREN
-
-    RBRACK          shift and go to state 141
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 33 (elementosInternosString -> string .)
+    COMMA           shift and go to state 148
 
 
 state 125
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK . INT RBRACK LPAREN int RPAREN
+    (58) tipoValueCons -> STRING_TYPE EQUAL string .
 
-    INT             shift and go to state 133
-=======
-    (17) value -> NEW ARRAY LBRACK DOUBLE . RBRACK LPAREN int RPAREN
-
-    RBRACK          shift and go to state 142
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 58 (tipoValueCons -> STRING_TYPE EQUAL string .)
+    RBRACE          reduce using rule 58 (tipoValueCons -> STRING_TYPE EQUAL string .)
 
 
 state 126
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK . DOUBLE RBRACK LPAREN int RPAREN
+    (59) tipoValueCons -> BOOL EQUAL booleano .
 
-    DOUBLE          shift and go to state 134
-=======
-    (18) value -> NEW ARRAY LBRACK BOOL . RBRACK LPAREN int RPAREN
-
-    RBRACK          shift and go to state 143
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 59 (tipoValueCons -> BOOL EQUAL booleano .)
+    RBRACE          reduce using rule 59 (tipoValueCons -> BOOL EQUAL booleano .)
 
 
 state 127
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK . BOOL RBRACK LPAREN int RPAREN
+    (60) tipoValueCons -> INT EQUAL int .
 
-    BOOL            shift and go to state 135
-=======
-    (19) value -> NEW ARRAY LBRACK STRING_TYPE . RBRACK LPAREN int RPAREN
-
-    RBRACK          shift and go to state 144
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 60 (tipoValueCons -> INT EQUAL int .)
+    RBRACE          reduce using rule 60 (tipoValueCons -> INT EQUAL int .)
 
 
 state 128
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK . STRING_TYPE RBRACK LPAREN int RPAREN
+    (61) tipoValueCons -> DOUBLE EQUAL double .
 
-    STRING_TYPE     shift and go to state 136
-=======
-    (20) value -> ARRAY LPAREN elementosInternos RPAREN .
-
-    $end            reduce using rule 20 (value -> ARRAY LPAREN elementosInternos RPAREN .)
-    RBRACE          reduce using rule 20 (value -> ARRAY LPAREN elementosInternos RPAREN .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 61 (tipoValueCons -> DOUBLE EQUAL double .)
+    RBRACE          reduce using rule 61 (tipoValueCons -> DOUBLE EQUAL double .)
 
 
 state 129
 
-<<<<<<< HEAD
-    (11) value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .
+    (62) tupla -> LPAREN elementosInternos2 RPAREN .
 
-    $end            reduce using rule 11 (value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 11 (value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
+    $end            reduce using rule 62 (tupla -> LPAREN elementosInternos2 RPAREN .)
+    RBRACE          reduce using rule 62 (tupla -> LPAREN elementosInternos2 RPAREN .)
 
 
 state 130
 
-    (12) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .
+    (39) elementosInternos2 -> int COMMA . elementosInternos2
+    (35) elementosInternos2 -> . int
+    (36) elementosInternos2 -> . double
+    (37) elementosInternos2 -> . booleano
+    (38) elementosInternos2 -> . string
+    (39) elementosInternos2 -> . int COMMA elementosInternos2
+    (40) elementosInternos2 -> . double COMMA elementosInternos2
+    (41) elementosInternos2 -> . booleano COMMA elementosInternos2
+    (42) elementosInternos2 -> . string COMMA elementosInternos2
+    (94) int -> . INT_NUMBER
+    (93) double -> . DOUBLE_NUMBER
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (92) string -> . STRING
 
-    $end            reduce using rule 12 (value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 12 (value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
+    INT_NUMBER      shift and go to state 103
+    DOUBLE_NUMBER   shift and go to state 104
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    STRING          shift and go to state 68
 
-
-state 131
-
-    (13) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .
-
-    $end            reduce using rule 13 (value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 13 (value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
-
-
-state 132
-
-    (14) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .
-
-    $end            reduce using rule 14 (value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 14 (value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
-
-
-state 133
-
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT . RBRACK LPAREN int RPAREN
-
-    RBRACK          shift and go to state 137
-=======
-    (26) elementosInternosInt -> int COMMA . elementosInternosInt
-    (25) elementosInternosInt -> . int
-    (26) elementosInternosInt -> . int COMMA elementosInternosInt
-    (85) int -> . INT_NUMBER
-
-    INT_NUMBER      shift and go to state 89
-
-    int                            shift and go to state 106
-    elementosInternosInt           shift and go to state 145
-
-state 130
-
-    (28) elementosInternosDouble -> double COMMA . elementosInternosDouble
-    (27) elementosInternosDouble -> . double
-    (28) elementosInternosDouble -> . double COMMA elementosInternosDouble
-    (84) double -> . DOUBLE_NUMBER
-
-    DOUBLE_NUMBER   shift and go to state 90
-
-    double                         shift and go to state 107
-    elementosInternosDouble        shift and go to state 146
+    int                            shift and go to state 99
+    elementosInternos2             shift and go to state 149
+    double                         shift and go to state 100
+    booleano                       shift and go to state 101
+    string                         shift and go to state 102
 
 state 131
 
-    (30) elementosInternosBool -> booleano COMMA . elementosInternosBool
-    (29) elementosInternosBool -> . booleano
-    (30) elementosInternosBool -> . booleano COMMA elementosInternosBool
-    (81) booleano -> . TRUE
-    (82) booleano -> . FALSE
+    (40) elementosInternos2 -> double COMMA . elementosInternos2
+    (35) elementosInternos2 -> . int
+    (36) elementosInternos2 -> . double
+    (37) elementosInternos2 -> . booleano
+    (38) elementosInternos2 -> . string
+    (39) elementosInternos2 -> . int COMMA elementosInternos2
+    (40) elementosInternos2 -> . double COMMA elementosInternos2
+    (41) elementosInternos2 -> . booleano COMMA elementosInternos2
+    (42) elementosInternos2 -> . string COMMA elementosInternos2
+    (94) int -> . INT_NUMBER
+    (93) double -> . DOUBLE_NUMBER
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (92) string -> . STRING
 
-    TRUE            shift and go to state 58
-    FALSE           shift and go to state 59
+    INT_NUMBER      shift and go to state 103
+    DOUBLE_NUMBER   shift and go to state 104
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    STRING          shift and go to state 68
 
-    booleano                       shift and go to state 108
-    elementosInternosBool          shift and go to state 147
+    double                         shift and go to state 100
+    elementosInternos2             shift and go to state 150
+    int                            shift and go to state 99
+    booleano                       shift and go to state 101
+    string                         shift and go to state 102
 
 state 132
 
-    (32) elementosInternosString -> string COMMA . elementosInternosString
-    (31) elementosInternosString -> . string
-    (32) elementosInternosString -> . string COMMA elementosInternosString
-    (83) string -> . STRING
+    (41) elementosInternos2 -> booleano COMMA . elementosInternos2
+    (35) elementosInternos2 -> . int
+    (36) elementosInternos2 -> . double
+    (37) elementosInternos2 -> . booleano
+    (38) elementosInternos2 -> . string
+    (39) elementosInternos2 -> . int COMMA elementosInternos2
+    (40) elementosInternos2 -> . double COMMA elementosInternos2
+    (41) elementosInternos2 -> . booleano COMMA elementosInternos2
+    (42) elementosInternos2 -> . string COMMA elementosInternos2
+    (94) int -> . INT_NUMBER
+    (93) double -> . DOUBLE_NUMBER
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (92) string -> . STRING
 
-    STRING          shift and go to state 57
+    INT_NUMBER      shift and go to state 103
+    DOUBLE_NUMBER   shift and go to state 104
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    STRING          shift and go to state 68
 
-    string                         shift and go to state 109
-    elementosInternosString        shift and go to state 148
+    booleano                       shift and go to state 101
+    elementosInternos2             shift and go to state 151
+    int                            shift and go to state 99
+    double                         shift and go to state 100
+    string                         shift and go to state 102
 
 state 133
 
-    (37) elementosInternos2 -> int COMMA elementosInternos2 .
+    (42) elementosInternos2 -> string COMMA . elementosInternos2
+    (35) elementosInternos2 -> . int
+    (36) elementosInternos2 -> . double
+    (37) elementosInternos2 -> . booleano
+    (38) elementosInternos2 -> . string
+    (39) elementosInternos2 -> . int COMMA elementosInternos2
+    (40) elementosInternos2 -> . double COMMA elementosInternos2
+    (41) elementosInternos2 -> . booleano COMMA elementosInternos2
+    (42) elementosInternos2 -> . string COMMA elementosInternos2
+    (94) int -> . INT_NUMBER
+    (93) double -> . DOUBLE_NUMBER
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
+    (92) string -> . STRING
 
-    RPAREN          reduce using rule 37 (elementosInternos2 -> int COMMA elementosInternos2 .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    INT_NUMBER      shift and go to state 103
+    DOUBLE_NUMBER   shift and go to state 104
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
+    STRING          shift and go to state 68
 
+    string                         shift and go to state 102
+    elementosInternos2             shift and go to state 152
+    int                            shift and go to state 99
+    double                         shift and go to state 100
+    booleano                       shift and go to state 101
 
 state 134
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE . RBRACK LPAREN int RPAREN
+    (82) for -> FOR LPAREN RPAREN LBRACE LBRACE RBRACE .
 
-    RBRACK          shift and go to state 138
-=======
-    (38) elementosInternos2 -> double COMMA elementosInternos2 .
-
-    RPAREN          reduce using rule 38 (elementosInternos2 -> double COMMA elementosInternos2 .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 82 (for -> FOR LPAREN RPAREN LBRACE LBRACE RBRACE .)
+    RBRACE          reduce using rule 82 (for -> FOR LPAREN RPAREN LBRACE LBRACE RBRACE .)
 
 
 state 135
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL . RBRACK LPAREN int RPAREN
+    (81) sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .
 
-    RBRACK          shift and go to state 139
-=======
-    (39) elementosInternos2 -> booleano COMMA elementosInternos2 .
-
-    RPAREN          reduce using rule 39 (elementosInternos2 -> booleano COMMA elementosInternos2 .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    $end            reduce using rule 81 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
+    RBRACE          reduce using rule 81 (sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE .)
 
 
 state 136
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE . RBRACK LPAREN int RPAREN
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK . EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
 
-    RBRACK          shift and go to state 140
-=======
-    (40) elementosInternos2 -> string COMMA elementosInternos2 .
-
-    RPAREN          reduce using rule 40 (elementosInternos2 -> string COMMA elementosInternos2 .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    EQUAL           shift and go to state 153
 
 
 state 137
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK . LPAREN int RPAREN
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK . EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
 
-    LPAREN          shift and go to state 141
-=======
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL . NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-
-    NEW             shift and go to state 149
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    EQUAL           shift and go to state 154
 
 
 state 138
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK . LPAREN int RPAREN
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK . EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
 
-    LPAREN          shift and go to state 142
-=======
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL . NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-
-    NEW             shift and go to state 150
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    EQUAL           shift and go to state 155
 
 
 state 139
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK . LPAREN int RPAREN
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK . EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    LPAREN          shift and go to state 143
-=======
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL . NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-
-    NEW             shift and go to state 151
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    EQUAL           shift and go to state 156
 
 
 state 140
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK . LPAREN int RPAREN
+    (18) value -> NEW ARRAY LBRACK INT . RBRACK LPAREN int RPAREN
 
-    LPAREN          shift and go to state 144
-=======
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL . NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-
-    NEW             shift and go to state 152
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RBRACK          shift and go to state 157
 
 
 state 141
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
+    (19) value -> NEW ARRAY LBRACK DOUBLE . RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 66
-
-    int                            shift and go to state 145
-
-state 142
-
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
-
-    INT_NUMBER      shift and go to state 66
-
-    int                            shift and go to state 146
-
-state 143
-
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
-
-    INT_NUMBER      shift and go to state 66
-
-    int                            shift and go to state 147
-
-state 144
-
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN . int RPAREN
-    (63) int -> . INT_NUMBER
-
-    INT_NUMBER      shift and go to state 66
-
-    int                            shift and go to state 148
-
-state 145
-
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int . RPAREN
-
-    RPAREN          shift and go to state 149
-=======
-    (16) value -> NEW ARRAY LBRACK INT RBRACK . LPAREN int RPAREN
-
-    LPAREN          shift and go to state 153
+    RBRACK          shift and go to state 158
 
 
 state 142
 
-    (17) value -> NEW ARRAY LBRACK DOUBLE RBRACK . LPAREN int RPAREN
+    (20) value -> NEW ARRAY LBRACK BOOL . RBRACK LPAREN int RPAREN
 
-    LPAREN          shift and go to state 154
+    RBRACK          shift and go to state 159
 
 
 state 143
 
-    (18) value -> NEW ARRAY LBRACK BOOL RBRACK . LPAREN int RPAREN
+    (21) value -> NEW ARRAY LBRACK STRING_TYPE . RBRACK LPAREN int RPAREN
 
-    LPAREN          shift and go to state 155
+    RBRACK          shift and go to state 160
 
 
 state 144
 
-    (19) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK . LPAREN int RPAREN
+    (22) value -> ARRAY LPAREN elementosInternos RPAREN .
 
-    LPAREN          shift and go to state 156
+    $end            reduce using rule 22 (value -> ARRAY LPAREN elementosInternos RPAREN .)
+    RBRACE          reduce using rule 22 (value -> ARRAY LPAREN elementosInternos RPAREN .)
 
 
 state 145
 
-    (26) elementosInternosInt -> int COMMA elementosInternosInt .
+    (28) elementosInternosInt -> int COMMA . elementosInternosInt
+    (27) elementosInternosInt -> . int
+    (28) elementosInternosInt -> . int COMMA elementosInternosInt
+    (94) int -> . INT_NUMBER
 
-    RPAREN          reduce using rule 26 (elementosInternosInt -> int COMMA elementosInternosInt .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    INT_NUMBER      shift and go to state 103
 
+    int                            shift and go to state 121
+    elementosInternosInt           shift and go to state 161
 
 state 146
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int . RPAREN
+    (30) elementosInternosDouble -> double COMMA . elementosInternosDouble
+    (29) elementosInternosDouble -> . double
+    (30) elementosInternosDouble -> . double COMMA elementosInternosDouble
+    (93) double -> . DOUBLE_NUMBER
 
-    RPAREN          shift and go to state 150
-=======
-    (28) elementosInternosDouble -> double COMMA elementosInternosDouble .
+    DOUBLE_NUMBER   shift and go to state 104
 
-    RPAREN          reduce using rule 28 (elementosInternosDouble -> double COMMA elementosInternosDouble .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    double                         shift and go to state 122
+    elementosInternosDouble        shift and go to state 162
 
 state 147
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int . RPAREN
+    (32) elementosInternosBool -> booleano COMMA . elementosInternosBool
+    (31) elementosInternosBool -> . booleano
+    (32) elementosInternosBool -> . booleano COMMA elementosInternosBool
+    (90) booleano -> . TRUE
+    (91) booleano -> . FALSE
 
-    RPAREN          shift and go to state 151
-=======
-    (30) elementosInternosBool -> booleano COMMA elementosInternosBool .
+    TRUE            shift and go to state 69
+    FALSE           shift and go to state 70
 
-    RPAREN          reduce using rule 30 (elementosInternosBool -> booleano COMMA elementosInternosBool .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    booleano                       shift and go to state 123
+    elementosInternosBool          shift and go to state 163
 
 state 148
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int . RPAREN
+    (34) elementosInternosString -> string COMMA . elementosInternosString
+    (33) elementosInternosString -> . string
+    (34) elementosInternosString -> . string COMMA elementosInternosString
+    (92) string -> . STRING
 
-    RPAREN          shift and go to state 152
-=======
-    (32) elementosInternosString -> string COMMA elementosInternosString .
+    STRING          shift and go to state 68
 
-    RPAREN          reduce using rule 32 (elementosInternosString -> string COMMA elementosInternosString .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
-
+    string                         shift and go to state 124
+    elementosInternosString        shift and go to state 164
 
 state 149
 
-<<<<<<< HEAD
-    (36) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .
+    (39) elementosInternos2 -> int COMMA elementosInternos2 .
 
-    $end            reduce using rule 36 (tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 36 (tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
-=======
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW . ARRAY LBRACK INT RBRACK LPAREN int RPAREN
-
-    ARRAY           shift and go to state 157
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 39 (elementosInternos2 -> int COMMA elementosInternos2 .)
 
 
 state 150
 
-<<<<<<< HEAD
-    (37) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .
+    (40) elementosInternos2 -> double COMMA elementosInternos2 .
 
-    $end            reduce using rule 37 (tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 37 (tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
-=======
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW . ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
-
-    ARRAY           shift and go to state 158
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 40 (elementosInternos2 -> double COMMA elementosInternos2 .)
 
 
 state 151
 
-<<<<<<< HEAD
-    (38) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .
+    (41) elementosInternos2 -> booleano COMMA elementosInternos2 .
 
-    $end            reduce using rule 38 (tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 38 (tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
-=======
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW . ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-
-    ARRAY           shift and go to state 159
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RPAREN          reduce using rule 41 (elementosInternos2 -> booleano COMMA elementosInternos2 .)
 
 
 state 152
 
-<<<<<<< HEAD
-    (39) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .
+    (42) elementosInternos2 -> string COMMA elementosInternos2 .
 
-    $end            reduce using rule 39 (tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 39 (tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
-=======
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW . ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-
-    ARRAY           shift and go to state 160
+    RPAREN          reduce using rule 42 (elementosInternos2 -> string COMMA elementosInternos2 .)
 
 
 state 153
 
-    (16) value -> NEW ARRAY LBRACK INT RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL . NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    NEW             shift and go to state 165
 
-    int                            shift and go to state 161
 
 state 154
 
-    (17) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL . NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    NEW             shift and go to state 166
 
-    int                            shift and go to state 162
 
 state 155
 
-    (18) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL . NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    NEW             shift and go to state 167
 
-    int                            shift and go to state 163
 
 state 156
 
-    (19) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL . NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    NEW             shift and go to state 168
 
-    int                            shift and go to state 164
 
 state 157
 
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY . LBRACK INT RBRACK LPAREN int RPAREN
+    (18) value -> NEW ARRAY LBRACK INT RBRACK . LPAREN int RPAREN
 
-    LBRACK          shift and go to state 165
+    LPAREN          shift and go to state 169
 
 
 state 158
 
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY . LBRACK DOUBLE RBRACK LPAREN int RPAREN
+    (19) value -> NEW ARRAY LBRACK DOUBLE RBRACK . LPAREN int RPAREN
 
-    LBRACK          shift and go to state 166
+    LPAREN          shift and go to state 170
 
 
 state 159
 
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY . LBRACK BOOL RBRACK LPAREN int RPAREN
+    (20) value -> NEW ARRAY LBRACK BOOL RBRACK . LPAREN int RPAREN
 
-    LBRACK          shift and go to state 167
+    LPAREN          shift and go to state 171
 
 
 state 160
 
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY . LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+    (21) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK . LPAREN int RPAREN
 
-    LBRACK          shift and go to state 168
+    LPAREN          shift and go to state 172
 
 
 state 161
 
-    (16) value -> NEW ARRAY LBRACK INT RBRACK LPAREN int . RPAREN
+    (28) elementosInternosInt -> int COMMA elementosInternosInt .
 
-    RPAREN          shift and go to state 169
+    RPAREN          reduce using rule 28 (elementosInternosInt -> int COMMA elementosInternosInt .)
 
 
 state 162
 
-    (17) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int . RPAREN
+    (30) elementosInternosDouble -> double COMMA elementosInternosDouble .
 
-    RPAREN          shift and go to state 170
+    RPAREN          reduce using rule 30 (elementosInternosDouble -> double COMMA elementosInternosDouble .)
 
 
 state 163
 
-    (18) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int . RPAREN
+    (32) elementosInternosBool -> booleano COMMA elementosInternosBool .
 
-    RPAREN          shift and go to state 171
+    RPAREN          reduce using rule 32 (elementosInternosBool -> booleano COMMA elementosInternosBool .)
 
 
 state 164
 
-    (19) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int . RPAREN
+    (34) elementosInternosString -> string COMMA elementosInternosString .
 
-    RPAREN          shift and go to state 172
+    RPAREN          reduce using rule 34 (elementosInternosString -> string COMMA elementosInternosString .)
 
 
 state 165
 
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK . INT RBRACK LPAREN int RPAREN
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW . ARRAY LBRACK INT RBRACK LPAREN int RPAREN
 
-    INT             shift and go to state 173
+    ARRAY           shift and go to state 173
 
 
 state 166
 
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK . DOUBLE RBRACK LPAREN int RPAREN
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW . ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
 
-    DOUBLE          shift and go to state 174
+    ARRAY           shift and go to state 174
 
 
 state 167
 
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK . BOOL RBRACK LPAREN int RPAREN
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW . ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
 
-    BOOL            shift and go to state 175
+    ARRAY           shift and go to state 175
 
 
 state 168
 
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK . STRING_TYPE RBRACK LPAREN int RPAREN
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW . ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    STRING_TYPE     shift and go to state 176
+    ARRAY           shift and go to state 176
 
 
 state 169
 
-    (16) value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .
+    (18) value -> NEW ARRAY LBRACK INT RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
 
-    $end            reduce using rule 16 (value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 16 (value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
+    INT_NUMBER      shift and go to state 103
 
+    int                            shift and go to state 177
 
 state 170
 
-    (17) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .
+    (19) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
 
-    $end            reduce using rule 17 (value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 17 (value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
+    INT_NUMBER      shift and go to state 103
 
+    int                            shift and go to state 178
 
 state 171
 
-    (18) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .
+    (20) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
 
-    $end            reduce using rule 18 (value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 18 (value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
+    INT_NUMBER      shift and go to state 103
 
+    int                            shift and go to state 179
 
 state 172
 
-    (19) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .
+    (21) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
 
-    $end            reduce using rule 19 (value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 19 (value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
+    INT_NUMBER      shift and go to state 103
 
+    int                            shift and go to state 180
 
 state 173
 
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT . RBRACK LPAREN int RPAREN
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY . LBRACK INT RBRACK LPAREN int RPAREN
 
-    RBRACK          shift and go to state 177
+    LBRACK          shift and go to state 181
 
 
 state 174
 
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE . RBRACK LPAREN int RPAREN
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY . LBRACK DOUBLE RBRACK LPAREN int RPAREN
 
-    RBRACK          shift and go to state 178
+    LBRACK          shift and go to state 182
 
 
 state 175
 
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL . RBRACK LPAREN int RPAREN
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY . LBRACK BOOL RBRACK LPAREN int RPAREN
 
-    RBRACK          shift and go to state 179
+    LBRACK          shift and go to state 183
 
 
 state 176
 
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE . RBRACK LPAREN int RPAREN
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY . LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
 
-    RBRACK          shift and go to state 180
+    LBRACK          shift and go to state 184
 
 
 state 177
 
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK . LPAREN int RPAREN
+    (18) value -> NEW ARRAY LBRACK INT RBRACK LPAREN int . RPAREN
 
-    LPAREN          shift and go to state 181
+    RPAREN          shift and go to state 185
 
 
 state 178
 
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK . LPAREN int RPAREN
+    (19) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int . RPAREN
 
-    LPAREN          shift and go to state 182
+    RPAREN          shift and go to state 186
 
 
 state 179
 
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK . LPAREN int RPAREN
+    (20) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int . RPAREN
 
-    LPAREN          shift and go to state 183
+    RPAREN          shift and go to state 187
 
 
 state 180
 
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK . LPAREN int RPAREN
+    (21) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int . RPAREN
 
-    LPAREN          shift and go to state 184
+    RPAREN          shift and go to state 188
 
 
 state 181
 
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK . INT RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    INT             shift and go to state 189
 
-    int                            shift and go to state 185
 
 state 182
 
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK . DOUBLE RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    DOUBLE          shift and go to state 190
 
-    int                            shift and go to state 186
 
 state 183
 
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK . BOOL RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    BOOL            shift and go to state 191
 
-    int                            shift and go to state 187
 
 state 184
 
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN . int RPAREN
-    (85) int -> . INT_NUMBER
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK . STRING_TYPE RBRACK LPAREN int RPAREN
 
-    INT_NUMBER      shift and go to state 89
+    STRING_TYPE     shift and go to state 192
 
-    int                            shift and go to state 188
 
 state 185
 
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int . RPAREN
+    (18) value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .
 
-    RPAREN          shift and go to state 189
+    $end            reduce using rule 18 (value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 18 (value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
 
 
 state 186
 
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int . RPAREN
+    (19) value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .
 
-    RPAREN          shift and go to state 190
+    $end            reduce using rule 19 (value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 19 (value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
 
 
 state 187
 
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int . RPAREN
+    (20) value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .
 
-    RPAREN          shift and go to state 191
+    $end            reduce using rule 20 (value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 20 (value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
 
 
 state 188
 
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int . RPAREN
+    (21) value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .
 
-    RPAREN          shift and go to state 192
+    $end            reduce using rule 21 (value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 21 (value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
 
 
 state 189
 
-    (52) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT . RBRACK LPAREN int RPAREN
 
-    $end            reduce using rule 52 (tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 52 (tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
+    RBRACK          shift and go to state 193
 
 
 state 190
 
-    (53) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE . RBRACK LPAREN int RPAREN
 
-    $end            reduce using rule 53 (tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 53 (tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
+    RBRACK          shift and go to state 194
 
 
 state 191
 
-    (54) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL . RBRACK LPAREN int RPAREN
 
-    $end            reduce using rule 54 (tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 54 (tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
+    RBRACK          shift and go to state 195
 
 
 state 192
 
-    (55) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE . RBRACK LPAREN int RPAREN
 
-    $end            reduce using rule 55 (tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
-    RBRACE          reduce using rule 55 (tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
->>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
+    RBRACK          shift and go to state 196
+
+
+state 193
+
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK . LPAREN int RPAREN
+
+    LPAREN          shift and go to state 197
+
+
+state 194
+
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK . LPAREN int RPAREN
+
+    LPAREN          shift and go to state 198
+
+
+state 195
+
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK . LPAREN int RPAREN
+
+    LPAREN          shift and go to state 199
+
+
+state 196
+
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK . LPAREN int RPAREN
+
+    LPAREN          shift and go to state 200
+
+
+state 197
+
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 103
+
+    int                            shift and go to state 201
+
+state 198
+
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 103
+
+    int                            shift and go to state 202
+
+state 199
+
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 103
+
+    int                            shift and go to state 203
+
+state 200
+
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN . int RPAREN
+    (94) int -> . INT_NUMBER
+
+    INT_NUMBER      shift and go to state 103
+
+    int                            shift and go to state 204
+
+state 201
+
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int . RPAREN
+
+    RPAREN          shift and go to state 205
+
+
+state 202
+
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int . RPAREN
+
+    RPAREN          shift and go to state 206
+
+
+state 203
+
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int . RPAREN
+
+    RPAREN          shift and go to state 207
+
+
+state 204
+
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int . RPAREN
+
+    RPAREN          shift and go to state 208
+
+
+state 205
+
+    (54) tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .
+
+    $end            reduce using rule 54 (tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 54 (tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN .)
+
+
+state 206
+
+    (55) tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .
+
+    $end            reduce using rule 55 (tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 55 (tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN .)
+
+
+state 207
+
+    (56) tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .
+
+    $end            reduce using rule 56 (tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 56 (tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN .)
+
+
+state 208
+
+    (57) tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .
+
+    $end            reduce using rule 57 (tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
+    RBRACE          reduce using rule 57 (tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN .)
 

@@ -48,6 +48,7 @@ tokens = (
     'GE',  # >=
     'LT',  # <
     'LE',  # <=
+    'LM',  # <-
     'COMMA',  # ,
     'COLON',  # :
     'SEMICOLON',  # ;
@@ -86,6 +87,7 @@ t_GT = r'>'
 t_GE = r'>='
 t_LT = r'<'
 t_LE = r'<='
+t_LM = r'<-'
 t_COMMA = r','
 t_COLON = r':'
 t_SEMICOLON = r';'
