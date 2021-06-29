@@ -54,9 +54,20 @@ def p_elementosInternosString(p):
     """elementosInternosString : string
             | string COMMA elementosInternosString"""
 
+def p_elementosInternos2(p):
+    """elementosInternos2 : int
+            | double
+            | booleano
+            | string
+            | int COMMA elementosInternos2
+            | double COMMA elementosInternos2
+            | booleano COMMA elementosInternos2
+            | string COMMA elementosInternos2"""
+
 def p_valueCons(p):
     """valueCons : string
-            | booleano """
+            | booleano
+            | tupla"""
 
 def p_tipo(p):
     """tipo : INT
@@ -78,14 +89,10 @@ def p_tipoValueCons(p):
     """tipoValueCons : STRING_TYPE EQUAL string
                 | BOOL EQUAL booleano
                 | INT EQUAL int
-                | DOUBLE EQUAL double
-                | tupla"""
+                | DOUBLE EQUAL double"""
 
 def p_tupla(p):
-    'LPAREN  elementos RPAREN'
-
-def p_elementos(p):
-    'string COMMA string'
+    'tupla : LPAREN elementosInternos2 RPAREN'
 
 
 def p_expression_plus(p):
