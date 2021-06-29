@@ -195,7 +195,7 @@ def p_while(p):
 def p_whileclause(p):
     """whileclause : factor comparacion factor
                 | ID
-                | boolean"""
+                | booleano"""
 
 def p_for(p):
     'for : FOR LPAREN  RPAREN LBRACE  LBRACE  RBRACE'
