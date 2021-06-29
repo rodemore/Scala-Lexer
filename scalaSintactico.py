@@ -9,7 +9,8 @@ def p_cuerpo(p):
     """cuerpo : expression
              | sentencia
              | declararVariable
-             | declararConstante"""
+             | declararConstante
+             | funcionesTupla"""
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -94,6 +95,19 @@ def p_tipoValueCons(p):
 def p_tupla(p):
     'tupla : LPAREN elementosInternos2 RPAREN'
 
+def p_funcionesTupla(p):
+    """funcionesTupla : tuplaSwap
+                | tuplaToString
+                | tuplaProductIterator"""
+
+def p_tuplaSwap(p):
+    'tuplaSwap : ID DOT SWAP'
+
+def p_tuplaToString(p):
+    'tuplaToString : ID DOT TOSTRING'
+
+def p_tuplaProductIterator(p):
+    'tuplaProductIterator : ID DOT PRODUCTITERATOR'
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
