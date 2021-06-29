@@ -8,14 +8,9 @@ def p_cuerpo(p):
     """cuerpo : expression
              | sentencia
              | declararVariable
-             | funcionesArray"""
-
-def p_cuerpo(p):
-    """cuerpo : expression
-             | sentencia
-             | declararVariable
              | declararConstante
-             | funcionesTupla"""
+             | funcionesTupla
+             | funcionesArray"""
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -127,7 +122,7 @@ def p_arrayTail(p):
 
 def p_arrayLength(p):
     """arrayLength : ID DOT LENGTH"""
-    
+
 def p_expression_plus(p):
     'expression : expression PLUS term'
 
