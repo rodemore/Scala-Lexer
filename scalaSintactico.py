@@ -4,13 +4,35 @@ import ply.yacc as yacc
 
 from scalaLexer import tokens
 
+
+def p_declararVariable(p):
+    """declararVariable : VAR ID COLON tipoValue
+                        | VAR ID COLON tipo
+                        | VAR ID EQUAL value
+                        | VAR ID EQUAL expression"""
+
+def p_value(p):
+    """value : string
+            | booleano """
+
+def p_tipo(p):
+    """tipo : INT
+             | DOUBLE
+             | BOOL
+             | STRING_TYPE"""
+
+def p_tipoValue(p):
+    """tipoValue : STRING_TYPE EQUAL string
+                | BOOL EQUAL booleano
+                | INT EQUAL int
+                | DOUBLE EQUAL double"""
+
 def p_cuerpo(p):
     """cuerpo : expression
              | sentencia """
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
-
 
 
 def p_expression_minus(p):
@@ -46,11 +68,21 @@ def p_comparacion(p):
 def p_factor_int(p):
     'factor : INT_NUMBER'
 
+def p_factor_double(p):
+    'factor : DOUBLE_NUMBER'
 
-def p_booleano_expr(p):
+def p_booleano(p):
     '''booleano : TRUE
                 | FALSE'''
 
+def p_string(p):
+    'string : STRING'
+
+def p_double(p):
+    'double : DOUBLE_NUMBER'
+
+def p_int(p):
+    'int : INT_NUMBER'
 
 # Error rule for syntax errors
 def p_error(p):

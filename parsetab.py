@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ARRAY BOOL CLASS COLON COMMA DECREMENT DEF DIVIDE DOT DOUBLE DOUBLE_NUMBER ELSE EQ EQUAL EQUALS FALSE FOR GE GT HEAD ID IF INCREMENT INT INT_NUMBER ISEMPTY LBRACE LBRACK LE LENGTH LIST LPAREN LT MINUS MOD NEW OBJECT PLUS PRINTLN PRODUCTITERATOR RBRACE RBRACK RETURN REVERSE RPAREN SEMICOLON STRING STRING_TYPE SWAP TAIL THIS TIMES TOSTRING TRUE VAL VAR WHILE unitcuerpo : expression\n             | sentencia expression : expression PLUS termexpression : expression MINUS termexpression : termterm : term TIMES factorterm : term DIVIDE factorterm : factorsentencia : IF factor comparacion factor LBRACE cuerpo RBRACEcomparacion : GT\n                    | GE\n                    | LT\n                    | LEfactor : INT_NUMBERbooleano : TRUE\n                | FALSE'
+_lr_signature = 'ARRAY BOOL CLASS COLON COMMA DECREMENT DEF DIVIDE DOT DOUBLE DOUBLE_NUMBER ELSE EQ EQUAL EQUALS FALSE FOR GE GT HEAD ID IF INCREMENT INT INT_NUMBER ISEMPTY LBRACE LBRACK LE LENGTH LIST LPAREN LT MINUS MOD NEW OBJECT PLUS PRINTLN PRODUCTITERATOR RBRACE RBRACK RETURN REVERSE RPAREN SEMICOLON STRING STRING_TYPE SWAP TAIL THIS TIMES TOSTRING TRUE VAL VAR WHILE unitdeclararVariable : VAR ID COLON tipoValue\n                        | VAR ID COLON tipo\n                        | VAR ID EQUAL value\n                        | VAR ID EQUAL expressionvalue : string\n            | booleano tipo : INT\n             | DOUBLE\n             | BOOL\n             | STRING_TYPEtipoValue : STRING_TYPE EQUAL string\n                | BOOL EQUAL booleano\n                | INT EQUAL int\n                | DOUBLE EQUAL doublecuerpo : expression\n             | sentencia expression : expression PLUS termexpression : expression MINUS termexpression : termterm : term TIMES factorterm : term DIVIDE factorterm : factorsentencia : IF factor comparacion factor LBRACE cuerpo RBRACEcomparacion : GT\n                    | GE\n                    | LT\n                    | LEfactor : INT_NUMBERfactor : DOUBLE_NUMBERbooleano : TRUE\n                | FALSEstring : STRINGdouble : DOUBLE_NUMBERint : INT_NUMBER'
     
-_lr_action_items = {'IF':([0,23,],[5,5,]),'INT_NUMBER':([0,5,8,9,10,11,17,18,19,20,21,23,],[7,7,7,7,7,7,7,-10,-11,-12,-13,7,]),'$end':([1,2,3,4,6,7,13,14,15,16,25,],[0,-1,-2,-5,-8,-14,-3,-4,-6,-7,-9,]),'RBRACE':([2,3,4,6,7,13,14,15,16,24,25,],[-1,-2,-5,-8,-14,-3,-4,-6,-7,25,-9,]),'PLUS':([2,4,6,7,13,14,15,16,],[8,-5,-8,-14,-3,-4,-6,-7,]),'MINUS':([2,4,6,7,13,14,15,16,],[9,-5,-8,-14,-3,-4,-6,-7,]),'TIMES':([4,6,7,13,14,15,16,],[10,-8,-14,10,10,-6,-7,]),'DIVIDE':([4,6,7,13,14,15,16,],[11,-8,-14,11,11,-6,-7,]),'GT':([7,12,],[-14,18,]),'GE':([7,12,],[-14,19,]),'LT':([7,12,],[-14,20,]),'LE':([7,12,],[-14,21,]),'LBRACE':([7,22,],[-14,23,]),}
+_lr_action_items = {'VAR':([0,],[2,]),'$end':([1,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,31,32,33,34,35,36,37,38,39,40,],[0,-1,-2,-10,-9,-7,-8,-3,-4,-5,-6,-19,-32,-30,-31,-22,-28,-29,-11,-12,-13,-34,-14,-33,-17,-18,-20,-21,]),'ID':([2,],[3,]),'COLON':([3,],[4,]),'EQUAL':([3,8,9,10,11,],[5,23,24,25,26,]),'STRING_TYPE':([4,],[8,]),'BOOL':([4,],[9,]),'INT':([4,],[10,]),'DOUBLE':([4,],[11,]),'STRING':([5,23,],[17,17,]),'TRUE':([5,24,],[18,18,]),'FALSE':([5,24,],[19,19,]),'INT_NUMBER':([5,25,27,28,29,30,],[21,34,21,21,21,21,]),'DOUBLE_NUMBER':([5,26,27,28,29,30,],[22,36,22,22,22,22,]),'PLUS':([13,16,20,21,22,37,38,39,40,],[27,-19,-22,-28,-29,-17,-18,-20,-21,]),'MINUS':([13,16,20,21,22,37,38,39,40,],[28,-19,-22,-28,-29,-17,-18,-20,-21,]),'TIMES':([16,20,21,22,37,38,39,40,],[29,-22,-28,-29,29,29,-20,-21,]),'DIVIDE':([16,20,21,22,37,38,39,40,],[30,-22,-28,-29,30,30,-20,-21,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'cuerpo':([0,23,],[1,24,]),'expression':([0,23,],[2,2,]),'sentencia':([0,23,],[3,3,]),'term':([0,8,9,23,],[4,13,14,4,]),'factor':([0,5,8,9,10,11,17,23,],[6,12,6,6,15,16,22,6,]),'comparacion':([12,],[17,]),}
+_lr_goto_items = {'declararVariable':([0,],[1,]),'tipoValue':([4,],[6,]),'tipo':([4,],[7,]),'value':([5,],[12,]),'expression':([5,],[13,]),'string':([5,23,],[14,31,]),'booleano':([5,24,],[15,32,]),'term':([5,27,28,],[16,37,38,]),'factor':([5,27,28,29,30,],[20,20,20,39,40,]),'int':([25,],[33,]),'double':([26,],[35,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,21 +26,39 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> cuerpo","S'",1,None,None,None),
-  ('cuerpo -> expression','cuerpo',1,'p_cuerpo','scalaSintactico.py',8),
-  ('cuerpo -> sentencia','cuerpo',1,'p_cuerpo','scalaSintactico.py',9),
-  ('expression -> expression PLUS term','expression',3,'p_expression_plus','scalaSintactico.py',12),
-  ('expression -> expression MINUS term','expression',3,'p_expression_minus','scalaSintactico.py',17),
-  ('expression -> term','expression',1,'p_expression_term','scalaSintactico.py',21),
-  ('term -> term TIMES factor','term',3,'p_term_times','scalaSintactico.py',25),
-  ('term -> term DIVIDE factor','term',3,'p_term_div','scalaSintactico.py',29),
-  ('term -> factor','term',1,'p_term_factor','scalaSintactico.py',33),
-  ('sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE','sentencia',7,'p_sentencia_if','scalaSintactico.py',37),
-  ('comparacion -> GT','comparacion',1,'p_comparacion','scalaSintactico.py',41),
-  ('comparacion -> GE','comparacion',1,'p_comparacion','scalaSintactico.py',42),
-  ('comparacion -> LT','comparacion',1,'p_comparacion','scalaSintactico.py',43),
-  ('comparacion -> LE','comparacion',1,'p_comparacion','scalaSintactico.py',44),
-  ('factor -> INT_NUMBER','factor',1,'p_factor_int','scalaSintactico.py',47),
-  ('booleano -> TRUE','booleano',1,'p_booleano_expr','scalaSintactico.py',51),
-  ('booleano -> FALSE','booleano',1,'p_booleano_expr','scalaSintactico.py',52),
+  ("S' -> declararVariable","S'",1,None,None,None),
+  ('declararVariable -> VAR ID COLON tipoValue','declararVariable',4,'p_declararVariable','scalaSintactico.py',9),
+  ('declararVariable -> VAR ID COLON tipo','declararVariable',4,'p_declararVariable','scalaSintactico.py',10),
+  ('declararVariable -> VAR ID EQUAL value','declararVariable',4,'p_declararVariable','scalaSintactico.py',11),
+  ('declararVariable -> VAR ID EQUAL expression','declararVariable',4,'p_declararVariable','scalaSintactico.py',12),
+  ('value -> string','value',1,'p_value','scalaSintactico.py',15),
+  ('value -> booleano','value',1,'p_value','scalaSintactico.py',16),
+  ('tipo -> INT','tipo',1,'p_tipo','scalaSintactico.py',19),
+  ('tipo -> DOUBLE','tipo',1,'p_tipo','scalaSintactico.py',20),
+  ('tipo -> BOOL','tipo',1,'p_tipo','scalaSintactico.py',21),
+  ('tipo -> STRING_TYPE','tipo',1,'p_tipo','scalaSintactico.py',22),
+  ('tipoValue -> STRING_TYPE EQUAL string','tipoValue',3,'p_tipoValue','scalaSintactico.py',25),
+  ('tipoValue -> BOOL EQUAL booleano','tipoValue',3,'p_tipoValue','scalaSintactico.py',26),
+  ('tipoValue -> INT EQUAL int','tipoValue',3,'p_tipoValue','scalaSintactico.py',27),
+  ('tipoValue -> DOUBLE EQUAL double','tipoValue',3,'p_tipoValue','scalaSintactico.py',28),
+  ('cuerpo -> expression','cuerpo',1,'p_cuerpo','scalaSintactico.py',31),
+  ('cuerpo -> sentencia','cuerpo',1,'p_cuerpo','scalaSintactico.py',32),
+  ('expression -> expression PLUS term','expression',3,'p_expression_plus','scalaSintactico.py',35),
+  ('expression -> expression MINUS term','expression',3,'p_expression_minus','scalaSintactico.py',39),
+  ('expression -> term','expression',1,'p_expression_term','scalaSintactico.py',43),
+  ('term -> term TIMES factor','term',3,'p_term_times','scalaSintactico.py',47),
+  ('term -> term DIVIDE factor','term',3,'p_term_div','scalaSintactico.py',51),
+  ('term -> factor','term',1,'p_term_factor','scalaSintactico.py',55),
+  ('sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE','sentencia',7,'p_sentencia_if','scalaSintactico.py',59),
+  ('comparacion -> GT','comparacion',1,'p_comparacion','scalaSintactico.py',63),
+  ('comparacion -> GE','comparacion',1,'p_comparacion','scalaSintactico.py',64),
+  ('comparacion -> LT','comparacion',1,'p_comparacion','scalaSintactico.py',65),
+  ('comparacion -> LE','comparacion',1,'p_comparacion','scalaSintactico.py',66),
+  ('factor -> INT_NUMBER','factor',1,'p_factor_int','scalaSintactico.py',69),
+  ('factor -> DOUBLE_NUMBER','factor',1,'p_factor_double','scalaSintactico.py',72),
+  ('booleano -> TRUE','booleano',1,'p_booleano','scalaSintactico.py',75),
+  ('booleano -> FALSE','booleano',1,'p_booleano','scalaSintactico.py',76),
+  ('string -> STRING','string',1,'p_string','scalaSintactico.py',79),
+  ('double -> DOUBLE_NUMBER','double',1,'p_double','scalaSintactico.py',82),
+  ('int -> INT_NUMBER','int',1,'p_int','scalaSintactico.py',85),
 ]
