@@ -5,6 +5,18 @@ import ply.yacc as yacc
 from scalaLexer import tokens
 
 
+def p_cuerpo(p):
+    """cuerpo : expression
+             | sentencia
+             | declararVariable
+             | declararConstante"""
+
+def p_declararConstante(p):
+    """declararConstante : VAL ID COLON tipoValueCons
+                        | VAL ID COLON tipo
+                        | VAL ID EQUAL valueCons
+                        | VAL ID EQUAL expression"""
+
 def p_declararVariable(p):
     """declararVariable : VAR ID COLON tipoValue
                         | VAR ID COLON tipo
@@ -13,6 +25,10 @@ def p_declararVariable(p):
 
 def p_value(p):
     """value : string
+            | booleano """
+
+def p_valueCons(p):
+    """valueCons : string
             | booleano """
 
 def p_tipo(p):
@@ -27,9 +43,19 @@ def p_tipoValue(p):
                 | INT EQUAL int
                 | DOUBLE EQUAL double"""
 
-def p_cuerpo(p):
-    """cuerpo : expression
-             | sentencia """
+def p_tipoValueCons(p):
+    """tipoValueCons : STRING_TYPE EQUAL string
+                | BOOL EQUAL booleano
+                | INT EQUAL int
+                | DOUBLE EQUAL double
+                | tupla"""
+
+def p_tupla(p):
+    'LPAREN  elementos RPAREN'
+
+def p_elementos(p):
+    'string COMMA string'
+
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
@@ -63,7 +89,8 @@ def p_comparacion(p):
     '''comparacion : GT
                     | GE
                     | LT
-                    | LE'''
+                    | LE
+                    | EQUAL2'''
 
 def p_factor_int(p):
     'factor : INT_NUMBER'

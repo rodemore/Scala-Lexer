@@ -17,39 +17,40 @@ reserved = {
 }
 
 tokens = (
-    'INT',              #int
-    'DOUBLE',           #double
-    'BOOL',             #bool
-    'STRING_TYPE',      #string
-    'ARRAY',            #array
-    'LIST',             #list
-    'ID',               #var/function name
-    'EQUAL',            # =
-    'INT_NUMBER',       #1234
-    'DOUBLE_NUMBER',    #7.999
-    'STRING',           # "example string"
-    'TRUE',             # true
-    'FALSE',            # false
-    'LBRACE',           # {
-    'RBRACE',           # } nota: agregar pto y coma???
-    'PLUS',             # +
-    'MINUS',            # -
-    'TIMES',            # *
-    'DIVIDE',           # /
-    'MOD',              # %
-    'LPAREN',           # (
-    'RPAREN',           # )
-    'INCREMENT',        # ++
-    'DECREMENT',        # --
-    'LBRACK',           # [
-    'RBRACK',           # ]
-    'GT',               # >
-    'GE',               # >=
-    'LT',               # <
-    'LE',               # <=
-    'COMMA',            # ,
-    'COLON',             # :
-    'SEMICOLON',         # ;
+    'INT',  #int
+    'DOUBLE',  #double
+    'BOOL',  #bool
+    'STRING_TYPE',  #string
+    'ARRAY',  #array
+    'LIST',  #list
+    'ID',  #var/function name
+    'EQUAL2',  # ==
+    'EQUAL',  # =
+    'INT_NUMBER',  #1234
+    'DOUBLE_NUMBER',  #7.999
+    'STRING',  # "example string"
+    'TRUE',  # true
+    'FALSE',  # false
+    'LBRACE',  # {
+    'RBRACE',  # } nota: agregar pto y coma???
+    'PLUS',  # +
+    'MINUS',  # -
+    'TIMES',  # *
+    'DIVIDE',  # /
+    'MOD',  # %
+    'LPAREN',  # (
+    'RPAREN',  # )
+    'INCREMENT',  # ++
+    'DECREMENT',  # --
+    'LBRACK',  # [
+    'RBRACK',  # ]
+    'GT',  # >
+    'GE',  # >=
+    'LT',  # <
+    'LE',  # <=
+    'COMMA',  # ,
+    'COLON',  # :
+    'SEMICOLON',  # ;
     'PRINTLN',
     'EQUALS',
     'DOT',
@@ -66,6 +67,7 @@ tokens = (
 ) + tuple(reserved.values())
 
 # Regular expression rules for simple tokens
+t_EQUAL2 = r'=='
 t_EQUAL = r'='
 t_LBRACE = r'{'
 t_RBRACE = r'}'
