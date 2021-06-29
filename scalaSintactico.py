@@ -10,7 +10,8 @@ def p_cuerpo(p):
              | declararVariable
              | declararConstante
              | funcionesTupla
-             | funcionesArray"""
+             | funcionesArray
+             | funcionesPropias"""
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -114,6 +115,15 @@ def p_funcionesArray(p):
             | arrayTail
             | arrayLength"""
 
+def p_funcionesPropias(p):
+    """funcionesPropias : INPUT LPAREN RPAREN
+            | PRINTLN LPAREN string RPAREN
+            | PRINTLN LPAREN int RPAREN
+            | PRINTLN LPAREN booleano RPAREN
+            | PRINTLN LPAREN double RPAREN
+            | PRINTLN LPAREN ID RPAREN
+            | PRINTLN LPAREN expression RPAREN"""
+
 def p_arrayHead(p):
     """arrayHead : ID DOT HEAD"""
 
@@ -159,10 +169,10 @@ def p_comparacion(p):
                     | EQUAL2'''
 
 def p_factor_int(p):
-    'factor : INT_NUMBER'
+    'factor : int'
 
 def p_factor_double(p):
-    'factor : DOUBLE_NUMBER'
+    'factor : double'
 
 def p_booleano(p):
     '''booleano : TRUE
