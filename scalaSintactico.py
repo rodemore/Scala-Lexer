@@ -8,20 +8,69 @@ from scalaLexer import tokens
 
 def p_cuerpo(p):
     """cuerpo : expression
-             | sentencia 
-             | declararVariable"""
+             | sentencia
+             | declararVariable
+             | funcionesTupla"""
+
 
 def p_declararVariable(p):
     """declararVariable : VAR ID COLON tipoValue
                         | VAR ID COLON tipo
                         | VAR ID EQUAL value
                         | VAR ID EQUAL expression
-                        | VAR ID EQUAL expression
-                        | VAR ID COLON LPAREN ARRAY RPAREN expressionarray """
+                        | VAR ID COLON LIST LBRACK tipo RBRACK"""
 
 def p_value(p):
     """value : string
-            | booleano """
+            | booleano
+            | NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+            | NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+            | NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+            | NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+            | ARRAY LPAREN elementosInternos RPAREN"""
+
+def p_expressionlist(p):
+    """expressionlist : LIST LPAREN elementosInternos RPAREN
+                    | LIST LPAREN elementosInternos
+
+            """
+
+def p_elementosInternos(p):
+    """elementosInternos : elementosInternosInt
+            | elementosInternosDouble
+            | elementosInternosBool
+            | elementosInternosString"""
+
+def p_elementosInternosInt(p):
+    """elementosInternosInt : int
+            | int COMMA elementosInternosInt"""
+
+def p_elementosInternosDouble(p):
+    """elementosInternosDouble : double
+            | double COMMA elementosInternosDouble"""
+
+def p_elementosInternosBool(p):
+    """elementosInternosBool : booleano
+            | booleano COMMA elementosInternosBool"""
+
+def p_elementosInternosString(p):
+    """elementosInternosString : string
+            | string COMMA elementosInternosString"""
+
+def p_elementosInternos2(p):
+    """elementosInternos2 : int
+            | double
+            | booleano
+            | string
+            | int COMMA elementosInternos2
+            | double COMMA elementosInternos2
+            | booleano COMMA elementosInternos2
+            | string COMMA elementosInternos2"""
+
+def p_valueCons(p):
+    """valueCons : string
+            | booleano
+            | tupla"""
 
 def p_tipo(p):
     """tipo : INT
@@ -41,8 +90,35 @@ def p_tipoValue(p):
     """tipoValue : STRING_TYPE EQUAL string
                 | BOOL EQUAL booleano
                 | INT EQUAL int
+                | DOUBLE EQUAL double
+                | ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+                | ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+                | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN"""
+
+def p_tipoValueCons(p):
+    """tipoValueCons : STRING_TYPE EQUAL string
+                | BOOL EQUAL booleano
+                | INT EQUAL int
                 | DOUBLE EQUAL double"""
 
+
+def p_tupla(p):
+    'tupla : LPAREN elementosInternos2 RPAREN'
+
+def p_funcionesTupla(p):
+    """funcionesTupla : tuplaSwap
+                | tuplaToString
+                | tuplaProductIterator"""
+
+def p_tuplaSwap(p):
+    'tuplaSwap : ID DOT SWAP'
+
+def p_tuplaToString(p):
+    'tuplaToString : ID DOT TOSTRING'
+
+def p_tuplaProductIterator(p):
+    'tuplaProductIterator : ID DOT PRODUCTITERATOR'
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
@@ -76,7 +152,8 @@ def p_comparacion(p):
     '''comparacion : GT
                     | GE
                     | LT
-                    | LE'''
+                    | LE
+                    | EQUAL2'''
 
 def p_factor_int(p):
     'factor : INT_NUMBER'
