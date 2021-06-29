@@ -64,7 +64,9 @@ tokens = (
     'ISEMPTY',
     'REVERSE',
     'LENGTH',
-    'INPUT'
+    'INPUT',
+    'AND',
+    'OR'
 
 ) + tuple(reserved.values())
 
@@ -93,6 +95,8 @@ t_COMMA = r','
 t_COLON = r':'
 t_SEMICOLON = r';'
 t_DOT = r'\.'
+t_AND = r'&&'
+t_OR = r'\|\|'
 
 def t_INT(t):
     r'Int'

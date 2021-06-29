@@ -169,13 +169,21 @@ def p_term_factor(p):
 def p_sentencia_if(p):
     'sentencia : IF factor comparacion factor LBRACE cuerpo RBRACE'
 
+def p_comp(p):
+    'comp : factor comparacion factor'
+
+# def p_compAnidada(p):
+#     """compAnidada : comp
+#             | comp AND compAnidada
+#             | comp OR compAnidada"""
+
 def p_while(p):
     'while : WHILE LPAREN whileclause RPAREN LBRACE cuerpo RBRACE'
 
 def p_whileclause(p):
-    """whileclause : factor comparacion factor
+    """whileclause : comp
                 | ID
-                | boolean"""
+                | booleano"""
 
 def p_for(p):
     'for : FOR LPAREN  RPAREN LBRACE  LBRACE  RBRACE'
