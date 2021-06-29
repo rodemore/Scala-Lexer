@@ -12,7 +12,8 @@ def p_cuerpo(p):
              | funcionesTupla
              | funcionesArray
              | for
-             | funcionesPropias"""
+             | funcionesPropias
+             | comparacionesVar"""
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -165,8 +166,14 @@ def p_term_factor(p):
 def p_sentencia_if(p):
     'sentencia : IF factor comparacion factor LBRACE cuerpo RBRACE'
 
+
 def p_for(p):
-    'for : FOR LPAREN  RPAREN LBRACE  LBRACE  RBRACE'
+    'for : FOR LPAREN ID LM ID RPAREN LBRACE  cuerpo  RBRACE'
+
+
+def p_comparacionesVar(p):
+    '''comparacionesVar : ID DOT EQUALS LPAREN ID  RPAREN
+                        | ID DOT EQ LPAREN ID RPAREN'''
 
 def p_comparacion(p):
     '''comparacion : GT
