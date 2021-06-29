@@ -6,9 +6,15 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
+<<<<<<< HEAD
 _lr_signature = 'ARRAY BOOL CLASS COLON COMMA DECREMENT DEF DIVIDE DOT DOUBLE DOUBLE_NUMBER ELSE EQ EQUAL EQUALS FALSE FOR GE GT HEAD ID IF INCREMENT INT INT_NUMBER ISEMPTY LBRACE LBRACK LE LENGTH LIST LPAREN LT MINUS MOD NEW OBJECT PLUS PRINTLN PRODUCTITERATOR RBRACE RBRACK RETURN REVERSE RPAREN SEMICOLON STRING STRING_TYPE SWAP TAIL THIS TIMES TOSTRING TRUE VAL VAR WHILE unitcuerpo : expression\n             | sentencia\n             | declararVariable\n             | funcionesArraydeclararVariable : VAR ID COLON tipoValue\n                        | VAR ID COLON tipo\n                        | VAR ID EQUAL value\n                        | VAR ID EQUAL expressionvalue : string\n            | booleano\n            | NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN\n            | NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN\n            | NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN\n            | NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN\n            | ARRAY LPAREN elementosInternos RPARENelementosInternos : elementosInternosInt\n            | elementosInternosDouble\n            | elementosInternosBool\n            | elementosInternosStringelementosInternosInt : int\n            | int COMMA elementosInternosIntelementosInternosDouble : double\n            | double COMMA elementosInternosDoubleelementosInternosBool : booleano\n            | booleano COMMA elementosInternosBoolelementosInternosString : string\n            | string COMMA elementosInternosStringtipo : INT\n             | DOUBLE\n             | BOOL\n             | STRING_TYPEtipoValue : STRING_TYPE EQUAL string\n                | BOOL EQUAL booleano\n                | INT EQUAL int\n                | DOUBLE EQUAL double\n                | ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN\n                | ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN\n                | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN\n                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPARENfuncionesArray : arrayHead\n            | arrayTail\n            | arrayLengtharrayHead : ID DOT HEADarrayTail : ID DOT TAILarrayLength : ID DOT LENGTHexpression : expression PLUS termexpression : expression MINUS termexpression : termterm : term TIMES factorterm : term DIVIDE factorterm : factorsentencia : IF factor comparacion factor LBRACE cuerpo RBRACEcomparacion : GT\n                    | GE\n                    | LT\n                    | LEfactor : INT_NUMBERfactor : DOUBLE_NUMBERbooleano : TRUE\n                | FALSEstring : STRINGdouble : DOUBLE_NUMBERint : INT_NUMBER'
     
 _lr_action_items = {'IF':([0,54,],[7,7,]),'VAR':([0,54,],[9,9,]),'ID':([0,9,54,],[10,21,10,]),'INT_NUMBER':([0,7,16,17,18,19,27,28,29,30,31,33,54,57,61,93,113,114,115,116,141,142,143,144,],[14,14,14,14,14,14,14,-53,-54,-55,-56,14,14,66,66,66,66,66,66,66,66,66,66,66,]),'DOUBLE_NUMBER':([0,7,16,17,18,19,27,28,29,30,31,33,54,58,61,94,],[15,15,15,15,15,15,15,-53,-54,-55,-56,15,15,68,68,68,]),'$end':([1,2,3,4,5,6,8,11,12,13,14,15,23,24,25,26,34,35,36,38,39,40,41,42,43,45,46,47,48,51,52,53,63,64,65,66,67,68,83,92,129,130,131,132,149,150,151,152,],[0,-1,-2,-3,-4,-48,-51,-40,-41,-42,-57,-58,-46,-47,-49,-50,-43,-44,-45,-5,-6,-31,-30,-28,-29,-7,-8,-9,-10,-61,-59,-60,-32,-33,-34,-63,-35,-62,-52,-15,-11,-12,-13,-14,-36,-37,-38,-39,]),'RBRACE':([2,3,4,5,6,8,11,12,13,14,15,23,24,25,26,34,35,36,38,39,40,41,42,43,45,46,47,48,51,52,53,62,63,64,65,66,67,68,83,92,129,130,131,132,149,150,151,152,],[-1,-2,-3,-4,-48,-51,-40,-41,-42,-57,-58,-46,-47,-49,-50,-43,-44,-45,-5,-6,-31,-30,-28,-29,-7,-8,-9,-10,-61,-59,-60,83,-32,-33,-34,-63,-35,-62,-52,-15,-11,-12,-13,-14,-36,-37,-38,-39,]),'PLUS':([2,6,8,14,15,23,24,25,26,46,],[16,-48,-51,-57,-58,-46,-47,-49,-50,16,]),'MINUS':([2,6,8,14,15,23,24,25,26,46,],[17,-48,-51,-57,-58,-46,-47,-49,-50,17,]),'TIMES':([6,8,14,15,23,24,25,26,],[18,-51,-57,-58,18,18,-49,-50,]),'DIVIDE':([6,8,14,15,23,24,25,26,],[19,-51,-57,-58,19,19,-49,-50,]),'DOT':([10,],[22,]),'GT':([14,15,20,],[-57,-58,28,]),'GE':([14,15,20,],[-57,-58,29,]),'LT':([14,15,20,],[-57,-58,30,]),'LE':([14,15,20,],[-57,-58,31,]),'LBRACE':([14,15,37,],[-57,-58,54,]),'COLON':([21,],[32,]),'EQUAL':([21,40,41,42,43,84,85,86,87,],[33,55,56,57,58,97,98,99,100,]),'HEAD':([22,],[34,]),'TAIL':([22,],[35,]),'LENGTH':([22,],[36,]),'STRING_TYPE':([32,59,73,128,],[40,72,91,136,]),'BOOL':([32,59,73,127,],[41,71,90,135,]),'INT':([32,59,73,125,],[42,69,88,133,]),'DOUBLE':([32,59,73,126,],[43,70,89,134,]),'ARRAY':([32,33,49,109,110,111,112,],[44,50,60,117,118,119,120,]),'NEW':([33,97,98,99,100,],[49,109,110,111,112,]),'STRING':([33,55,61,96,],[51,51,51,51,]),'TRUE':([33,56,61,95,],[52,52,52,52,]),'FALSE':([33,56,61,95,],[53,53,53,53,]),'LBRACK':([44,60,117,118,119,120,],[59,73,125,126,127,128,]),'LPAREN':([50,101,102,103,104,137,138,139,140,],[61,113,114,115,116,141,142,143,144,]),'COMMA':([51,52,53,66,68,79,80,81,82,],[-61,-59,-60,-63,-62,93,94,95,96,]),'RPAREN':([51,52,53,66,68,74,75,76,77,78,79,80,81,82,105,106,107,108,121,122,123,124,145,146,147,148,],[-61,-59,-60,-63,-62,92,-16,-17,-18,-19,-20,-22,-24,-26,-21,-23,-25,-27,129,130,131,132,149,150,151,152,]),'RBRACK':([69,70,71,72,88,89,90,91,133,134,135,136,],[84,85,86,87,101,102,103,104,137,138,139,140,]),}
+=======
+_lr_signature = 'ARRAY BOOL CLASS COLON COMMA DECREMENT DEF DIVIDE DOT DOUBLE DOUBLE_NUMBER ELSE EQ EQUAL EQUAL2 EQUALS FALSE FOR GE GT HEAD ID IF INCREMENT INT INT_NUMBER ISEMPTY LBRACE LBRACK LE LENGTH LIST LPAREN LT MINUS MOD NEW OBJECT PLUS PRINTLN PRODUCTITERATOR RBRACE RBRACK RETURN REVERSE RPAREN SEMICOLON STRING STRING_TYPE SWAP TAIL THIS TIMES TOSTRING TRUE VAL VAR WHILE unitcuerpo : expression\n             | sentencia\n             | declararVariable\n             | declararConstante\n             | funcionesTupladeclararConstante : VAL ID COLON tipoValueCons\n                        | VAL ID COLON tipo\n                        | VAL ID EQUAL valueCons\n                        | VAL ID EQUAL expressiondeclararVariable : VAR ID COLON tipoValue\n                        | VAR ID COLON tipo\n                        | VAR ID EQUAL value\n                        | VAR ID EQUAL expressionvalue : string\n            | booleano\n            | NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN\n            | NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN\n            | NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN\n            | NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN\n            | ARRAY LPAREN elementosInternos RPARENelementosInternos : elementosInternosInt\n            | elementosInternosDouble\n            | elementosInternosBool\n            | elementosInternosStringelementosInternosInt : int\n            | int COMMA elementosInternosIntelementosInternosDouble : double\n            | double COMMA elementosInternosDoubleelementosInternosBool : booleano\n            | booleano COMMA elementosInternosBoolelementosInternosString : string\n            | string COMMA elementosInternosStringelementosInternos2 : int\n            | double\n            | booleano\n            | string\n            | int COMMA elementosInternos2\n            | double COMMA elementosInternos2\n            | booleano COMMA elementosInternos2\n            | string COMMA elementosInternos2valueCons : string\n            | booleano\n            | tuplatipo : INT\n             | DOUBLE\n             | BOOL\n             | STRING_TYPEtipoValue : STRING_TYPE EQUAL string\n                | BOOL EQUAL booleano\n                | INT EQUAL int\n                | DOUBLE EQUAL double\n                | ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN\n                | ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN\n                | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN\n                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPARENtipoValueCons : STRING_TYPE EQUAL string\n                | BOOL EQUAL booleano\n                | INT EQUAL int\n                | DOUBLE EQUAL doubletupla : LPAREN elementosInternos2 RPARENfuncionesTupla : tuplaSwap\n                | tuplaToString\n                | tuplaProductIteratortuplaSwap : ID DOT SWAPtuplaToString : ID DOT TOSTRINGtuplaProductIterator : ID DOT PRODUCTITERATORexpression : expression PLUS termexpression : expression MINUS termexpression : termterm : term TIMES factorterm : term DIVIDE factorterm : factorsentencia : IF factor comparacion factor LBRACE cuerpo RBRACEcomparacion : GT\n                    | GE\n                    | LT\n                    | LE\n                    | EQUAL2factor : INT_NUMBERfactor : DOUBLE_NUMBERbooleano : TRUE\n                | FALSEstring : STRINGdouble : DOUBLE_NUMBERint : INT_NUMBER'
+    
+_lr_action_items = {'IF':([0,72,],[8,8,]),'VAR':([0,72,],[10,10,]),'VAL':([0,72,],[12,12,]),'ID':([0,10,12,72,],[11,23,25,11,]),'INT_NUMBER':([0,8,18,19,20,21,30,31,32,33,34,35,37,42,71,72,75,79,82,115,116,117,118,129,153,154,155,156,181,182,183,184,],[16,16,16,16,16,16,16,-74,-75,-76,-77,-78,16,16,89,16,89,89,89,89,89,89,89,89,89,89,89,89,89,89,89,89,]),'DOUBLE_NUMBER':([0,8,18,19,20,21,30,31,32,33,34,35,37,42,71,72,76,79,83,115,116,117,118,130,],[17,17,17,17,17,17,17,-74,-75,-76,-77,-78,17,17,90,17,90,90,90,90,90,90,90,90,]),'$end':([1,2,3,4,5,6,7,9,13,14,15,16,17,26,27,28,29,38,39,40,44,45,46,47,48,49,51,52,53,54,57,58,59,60,61,62,63,64,65,66,67,68,69,70,89,90,92,93,94,95,110,111,112,113,114,119,128,169,170,171,172,189,190,191,192,],[0,-1,-2,-3,-4,-5,-69,-72,-61,-62,-63,-79,-80,-67,-68,-70,-71,-64,-65,-66,-10,-11,-47,-46,-44,-45,-12,-13,-14,-15,-83,-81,-82,-6,-7,-47,-46,-44,-45,-8,-9,-41,-42,-43,-85,-84,-48,-49,-50,-51,-56,-57,-58,-59,-60,-73,-20,-16,-17,-18,-19,-52,-53,-54,-55,]),'RBRACE':([2,3,4,5,6,7,9,13,14,15,16,17,26,27,28,29,38,39,40,44,45,46,47,48,49,51,52,53,54,57,58,59,60,61,62,63,64,65,66,67,68,69,70,89,90,91,92,93,94,95,110,111,112,113,114,119,128,169,170,171,172,189,190,191,192,],[-1,-2,-3,-4,-5,-69,-72,-61,-62,-63,-79,-80,-67,-68,-70,-71,-64,-65,-66,-10,-11,-47,-46,-44,-45,-12,-13,-14,-15,-83,-81,-82,-6,-7,-47,-46,-44,-45,-8,-9,-41,-42,-43,-85,-84,119,-48,-49,-50,-51,-56,-57,-58,-59,-60,-73,-20,-16,-17,-18,-19,-52,-53,-54,-55,]),'PLUS':([2,7,9,16,17,26,27,28,29,52,67,],[18,-69,-72,-79,-80,-67,-68,-70,-71,18,18,]),'MINUS':([2,7,9,16,17,26,27,28,29,52,67,],[19,-69,-72,-79,-80,-67,-68,-70,-71,19,19,]),'TIMES':([7,9,16,17,26,27,28,29,],[20,-72,-79,-80,20,20,-70,-71,]),'DIVIDE':([7,9,16,17,26,27,28,29,],[21,-72,-79,-80,21,21,-70,-71,]),'DOT':([11,],[24,]),'GT':([16,17,22,],[-79,-80,31,]),'GE':([16,17,22,],[-79,-80,32,]),'LT':([16,17,22,],[-79,-80,33,]),'LE':([16,17,22,],[-79,-80,34,]),'EQUAL2':([16,17,22,],[-79,-80,35,]),'LBRACE':([16,17,43,],[-79,-80,72,]),'COLON':([23,25,],[36,41,]),'EQUAL':([23,25,46,47,48,49,62,63,64,65,120,121,122,123,],[37,42,73,74,75,76,80,81,82,83,137,138,139,140,]),'SWAP':([24,],[38,]),'TOSTRING':([24,],[39,]),'PRODUCTITERATOR':([24,],[40,]),'STRING_TYPE':([36,41,77,100,168,],[46,62,99,127,176,]),'BOOL':([36,41,77,100,167,],[47,63,98,126,175,]),'INT':([36,41,77,100,165,],[48,64,96,124,173,]),'DOUBLE':([36,41,77,100,166,],[49,65,97,125,174,]),'ARRAY':([36,37,55,149,150,151,152,],[50,56,78,157,158,159,160,]),'NEW':([37,137,138,139,140,],[55,149,150,151,152,]),'STRING':([37,42,71,73,79,80,115,116,117,118,132,],[57,57,57,57,57,57,57,57,57,57,57,]),'TRUE':([37,42,71,74,79,81,115,116,117,118,131,],[58,58,58,58,58,58,58,58,58,58,58,]),'FALSE':([37,42,71,74,79,81,115,116,117,118,131,],[59,59,59,59,59,59,59,59,59,59,59,]),'LPAREN':([42,56,141,142,143,144,177,178,179,180,],[71,79,153,154,155,156,181,182,183,184,]),'LBRACK':([50,78,157,158,159,160,],[77,100,165,166,167,168,]),'COMMA':([57,58,59,85,86,87,88,89,90,106,107,108,109,],[-83,-81,-82,115,116,117,118,-85,-84,129,130,131,132,]),'RPAREN':([57,58,59,84,85,86,87,88,89,90,101,102,103,104,105,106,107,108,109,133,134,135,136,145,146,147,148,161,162,163,164,185,186,187,188,],[-83,-81,-82,114,-33,-34,-35,-36,-85,-84,128,-21,-22,-23,-24,-25,-27,-29,-31,-37,-38,-39,-40,-26,-28,-30,-32,169,170,171,172,189,190,191,192,]),'RBRACK':([96,97,98,99,124,125,126,127,173,174,175,176,],[120,121,122,123,141,142,143,144,177,178,179,180,]),}
+>>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +23,11 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
+<<<<<<< HEAD
 _lr_goto_items = {'cuerpo':([0,54,],[1,62,]),'expression':([0,33,54,],[2,46,2,]),'sentencia':([0,54,],[3,3,]),'declararVariable':([0,54,],[4,4,]),'funcionesArray':([0,54,],[5,5,]),'term':([0,16,17,33,54,],[6,23,24,6,6,]),'factor':([0,7,16,17,18,19,27,33,54,],[8,20,8,8,25,26,37,8,8,]),'arrayHead':([0,54,],[11,11,]),'arrayTail':([0,54,],[12,12,]),'arrayLength':([0,54,],[13,13,]),'comparacion':([20,],[27,]),'tipoValue':([32,],[38,]),'tipo':([32,],[39,]),'value':([33,],[45,]),'string':([33,55,61,96,],[47,63,82,82,]),'booleano':([33,56,61,95,],[48,64,81,81,]),'int':([57,61,93,113,114,115,116,141,142,143,144,],[65,79,79,121,122,123,124,145,146,147,148,]),'double':([58,61,94,],[67,80,80,]),'elementosInternos':([61,],[74,]),'elementosInternosInt':([61,93,],[75,105,]),'elementosInternosDouble':([61,94,],[76,106,]),'elementosInternosBool':([61,95,],[77,107,]),'elementosInternosString':([61,96,],[78,108,]),}
+=======
+_lr_goto_items = {'cuerpo':([0,72,],[1,91,]),'expression':([0,37,42,72,],[2,52,67,2,]),'sentencia':([0,72,],[3,3,]),'declararVariable':([0,72,],[4,4,]),'declararConstante':([0,72,],[5,5,]),'funcionesTupla':([0,72,],[6,6,]),'term':([0,18,19,37,42,72,],[7,26,27,7,7,7,]),'factor':([0,8,18,19,20,21,30,37,42,72,],[9,22,9,9,28,29,43,9,9,9,]),'tuplaSwap':([0,72,],[13,13,]),'tuplaToString':([0,72,],[14,14,]),'tuplaProductIterator':([0,72,],[15,15,]),'comparacion':([22,],[30,]),'tipoValue':([36,],[44,]),'tipo':([36,41,],[45,61,]),'value':([37,],[51,]),'string':([37,42,71,73,79,80,115,116,117,118,132,],[53,68,88,92,109,110,88,88,88,88,109,]),'booleano':([37,42,71,74,79,81,115,116,117,118,131,],[54,69,87,93,108,111,87,87,87,87,108,]),'tipoValueCons':([41,],[60,]),'valueCons':([42,],[66,]),'tupla':([42,],[70,]),'elementosInternos2':([71,115,116,117,118,],[84,133,134,135,136,]),'int':([71,75,79,82,115,116,117,118,129,153,154,155,156,181,182,183,184,],[85,94,106,112,85,85,85,85,106,161,162,163,164,185,186,187,188,]),'double':([71,76,79,83,115,116,117,118,130,],[86,95,107,113,86,86,86,86,107,]),'elementosInternos':([79,],[101,]),'elementosInternosInt':([79,129,],[102,145,]),'elementosInternosDouble':([79,130,],[103,146,]),'elementosInternosBool':([79,131,],[104,147,]),'elementosInternosString':([79,132,],[105,148,]),}
+>>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,6 +37,7 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> cuerpo","S'",1,None,None,None),
+<<<<<<< HEAD
   ('cuerpo -> expression','cuerpo',1,'p_cuerpo','scalaSintactico.py',8),
   ('cuerpo -> sentencia','cuerpo',1,'p_cuerpo','scalaSintactico.py',9),
   ('cuerpo -> declararVariable','cuerpo',1,'p_cuerpo','scalaSintactico.py',10),
@@ -90,4 +101,91 @@ _lr_productions = [
   ('string -> STRING','string',1,'p_string','scalaSintactico.py',125),
   ('double -> DOUBLE_NUMBER','double',1,'p_double','scalaSintactico.py',128),
   ('int -> INT_NUMBER','int',1,'p_int','scalaSintactico.py',131),
+=======
+  ('cuerpo -> expression','cuerpo',1,'p_cuerpo','scalaSintactico.py',9),
+  ('cuerpo -> sentencia','cuerpo',1,'p_cuerpo','scalaSintactico.py',10),
+  ('cuerpo -> declararVariable','cuerpo',1,'p_cuerpo','scalaSintactico.py',11),
+  ('cuerpo -> declararConstante','cuerpo',1,'p_cuerpo','scalaSintactico.py',12),
+  ('cuerpo -> funcionesTupla','cuerpo',1,'p_cuerpo','scalaSintactico.py',13),
+  ('declararConstante -> VAL ID COLON tipoValueCons','declararConstante',4,'p_declararConstante','scalaSintactico.py',16),
+  ('declararConstante -> VAL ID COLON tipo','declararConstante',4,'p_declararConstante','scalaSintactico.py',17),
+  ('declararConstante -> VAL ID EQUAL valueCons','declararConstante',4,'p_declararConstante','scalaSintactico.py',18),
+  ('declararConstante -> VAL ID EQUAL expression','declararConstante',4,'p_declararConstante','scalaSintactico.py',19),
+  ('declararVariable -> VAR ID COLON tipoValue','declararVariable',4,'p_declararVariable','scalaSintactico.py',22),
+  ('declararVariable -> VAR ID COLON tipo','declararVariable',4,'p_declararVariable','scalaSintactico.py',23),
+  ('declararVariable -> VAR ID EQUAL value','declararVariable',4,'p_declararVariable','scalaSintactico.py',24),
+  ('declararVariable -> VAR ID EQUAL expression','declararVariable',4,'p_declararVariable','scalaSintactico.py',25),
+  ('value -> string','value',1,'p_value','scalaSintactico.py',28),
+  ('value -> booleano','value',1,'p_value','scalaSintactico.py',29),
+  ('value -> NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN','value',8,'p_value','scalaSintactico.py',30),
+  ('value -> NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN','value',8,'p_value','scalaSintactico.py',31),
+  ('value -> NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN','value',8,'p_value','scalaSintactico.py',32),
+  ('value -> NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN','value',8,'p_value','scalaSintactico.py',33),
+  ('value -> ARRAY LPAREN elementosInternos RPAREN','value',4,'p_value','scalaSintactico.py',34),
+  ('elementosInternos -> elementosInternosInt','elementosInternos',1,'p_elementosInternos','scalaSintactico.py',37),
+  ('elementosInternos -> elementosInternosDouble','elementosInternos',1,'p_elementosInternos','scalaSintactico.py',38),
+  ('elementosInternos -> elementosInternosBool','elementosInternos',1,'p_elementosInternos','scalaSintactico.py',39),
+  ('elementosInternos -> elementosInternosString','elementosInternos',1,'p_elementosInternos','scalaSintactico.py',40),
+  ('elementosInternosInt -> int','elementosInternosInt',1,'p_elementosInternosInt','scalaSintactico.py',43),
+  ('elementosInternosInt -> int COMMA elementosInternosInt','elementosInternosInt',3,'p_elementosInternosInt','scalaSintactico.py',44),
+  ('elementosInternosDouble -> double','elementosInternosDouble',1,'p_elementosInternosDouble','scalaSintactico.py',47),
+  ('elementosInternosDouble -> double COMMA elementosInternosDouble','elementosInternosDouble',3,'p_elementosInternosDouble','scalaSintactico.py',48),
+  ('elementosInternosBool -> booleano','elementosInternosBool',1,'p_elementosInternosBool','scalaSintactico.py',51),
+  ('elementosInternosBool -> booleano COMMA elementosInternosBool','elementosInternosBool',3,'p_elementosInternosBool','scalaSintactico.py',52),
+  ('elementosInternosString -> string','elementosInternosString',1,'p_elementosInternosString','scalaSintactico.py',55),
+  ('elementosInternosString -> string COMMA elementosInternosString','elementosInternosString',3,'p_elementosInternosString','scalaSintactico.py',56),
+  ('elementosInternos2 -> int','elementosInternos2',1,'p_elementosInternos2','scalaSintactico.py',59),
+  ('elementosInternos2 -> double','elementosInternos2',1,'p_elementosInternos2','scalaSintactico.py',60),
+  ('elementosInternos2 -> booleano','elementosInternos2',1,'p_elementosInternos2','scalaSintactico.py',61),
+  ('elementosInternos2 -> string','elementosInternos2',1,'p_elementosInternos2','scalaSintactico.py',62),
+  ('elementosInternos2 -> int COMMA elementosInternos2','elementosInternos2',3,'p_elementosInternos2','scalaSintactico.py',63),
+  ('elementosInternos2 -> double COMMA elementosInternos2','elementosInternos2',3,'p_elementosInternos2','scalaSintactico.py',64),
+  ('elementosInternos2 -> booleano COMMA elementosInternos2','elementosInternos2',3,'p_elementosInternos2','scalaSintactico.py',65),
+  ('elementosInternos2 -> string COMMA elementosInternos2','elementosInternos2',3,'p_elementosInternos2','scalaSintactico.py',66),
+  ('valueCons -> string','valueCons',1,'p_valueCons','scalaSintactico.py',69),
+  ('valueCons -> booleano','valueCons',1,'p_valueCons','scalaSintactico.py',70),
+  ('valueCons -> tupla','valueCons',1,'p_valueCons','scalaSintactico.py',71),
+  ('tipo -> INT','tipo',1,'p_tipo','scalaSintactico.py',74),
+  ('tipo -> DOUBLE','tipo',1,'p_tipo','scalaSintactico.py',75),
+  ('tipo -> BOOL','tipo',1,'p_tipo','scalaSintactico.py',76),
+  ('tipo -> STRING_TYPE','tipo',1,'p_tipo','scalaSintactico.py',77),
+  ('tipoValue -> STRING_TYPE EQUAL string','tipoValue',3,'p_tipoValue','scalaSintactico.py',80),
+  ('tipoValue -> BOOL EQUAL booleano','tipoValue',3,'p_tipoValue','scalaSintactico.py',81),
+  ('tipoValue -> INT EQUAL int','tipoValue',3,'p_tipoValue','scalaSintactico.py',82),
+  ('tipoValue -> DOUBLE EQUAL double','tipoValue',3,'p_tipoValue','scalaSintactico.py',83),
+  ('tipoValue -> ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN','tipoValue',13,'p_tipoValue','scalaSintactico.py',84),
+  ('tipoValue -> ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN','tipoValue',13,'p_tipoValue','scalaSintactico.py',85),
+  ('tipoValue -> ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN','tipoValue',13,'p_tipoValue','scalaSintactico.py',86),
+  ('tipoValue -> ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN','tipoValue',13,'p_tipoValue','scalaSintactico.py',87),
+  ('tipoValueCons -> STRING_TYPE EQUAL string','tipoValueCons',3,'p_tipoValueCons','scalaSintactico.py',90),
+  ('tipoValueCons -> BOOL EQUAL booleano','tipoValueCons',3,'p_tipoValueCons','scalaSintactico.py',91),
+  ('tipoValueCons -> INT EQUAL int','tipoValueCons',3,'p_tipoValueCons','scalaSintactico.py',92),
+  ('tipoValueCons -> DOUBLE EQUAL double','tipoValueCons',3,'p_tipoValueCons','scalaSintactico.py',93),
+  ('tupla -> LPAREN elementosInternos2 RPAREN','tupla',3,'p_tupla','scalaSintactico.py',96),
+  ('funcionesTupla -> tuplaSwap','funcionesTupla',1,'p_funcionesTupla','scalaSintactico.py',99),
+  ('funcionesTupla -> tuplaToString','funcionesTupla',1,'p_funcionesTupla','scalaSintactico.py',100),
+  ('funcionesTupla -> tuplaProductIterator','funcionesTupla',1,'p_funcionesTupla','scalaSintactico.py',101),
+  ('tuplaSwap -> ID DOT SWAP','tuplaSwap',3,'p_tuplaSwap','scalaSintactico.py',104),
+  ('tuplaToString -> ID DOT TOSTRING','tuplaToString',3,'p_tuplaToString','scalaSintactico.py',107),
+  ('tuplaProductIterator -> ID DOT PRODUCTITERATOR','tuplaProductIterator',3,'p_tuplaProductIterator','scalaSintactico.py',110),
+  ('expression -> expression PLUS term','expression',3,'p_expression_plus','scalaSintactico.py',113),
+  ('expression -> expression MINUS term','expression',3,'p_expression_minus','scalaSintactico.py',117),
+  ('expression -> term','expression',1,'p_expression_term','scalaSintactico.py',121),
+  ('term -> term TIMES factor','term',3,'p_term_times','scalaSintactico.py',125),
+  ('term -> term DIVIDE factor','term',3,'p_term_div','scalaSintactico.py',129),
+  ('term -> factor','term',1,'p_term_factor','scalaSintactico.py',133),
+  ('sentencia -> IF factor comparacion factor LBRACE cuerpo RBRACE','sentencia',7,'p_sentencia_if','scalaSintactico.py',137),
+  ('comparacion -> GT','comparacion',1,'p_comparacion','scalaSintactico.py',141),
+  ('comparacion -> GE','comparacion',1,'p_comparacion','scalaSintactico.py',142),
+  ('comparacion -> LT','comparacion',1,'p_comparacion','scalaSintactico.py',143),
+  ('comparacion -> LE','comparacion',1,'p_comparacion','scalaSintactico.py',144),
+  ('comparacion -> EQUAL2','comparacion',1,'p_comparacion','scalaSintactico.py',145),
+  ('factor -> INT_NUMBER','factor',1,'p_factor_int','scalaSintactico.py',148),
+  ('factor -> DOUBLE_NUMBER','factor',1,'p_factor_double','scalaSintactico.py',151),
+  ('booleano -> TRUE','booleano',1,'p_booleano','scalaSintactico.py',154),
+  ('booleano -> FALSE','booleano',1,'p_booleano','scalaSintactico.py',155),
+  ('string -> STRING','string',1,'p_string','scalaSintactico.py',158),
+  ('double -> DOUBLE_NUMBER','double',1,'p_double','scalaSintactico.py',161),
+  ('int -> INT_NUMBER','int',1,'p_int','scalaSintactico.py',164),
+>>>>>>> d999a2d2b6fb7eaf3b601ecef77bb5139398e14c
 ]

@@ -10,6 +10,19 @@ def p_cuerpo(p):
              | declararVariable
              | funcionesArray"""
 
+def p_cuerpo(p):
+    """cuerpo : expression
+             | sentencia
+             | declararVariable
+             | declararConstante
+             | funcionesTupla"""
+
+def p_declararConstante(p):
+    """declararConstante : VAL ID COLON tipoValueCons
+                        | VAL ID COLON tipo
+                        | VAL ID EQUAL valueCons
+                        | VAL ID EQUAL expression"""
+
 def p_declararVariable(p):
     """declararVariable : VAR ID COLON tipoValue
                         | VAR ID COLON tipo
@@ -47,6 +60,21 @@ def p_elementosInternosString(p):
     """elementosInternosString : string
             | string COMMA elementosInternosString"""
 
+def p_elementosInternos2(p):
+    """elementosInternos2 : int
+            | double
+            | booleano
+            | string
+            | int COMMA elementosInternos2
+            | double COMMA elementosInternos2
+            | booleano COMMA elementosInternos2
+            | string COMMA elementosInternos2"""
+
+def p_valueCons(p):
+    """valueCons : string
+            | booleano
+            | tupla"""
+
 def p_tipo(p):
     """tipo : INT
              | DOUBLE
@@ -63,6 +91,29 @@ def p_tipoValue(p):
                 | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
                 | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN"""
 
+def p_tipoValueCons(p):
+    """tipoValueCons : STRING_TYPE EQUAL string
+                | BOOL EQUAL booleano
+                | INT EQUAL int
+                | DOUBLE EQUAL double"""
+
+def p_tupla(p):
+    'tupla : LPAREN elementosInternos2 RPAREN'
+
+def p_funcionesTupla(p):
+    """funcionesTupla : tuplaSwap
+                | tuplaToString
+                | tuplaProductIterator"""
+
+def p_tuplaSwap(p):
+    'tuplaSwap : ID DOT SWAP'
+
+def p_tuplaToString(p):
+    'tuplaToString : ID DOT TOSTRING'
+
+def p_tuplaProductIterator(p):
+    'tuplaProductIterator : ID DOT PRODUCTITERATOR'
+
 def p_funcionesArray(p):
     """funcionesArray : arrayHead
             | arrayTail
@@ -76,7 +127,7 @@ def p_arrayTail(p):
 
 def p_arrayLength(p):
     """arrayLength : ID DOT LENGTH"""
-
+    
 def p_expression_plus(p):
     'expression : expression PLUS term'
 
@@ -109,7 +160,8 @@ def p_comparacion(p):
     '''comparacion : GT
                     | GE
                     | LT
-                    | LE'''
+                    | LE
+                    | EQUAL2'''
 
 def p_factor_int(p):
     'factor : INT_NUMBER'
