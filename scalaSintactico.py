@@ -13,7 +13,34 @@ def p_declararVariable(p):
 
 def p_value(p):
     """value : string
-            | booleano """
+            | booleano
+            | NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+            | NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+            | NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+            | NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
+            | ARRAY LPAREN elementosInternos RPAREN"""
+
+def p_elementosInternos(p):
+    """elementosInternos : elementosInternosInt
+            | elementosInternosDouble
+            | elementosInternosBool
+            | elementosInternosString"""
+
+def p_elementosInternosInt(p):
+    """elementosInternosInt : int
+            | int COMMA elementosInternosInt"""
+
+def p_elementosInternosDouble(p):
+    """elementosInternosDouble : double
+            | double COMMA elementosInternosDouble"""
+
+def p_elementosInternosBool(p):
+    """elementosInternosBool : booleano
+            | booleano COMMA elementosInternosBool"""
+
+def p_elementosInternosString(p):
+    """elementosInternosString : string
+            | string COMMA elementosInternosString"""
 
 def p_tipo(p):
     """tipo : INT
@@ -25,7 +52,11 @@ def p_tipoValue(p):
     """tipoValue : STRING_TYPE EQUAL string
                 | BOOL EQUAL booleano
                 | INT EQUAL int
-                | DOUBLE EQUAL double"""
+                | DOUBLE EQUAL double
+                | ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
+                | ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
+                | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
+                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN"""
 
 def p_cuerpo(p):
     """cuerpo : expression
