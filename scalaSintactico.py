@@ -14,7 +14,6 @@ def p_cuerpo(p):
              | funcionesArray
              | for
              | funcionesPropias
-             | comparacionesVar
              | while"""
 
 def p_declararConstante(p):
@@ -190,7 +189,8 @@ def p_sentencia_else(p):
 
 
 def p_comp(p):
-    'comp : factor comparacion factor'
+    """comp : factor comparacion factor
+            | comparacionesVar"""
 
 # def p_compAnidada(p):
 #     """compAnidada : comp
