@@ -4,6 +4,11 @@ import ply.yacc as yacc
 
 from scalaLexer import tokens
 
+def p_cuerpo(p):
+    """cuerpo : expression
+             | sentencia
+             | declararVariable
+             | funcionesArray"""
 
 def p_declararVariable(p):
     """declararVariable : VAR ID COLON tipoValue
@@ -58,9 +63,19 @@ def p_tipoValue(p):
                 | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
                 | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN"""
 
-def p_cuerpo(p):
-    """cuerpo : expression
-             | sentencia """
+def p_funcionesArray(p):
+    """funcionesArray : arrayHead
+            | arrayTail
+            | arrayLength"""
+
+def p_arrayHead(p):
+    """arrayHead : ID DOT HEAD"""
+
+def p_arrayTail(p):
+    """arrayTail : ID DOT TAIL"""
+
+def p_arrayLength(p):
+    """arrayLength : ID DOT LENGTH"""
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
