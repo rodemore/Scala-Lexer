@@ -20,7 +20,8 @@ def p_cuerpo(p):
              | for
              | funcionesPropias
              | while
-             | funciones"""
+             | funciones
+             | comparacionesVar"""
 
 
 def p_declararConstante(p):
@@ -42,8 +43,11 @@ def p_value(p):
             | NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
             | NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
             | NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-            | ARRAY LPAREN elementosInternos RPAREN
-            | LIST LPAREN elementosInternos RPAREN"""
+            | valueArray"""
+
+def p_valueArray(p):
+    'valueArray : ARRAY LPAREN elementosInternos RPAREN'
+
 
 def p_elementosInternos(p):
     """elementosInternos : elementosInternosInt
@@ -80,7 +84,11 @@ def p_elementosInternos2(p):
 def p_valueCons(p):
     """valueCons : string
             | booleano
-            | tupla"""
+            | tupla
+            | valueList"""
+
+def p_valueList(p):
+    'valueList : LIST LPAREN elementosInternos RPAREN'
 
 def p_tipo(p):
     """tipo : INT
@@ -97,17 +105,17 @@ def p_tipoValue(p):
                 | ARRAY LBRACK INT RBRACK EQUAL NEW ARRAY LBRACK INT RBRACK LPAREN int RPAREN
                 | ARRAY LBRACK DOUBLE RBRACK EQUAL NEW ARRAY LBRACK DOUBLE RBRACK LPAREN int RPAREN
                 | ARRAY LBRACK BOOL RBRACK EQUAL NEW ARRAY LBRACK BOOL RBRACK LPAREN int RPAREN
-                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN
-                | LIST LBRACK INT RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
-                | LIST LBRACK DOUBLE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
-                | LIST LBRACK BOOL RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
-                | LIST LBRACK STRING_TYPE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN"""
+                | ARRAY LBRACK STRING_TYPE RBRACK EQUAL NEW ARRAY LBRACK STRING_TYPE RBRACK LPAREN int RPAREN"""
 
 def p_tipoValueCons(p):
     """tipoValueCons : STRING_TYPE EQUAL string
                 | BOOL EQUAL booleano
                 | INT EQUAL int
-                | DOUBLE EQUAL double"""
+                | DOUBLE EQUAL double
+                | LIST LBRACK INT RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
+                | LIST LBRACK DOUBLE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
+                | LIST LBRACK BOOL RBRACK EQUAL LIST LPAREN elementosInternos RPAREN
+                | LIST LBRACK STRING_TYPE RBRACK EQUAL LIST LPAREN elementosInternos RPAREN"""
 
 def p_tupla(p):
     'tupla : LPAREN elementosInternos2 RPAREN'
@@ -118,13 +126,13 @@ def p_funcionesTupla(p):
                 | tuplaProductIterator"""
 
 def p_tuplaSwap(p):
-    'tuplaSwap : ID DOT SWAP'
+    'tuplaSwap : tupla DOT SWAP'
 
 def p_tuplaToString(p):
-    'tuplaToString : ID DOT TOSTRING LPAREN RPAREN'
+    'tuplaToString : tupla DOT TOSTRING LPAREN RPAREN'
 
 def p_tuplaProductIterator(p):
-    'tuplaProductIterator : ID DOT PRODUCTITERATOR'
+    'tuplaProductIterator : tupla DOT PRODUCTITERATOR'
 
 
 def p_funcionesArray(p):
@@ -135,7 +143,8 @@ def p_funcionesArray(p):
 
 def p_funcionesList(p):
     """funcionesList : listIsEmpty
-            | listReverse"""
+            | listReverse
+            | listHead"""
 
 
 def p_funcionesPropias(p):
@@ -148,19 +157,22 @@ def p_funcionesPropias(p):
 
 
 def p_arrayHead(p):
-    """arrayHead : ID DOT HEAD"""
+    """arrayHead : valueArray DOT HEAD"""
 
 def p_arrayTail(p):
-    """arrayTail : ID DOT TAIL"""
+    """arrayTail : valueArray DOT TAIL"""
 
 def p_arrayLength(p):
-    """arrayLength : ID DOT LENGTH"""
+    """arrayLength : valueArray DOT LENGTH"""
 
 def p_listReverse(p):
-    'listReverse : ID DOT REVERSE'
+    'listReverse : valueList DOT REVERSE'
 
 def p_listIsEmpty(p):
-    'listIsEmpty : ID DOT ISEMPTY'
+    'listIsEmpty : valueList DOT ISEMPTY'
+
+def p_listHead(p):
+    'listHead : valueList DOT HEAD'
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
@@ -187,7 +199,7 @@ def p_term_factor(p):
 
 
 def p_sentencia_if(p):
-    'if : IF LPAREN factor comparacion factor RPAREN LBRACE cuerpo RBRACE'
+    'if : IF LPAREN compclause RPAREN LBRACE cuerpo RBRACE'
 
 
 def p_sentencia_else(p):
@@ -196,15 +208,13 @@ def p_sentencia_else(p):
 
 
 def p_comp(p):
-    """comp : factor comparacion factor
-            | comparacionesVar"""
+    "comp : factor comparacion factor"
 
 def p_while(p):
-    'while : WHILE LPAREN whileclause RPAREN LBRACE cuerpo RBRACE'
+    'while : WHILE LPAREN compclause RPAREN LBRACE cuerpo RBRACE'
 
-def p_whileclause(p):
-    """whileclause : comp
-                | ID
+def p_compclause(p):
+    """compclause : comp
                 | booleano"""
 
 
