@@ -198,11 +198,13 @@ def t_error(t):
     t.lexer.skip(1)
 
 def getTokens(lexer):
+    tokens = []
     while True:
         tok = lexer.token()
         if not tok:
             break  # No more input
-        print(tok)
+        tokens.append(tok)
+    return tokens
 
 # Build the lexer
 lexer = lex.lex()

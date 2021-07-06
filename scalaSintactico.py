@@ -283,16 +283,18 @@ def p_int(p):
 # Error rule for syntax errors
 def p_error(p):
     print("Syntax error in input!")
+    error_status[0] = [True]
 
 
 # Build the parser
 parser = yacc.yacc()
+error_status = [False]
 
-while True:
-    try:
-        s = input('calc > ')
-    except EOFError:
-        break
-    if not s: continue
-    result = parser.parse(s)
-    print(result)
+#while True:
+#    try:
+#        s = input('calc > ')
+#    except EOFError:
+#        break
+#    if not s: continue
+#    result = parser.parse(s)
+#    print(result)
