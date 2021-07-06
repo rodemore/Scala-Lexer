@@ -210,6 +210,7 @@ def p_sentencia_else(p):
 def p_comp(p):
     "comp : factor comparacion factor"
 
+
 def p_while(p):
     'while : WHILE LPAREN compclause RPAREN LBRACE cuerpo RBRACE'
 
