@@ -4,6 +4,11 @@ import ply.yacc as yacc
 
 from scalaLexer import tokens
 
+
+def p_cuerpoP(p):
+    '''cuerpoP : cuerpo
+             | defFunciones'''
+
 def p_cuerpo(p):
     """cuerpo : expression
              | sentencia
@@ -14,7 +19,9 @@ def p_cuerpo(p):
              | funcionesArray
              | for
              | funcionesPropias
-             | while"""
+             | while
+             | funciones"""
+
 
 def p_declararConstante(p):
     """declararConstante : VAL ID COLON tipoValueCons
@@ -192,11 +199,6 @@ def p_comp(p):
     """comp : factor comparacion factor
             | comparacionesVar"""
 
-# def p_compAnidada(p):
-#     """compAnidada : comp
-#             | comp AND compAnidada
-#             | comp OR compAnidada"""
-
 def p_while(p):
     'while : WHILE LPAREN whileclause RPAREN LBRACE cuerpo RBRACE'
 
@@ -221,6 +223,32 @@ def p_comparacion(p):
                     | LT
                     | LE
                     | EQUAL2'''
+
+
+def p_defFunciones(p):
+    """defFunciones : DEF ID LPAREN parametros RPAREN COLON UNIT EQUAL LBRACE cuerpo RBRACE
+                    | DEF ID LPAREN RPAREN COLON UNIT EQUAL LBRACE cuerpo RBRACE
+                    | DEF ID LPAREN parametros RPAREN COLON tipo EQUAL LBRACE cuerpo RETURN ID RBRACE
+                    | DEF ID LPAREN RPAREN COLON tipo EQUAL LBRACE cuerpo RETURN ID RBRACE"""
+
+def p_funciones(p):
+    '''funciones : ID LPAREN RPAREN
+                    | ID LPAREN argumentos RPAREN'''
+
+def p_parametros(p):
+    """parametros : ID COLON tipo
+                    | ID COLON tipo COMMA parametros"""
+
+def p_argumentos(p):
+    '''argumentos : int
+                    | double
+                    | booleano
+                    | string
+                    | int COMMA argumentos
+                    | double COMMA argumentos
+                    | booleano COMMA argumentos
+                    | string COMMA argumentos'''
+
 
 def p_factor_int(p):
     'factor : int'

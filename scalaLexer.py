@@ -5,15 +5,12 @@ reserved = {
     'else': 'ELSE',
     'for' : 'FOR',
     'while': 'WHILE',
-    'this' : 'THIS',
-    'new' : 'NEW',
-    'return' : 'RETURN',
-    'object' : 'OBJECT',
-    'def' : 'DEF',
-    'Unit' : 'unit',
-    'class' : 'CLASS',
-    'var' : 'VAR',
-    'val' : 'VAL'
+    'new': 'NEW',
+    'return': 'RETURN',
+    'def': 'DEF',
+    'var': 'VAR',
+    'val': 'VAL',
+    'Unit': 'UNIT',
 }
 
 tokens = (
@@ -37,11 +34,8 @@ tokens = (
     'MINUS',  # -
     'TIMES',  # *
     'DIVIDE',  # /
-    'MOD',  # %
     'LPAREN',  # (
     'RPAREN',  # )
-    'INCREMENT',  # ++
-    'DECREMENT',  # --
     'LBRACK',  # [
     'RBRACK',  # ]
     'GT',  # >
@@ -51,7 +45,6 @@ tokens = (
     'LM',  # <-
     'COMMA',  # ,
     'COLON',  # :
-    'SEMICOLON',  # ;
     'PRINTLN',
     'EQUALS',
     'DOT',
@@ -65,8 +58,6 @@ tokens = (
     'REVERSE',
     'LENGTH',
     'INPUT',
-    'AND',
-    'OR'
 
 ) + tuple(reserved.values())
 
@@ -79,11 +70,8 @@ t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
-t_MOD = r'%'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
-t_INCREMENT = r'\+\+'
-t_DECREMENT = r'--'
 t_LBRACK = r'\['
 t_RBRACK = r'\]'
 t_GT = r'>'
@@ -93,10 +81,7 @@ t_LE = r'<='
 t_LM = r'<-'
 t_COMMA = r','
 t_COLON = r':'
-t_SEMICOLON = r';'
 t_DOT = r'\.'
-t_AND = r'&&'
-t_OR = r'\|\|'
 
 def t_INT(t):
     r'Int'
