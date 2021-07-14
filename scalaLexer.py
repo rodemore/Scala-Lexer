@@ -197,7 +197,7 @@ t_ignore = ' \t'
 
 # Error handling rule
 def t_error(t):
-    print("Illegal character '%s'" % t.value[0])
+    print("Illegal character", t.value[0], "at line", t.lexer.lineno)
     t.lexer.skip(1)
 
 def getTokens(lexer):
