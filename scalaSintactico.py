@@ -25,8 +25,16 @@ def p_cuerpo(p):
              | while
              | funciones
              | comparacionesVar
-             | asignar"""
+             | asignar
+             | cuerpo sep cuerpo
+             | printVacio
+             | dobleSuma
+             | headInt
+             | whileSinCerrar"""
     p[0] = p[1]
+
+def p_sep(p):
+    """sep : SEMICOLON """
 
 def p_asignar(p):
     """asignar :  ID EQUAL expression"""
@@ -217,11 +225,28 @@ def p_funcionesPropias(p):
             | PRINTLN LPAREN booleano RPAREN
             | PRINTLN LPAREN ID RPAREN
             | PRINTLN LPAREN expression RPAREN
-            | PRINTLN LPAREN RPAREN"""
+            | PRINTLN LPAREN RPAREN
+            | PRINTLN LPAREN expression RPAREN"""
     if len(p)==4:
         p[0] = ('funcionPropia', p[1]+p[2]+p[3])
     else:
         p[0] = ('funcionPropia', p[1]+p[2]+p[4], p[3])
+
+def p_printVacio(p):
+    'printVacio : PRINTLN LPAREN RPAREN'
+    print('Error: println function cannot have empty argument at line:', p.lexer.lineno)
+
+def p_dobleSuma(p):
+    'dobleSuma : factor PLUS PLUS factor'
+    print('Error: operator \'++\' cannot go followed by operand at line', p.lexer.lineno)
+
+def p_headInt(p):
+    'headInt : factor DOT HEAD'
+    print('Error: Invalid use of HEAD at line', p.lexer.lineno)
+
+def p_whileSinCerrar(p):
+    'whileSinCerrar : WHILE LPAREN compclause RPAREN LBRACE cuerpo'
+    print('Error: Missing closing Brace \'}\'')
 
 def p_arrayHead(p):
     """arrayHead : valueArray DOT HEAD"""
@@ -392,7 +417,7 @@ def p_int(p):
 
 # Error rule for syntax errors
 def p_error(p):
-    print("Syntax error in input!")
+    print("Syntax error in input! Error can found at line:", p.lexer.lineno)
     error_status[0] = [True]
 
 
@@ -400,11 +425,14 @@ def p_error(p):
 parser = yacc.yacc()
 error_status = [False]
 
+
+
 while True:
-    try:
-        s = input('calc > ')
-    except EOFError:
-        break
-    if not s: continue
-    result = parser.parse(s)
-    print(result)
+  try:
+      s = input('calc > ')
+  except EOFError:
+      break
+  if not s: continue
+  result = parser.parse(s)
+  print(result)
+

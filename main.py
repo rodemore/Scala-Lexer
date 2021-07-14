@@ -8,12 +8,15 @@ import scalaLexer as sl
 
 ventana = tk.Tk()
 
+
+
 def analisis_sintactico_semantico():
         code_lines = str(input_entry.get("1.0","end-1c"))
         stx.error_status[0] = False
         output_entry.delete('1.0', END)
         try:
                 result = stx.parser.parse(code_lines, tracking=True)
+                
                 if (stx.error_status[0] == False):
                         output_entry.insert('1.0', "Sintaxis OK")
                 else:

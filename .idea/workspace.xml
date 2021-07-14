@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dc03848d-4ae8-49f3-bffe-01abd2af66eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scalaLexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scalaLexer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scalaSintactico.py" beforeDir="false" afterPath="$PROJECT_DIR$/scalaSintactico.py" afterDir="false" />
     </list>
