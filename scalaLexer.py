@@ -45,6 +45,7 @@ tokens = (
     'LM',  # <-
     'COMMA',  # ,
     'COLON',  # :
+    'SEMICOLON', #;
     'PRINTLN',
     'EQUALS',
     'DOT',
@@ -57,7 +58,8 @@ tokens = (
     'ISEMPTY',
     'REVERSE',
     'LENGTH',
-    'INPUT',
+    'INPUT', 
+    'NEWLINE',
 
 ) + tuple(reserved.values())
 
@@ -81,6 +83,7 @@ t_LE = r'<='
 t_LM = r'<-'
 t_COMMA = r','
 t_COLON = r':'
+t_SEMICOLON = r';'
 t_DOT = r'\.'
 
 def t_INT(t):
@@ -209,12 +212,14 @@ def getTokens(lexer):
 # Build the lexer
 lexer = lex.lex()
 
-#linea=" "
-#while linea!="":
-#    linea=input(">>")
-#    lexer.input(linea)
-#    getTokens(lexer)
-#    print()
+"""
+linea=" "
+while linea!="":
+    linea=input(">>")
+    lexer.input(linea)
+    print(getTokens(lexer))
+    
 
-# Tokenize
-#print("Succesfull")
+ #Tokenize
+ #print("Succesfull")
+"""

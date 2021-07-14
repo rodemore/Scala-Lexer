@@ -21,7 +21,12 @@ def p_cuerpo(p):
              | funcionesPropias
              | while
              | funciones
-             | comparacionesVar"""
+             | comparacionesVar
+             | cuerpo sep cuerpo
+             | """
+
+def p_sep(p):
+    """sep : SEMICOLON """
 
 
 def p_declararConstante(p):
@@ -290,11 +295,13 @@ def p_error(p):
 parser = yacc.yacc()
 error_status = [False]
 
-#while True:
-#    try:
-#        s = input('calc > ')
-#    except EOFError:
-#        break
-#    if not s: continue
-#    result = parser.parse(s)
-#    print(result)
+"""
+while True:
+  try:
+      s = input('calc > ')
+  except EOFError:
+      break
+  if not s: continue
+  result = parser.parse(s)
+  print(result)
+"""
