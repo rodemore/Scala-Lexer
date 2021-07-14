@@ -148,11 +148,11 @@ def t_PRODUCTITERATOR(t):
     return t
 
 def t_PRINTLN(t):
-    r'System.out.println'
+    r'println'
     return t
 
 def t_INPUT(t):
-    r'scala.io.StdIn.readLine'
+    r'readLine'
     return t
 
 def t_DOUBLE_NUMBER(t):
