@@ -224,7 +224,6 @@ def p_funcionesPropias(p):
             | PRINTLN LPAREN string RPAREN
             | PRINTLN LPAREN booleano RPAREN
             | PRINTLN LPAREN ID RPAREN
-            | PRINTLN LPAREN expression RPAREN
             | PRINTLN LPAREN RPAREN
             | PRINTLN LPAREN expression RPAREN"""
     if len(p)==4:

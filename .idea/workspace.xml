@@ -20,9 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc03848d-4ae8-49f3-bffe-01abd2af66eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scalaLexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scalaLexer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scalaSintactico.py" beforeDir="false" afterPath="$PROJECT_DIR$/scalaSintactico.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.scalaSintactico">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,8 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.scalaSintactico" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.scalaSintactico" />
       </list>
     </recent_temporary>
   </component>
