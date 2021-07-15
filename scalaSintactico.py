@@ -428,7 +428,7 @@ parser = yacc.yacc()
 error_status = [False]
 
 
-
+"""
 while True:
   try:
       s = input('calc > ')
@@ -437,4 +437,4 @@ while True:
   if not s: continue
   result = parser.parse(s)
   print(result)
-
+"""
