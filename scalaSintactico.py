@@ -8,7 +8,7 @@ from scalaLexer import tokens
 def p_cuerpoP(p):
     '''cuerpoP : cuerpo
              | defFunciones'''
-    p[0] = p[1]
+    p[0] = ('cuerpo',p[1])
 
 def p_cuerpo(p):
     """cuerpo : expression
