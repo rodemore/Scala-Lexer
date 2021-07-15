@@ -195,6 +195,10 @@ def t_newline(t):
 # A string containing ignored characters (spaces and tabs)
 t_ignore = ' \t'
 
+def t_comment(t):
+    r'(^//.*$|^/\*.*\*/$)'
+    pass
+
 # Error handling rule
 def t_error(t):
     print("Illegal character", t.value[0], "at line", t.lexer.lineno)
