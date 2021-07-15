@@ -196,6 +196,7 @@ def p_funcionesTupla(p):
                 | tuplaProductIterator"""
     p[0] = p[1]
 
+"Regla semantica para que solo tupla pueda usar sus funciones"
 def p_tuplaSwap(p):
     'tuplaSwap : tupla DOT SWAP'
     p[0] = ('funcionTupla', p[1], p[3])
@@ -234,6 +235,7 @@ def p_funcionesPropias(p):
     else:
         p[0] = ('funcionPropia', p[1]+p[2]+p[4], p[3])
 
+"Errores personalizados"
 def p_printVacio(p):
     'printVacio : PRINTLN LPAREN RPAREN'
     print('Error: println function cannot have empty argument at line:', p.lexer.lineno)
@@ -250,6 +252,7 @@ def p_whileSinCerrar(p):
     'whileSinCerrar : WHILE LPAREN compclause RPAREN LBRACE cuerpo'
     print('Error: Missing closing Brace \'}\'')
 
+"Regla semantica para que solo array pueda usar sus funciones"
 def p_arrayHead(p):
     """arrayHead : valueArray DOT HEAD"""
     p[0] = ('funcionArray', p[1], p[3])
@@ -262,6 +265,7 @@ def p_arrayLength(p):
     """arrayLength : valueArray DOT LENGTH"""
     p[0] = ('funcionArray', p[1], p[3])
 
+"Regla semantica para que solo lista pueda usar sus funciones"
 def p_listReverse(p):
     'listReverse : valueList DOT REVERSE'
     p[0] = ('funcionLista', p[1], p[3])
@@ -296,6 +300,7 @@ def p_term_div(p):
     'term : term DIVIDE factor'
     p[0] = ('/', p[1], p[3])
 
+"Regla semantica para que solo numeros puedan realizas operaciones factor solo podra ser double o int"
 def p_term_factor(p):
     'term : factor'
     p[0] = p[1]
@@ -324,6 +329,7 @@ def p_while(p):
     'while : WHILE LPAREN compclause RPAREN LBRACE cuerpo RBRACE'
     p[0] = ('while', p[3], p[6])
 
+"Regla semantica para que las comparaciones del if y while solo sean con booleanos o comparacion entre numeros"
 def p_compclause(p):
     """compclause : comp
                 | booleano"""
