@@ -31,7 +31,10 @@ def p_cuerpo(p):
              | dobleSuma
              | headInt
              | whileSinCerrar"""
-    p[0] = p[1]
+    if len(p)==2:
+        p[0] = p[1]
+    else:
+        p[0] = (p[1], p[3])
 
 def p_sep(p):
     """sep : SEMICOLON """
@@ -373,7 +376,7 @@ def p_parametros(p):
     if len(p)==4:
         p[0] = p[1] + p[2] + p[3]
     else:
-        p[0] = (p[1] + p[2] + p[3], p[5])
+        p[0] = p[1] + p[2] + p[3] + p[5]
 
 def p_argumentos(p):
     '''argumentos : int
@@ -387,7 +390,7 @@ def p_argumentos(p):
     if len(p)==2:
         p[0] = str(p[1])
     else:
-        p[0] = (str(p[1]), p[3])
+        p[0] = str(p[1]) +p[2]+ p[3]
 
 def p_factor_int(p):
     'factor : int'
@@ -425,7 +428,7 @@ parser = yacc.yacc()
 error_status = [False]
 
 
-
+"""
 while True:
   try:
       s = input('calc > ')
@@ -434,4 +437,4 @@ while True:
   if not s: continue
   result = parser.parse(s)
   print(result)
-
+"""
