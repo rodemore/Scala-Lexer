@@ -238,19 +238,27 @@ def p_funcionesPropias(p):
 "Errores personalizados"
 def p_printVacio(p):
     'printVacio : PRINTLN LPAREN RPAREN'
-    print('Error: println function cannot have empty argument at line:', p.lexer.lineno)
+    print('Error: println function cannot have empty argument at line: ', p.lexer.lineno)
+    result["error_status"] = [True]
+    result["error_messages"].append('Error: println function cannot have empty argument at line: ' +str(p.lexer.lineno))
 
 def p_dobleSuma(p):
     'dobleSuma : factor PLUS PLUS factor'
     print('Error: operator \'++\' cannot go followed by operand at line', p.lexer.lineno)
+    result["error_status"] = [True]
+    result["error_messages"].append('Error: operator \'++\' cannot go followed by operand at line: ' +str(p.lexer.lineno))
 
 def p_headInt(p):
     'headInt : factor DOT HEAD'
     print('Error: Invalid use of HEAD at line', p.lexer.lineno)
+    result["error_status"] = [True]
+    result["error_messages"].append('Error: Invalid use of HEAD at line: ' +str(p.lexer.lineno))
 
 def p_whileSinCerrar(p):
     'whileSinCerrar : WHILE LPAREN compclause RPAREN LBRACE cuerpo'
     print('Error: Missing closing Brace \'}\'')
+    result["error_status"] = [True]
+    result["error_messages"].append('Error: Missing closing Brace \'}\'')
 
 "Regla semantica para que solo array pueda usar sus funciones"
 def p_arrayHead(p):
@@ -426,15 +434,15 @@ def p_int(p):
 # Error rule for syntax errors
 def p_error(p):
     print("Syntax error in input! Error can found at line:", p.lexer.lineno)
-    error_status[0] = [True]
+    result["error_status"] = [True]
 
+
+result = {"error_status": [False], "error_messages":[]}
 
 # Build the parser
 parser = yacc.yacc()
-error_status = [False]
 
-
-"""
+'''
 while True:
   try:
       s = input('calc > ')
@@ -443,4 +451,4 @@ while True:
   if not s: continue
   result = parser.parse(s)
   print(result)
-"""
+'''

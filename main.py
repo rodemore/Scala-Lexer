@@ -12,19 +12,24 @@ ventana = tk.Tk()
 
 def analisis_sintactico_semantico():
         code_lines = str(input_entry.get("1.0","end-1c"))
-        stx.error_status[0] = False
+        stx.result["error_status"][0] = False
+        stx.result["error_messages"] = []
+        
         output_entry.delete('1.0', END)
+
         try:
                 result = stx.parser.parse(code_lines, tracking=True)
                 
-                if (stx.error_status[0] == False):
-                        output_entry.insert('1.0', "Sintaxis OK")
+                if (stx.result["error_status"][0] == False):
+                        output_entry.insert('1.0', "Sintaxis OK\n" +str(result))
                 else:
-                        output_entry.insert('1.0', "Sintaxis Error!!")
-
+                        if len(stx.result["error_messages"]) == 0:
+                                output_entry.insert('1.0', "Sintaxis Error!!")
+                        else:
+                                output_entry.insert('1.0', "\n".join(stx.result["error_messages"]))
 
         except:
-                print(error)
+                output_entry.insert('1.0', "Sintaxis Error!!")
                 return
 
         messagebox.showinfo(message="Analisis sintáctico/semántico completado", title="Análisis Sintáctico/Semántico")
